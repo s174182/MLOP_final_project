@@ -11,13 +11,12 @@ import kaggle
 
 from make_target_tensors import make_target_tensors
 from data_augmentation import augmentDataset
-    
+from make_target_tensors import makeTargetTensors    
 
 
 # @click.command()
 # @click.argument('input_filepath', type=click.Path(exists=True))
 # @click.argument('output_filepath', type=click.Path())
-
 def main():
     """ Runs data processing scripts to turn raw data from (../raw) into
         cleaned data ready to be analyzed (saved in ../processed).
@@ -34,6 +33,9 @@ def main():
     # txt-files will be put in the interim-folder
     annotation_list, images_list = make_target_tensors()
     annotation_list, images_list = augmentDataset(annotation_list, images_list)
+    
+    torch.save(annotation_list, '../../data/processed/annotation_list.pt')
+    torch.save(images_list, '../../data/processed/images_list.pt')
     
     # get list of all images in dataset
     #image_files_list = listdir(input_filepath)
