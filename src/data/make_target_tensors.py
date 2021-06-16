@@ -10,8 +10,6 @@ import numpy as np
 import torch
 from PIL import Image
 import torchvision.transforms.functional as TF
-import pdb
-import time
 # function which transforms xml-files of annotations to txt
 #### SORT DATA BECAUSE THERE'S A CONFUSION BETWEEN ANNOTATION/IMAGES
 import pdb
