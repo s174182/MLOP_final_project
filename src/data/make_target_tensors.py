@@ -61,6 +61,4 @@ def make_target_tensors():
         images_list.append(output_dictionary)
     
     return annotation_list, images_list
-annotation_list, images_list = make_target_tensors()
-print(annotation_list[1])
-print(images_list[1])
+
