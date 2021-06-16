@@ -9,7 +9,8 @@ import torch
 import torchvision
 import kaggle
 
-from make_files import make_target_tensors
+from make_target_tensors import make_target_tensors
+from data_augmentation import augmentDataset
     
 
 
@@ -31,8 +32,8 @@ def main():
     
     #transforming xml-files to txt files (using function in folder)
     # txt-files will be put in the interim-folder
-    make_target_tensors()
-    
+    annotation_list, images_list = make_target_tensors()
+    annotation_list, images_list = augmentDataset(annotation_list, images_list)
     
     # get list of all images in dataset
     #image_files_list = listdir(input_filepath)
@@ -43,7 +44,7 @@ def main():
     #    x_rgb = x_rgb.unsqueeze(0)  # BxCxHxW
         
         #resize the images so that they all have the same size
-        
+    return annotation_list, images_list   
     
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -56,4 +57,4 @@ if __name__ == '__main__':
     # load up the .env entries as environment variables
     load_dotenv(find_dotenv())
 
-    main()
+    annotation_list, images_list = main()

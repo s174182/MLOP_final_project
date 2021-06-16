@@ -1,0 +1,24 @@
+
+<annotation>
+    <folder>images</folder>
+    <filename>sheep78.png</filename>
+    <size>
+        <width>349</width>
+        <height>232</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>sheep</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>66</xmin>
+            <ymin>17</ymin>
+            <xmax>288</xmax>
+            <ymax>222</ymax>
+        </bndbox>
+    </object>
+</annotation>

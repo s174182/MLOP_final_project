@@ -1,0 +1,37 @@
+
+<annotation>
+    <folder>images</folder>
+    <filename>sheep181.png</filename>
+    <size>
+        <width>300</width>
+        <height>388</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>sheep</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>103</xmin>
+            <ymin>89</ymin>
+            <xmax>205</xmax>
+            <ymax>243</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>sheep</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>59</xmin>
+            <ymin>151</ymin>
+            <xmax>122</xmax>
+            <ymax>246</ymax>
+        </bndbox>
+    </object>
+</annotation>

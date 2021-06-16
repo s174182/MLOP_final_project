@@ -8,9 +8,10 @@ import numpy as np
 import torch
 
 def createBinImgFromBB (image, annotation):
-    bb_coords=annotation.boxes
-    binImg = np.zeros(image.size.numpy())
-    binImg[bb_coords[0]:bb_coords[2], bb_coords[1]:bb_coords[3]]=1
+    bb_coords=annotation.get('boxes')
+    binImg = np.zeros((image.size()[2], image.size()[3]))    
+    binImg[int(bb_coords[1].item()):int(bb_coords[3].item()), int(bb_coords[0].item()):int(bb_coords[2].item())]=1
+    
     return torch.from_numpy(binImg)
 
 
@@ -23,7 +24,6 @@ def retrieveBBfromBinImg (image):
     y2 = np.nonzero(colsum)[0][-1] + 1
     x1 = np.nonzero(rowsum)[0][0]
     x2 = np.nonzero(rowsum)[0][-1] + 1
-    
-    
+        
     return torch.from_numpy(np.array([x1, y1, x2, y2]))
 
