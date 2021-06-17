@@ -88,6 +88,8 @@ class TrainOREvaluate(object):
 
 
         model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
+        
+        torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
 
         # replace the classifier with a new one, that has
         # num_classes which is user-defined

@@ -58,7 +58,7 @@ class TestModels(object):
 
     def object_detection_api(boxes, pred_cls, threshold=0.5, rect_th=3, text_size=3, text_th=3):
         device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-        img = cv2.imread('C:/Users/maria/Desktop/mathimata/dtu_mlops/project/maxresdefault.jpg')
+        img = cv2.imread('../../data/external/download.jpeg')
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 
@@ -88,13 +88,13 @@ class TestModels(object):
         # replace the pre-trained head with a new one
         model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
 
-        model.load_state_dict(torch.load(args.load_model_from))
+        # model.load_state_dict(torch.load(args.load_model_from))
         model.eval()
 
         threshold = 0.5
 
         img = Image.open(
-            'C:/Users/maria/Desktop/mathimata/dtu_mlops/project/maxresdefault.jpg').convert('RGB')
+            '../../data/external/download.jpeg').convert('RGB')
 
         x = TF.to_tensor(img)  # use kornia function to import?
 
@@ -115,7 +115,7 @@ class TestModels(object):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-load_model_from',
-                        default='../../models/sheep_train.pth',
+                        default='../../models/sheep_vanilla.pth',
                         type=str)
     parser.add_argument('-num_epocs',
                         default=1,
