@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Jun 12 11:50:28 2021
-
 @author: KWesselkamp
 """
 
@@ -15,7 +14,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 import os
-
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
 def show(img):
@@ -68,6 +66,7 @@ def augmentDataset(annotation_list, image_list):
     annotation_list3=[]
     image_list3=[]
     for i in range(len(image_list_joined)):
+        print(i)
         ann = annotation_list_joined[i]
         annt=np.empty((0,4))
         if len(list(ann.get('boxes').size())) == 1:
@@ -88,7 +87,6 @@ def augmentDataset(annotation_list, image_list):
     
     annotation_list_final_join = annotation_list_joined + annotation_list3
     image_list_final_join = image_list_joined + image_list3
-    
     return annotation_list_final_join, image_list_final_join
         
 #annotation_list, image_list = make_target_tensors()

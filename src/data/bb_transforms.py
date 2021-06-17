@@ -19,7 +19,6 @@ def retrieveBBfromBinImg (image):
     binImg=image.numpy()
     colsum = np.sum(binImg, axis=0)
     rowsum = np.sum(binImg, axis=1)
-
     y1 = np.nonzero(colsum)[0][0]
     y2 = np.nonzero(colsum)[0][-1] + 1
     x1 = np.nonzero(rowsum)[0][0]
