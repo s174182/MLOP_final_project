@@ -41,7 +41,7 @@ def applyAffineWarp(img, ann):
     annt = retrieveBBfromBinImg(bbt)
     return imgt, annt
     
-def augmentDataset(annotation_list, image_list):
+def augmentDataset(annotation_list, image_list, opt):
     image_list2 = []
     annotation_list2 = []
     for i in range(len(image_list)):
@@ -89,7 +89,10 @@ def augmentDataset(annotation_list, image_list):
     annotation_list_final_join = annotation_list_joined + annotation_list3
     image_list_final_join = image_list_joined + image_list3
     
-    return annotation_list_final_join, image_list_final_join
+    if opt == 'joined': 
+        return annotation_list_final_join, image_list_final_join
+    if opt == 'extension':
+        return annotation_list2 + annotation_list3, image_list2 + image_list3
         
 #annotation_list, image_list = make_target_tensors()
 #img = image_list[1]

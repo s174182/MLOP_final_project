@@ -45,13 +45,13 @@ def main():
     
     # augmented training dataset is created
     images_list_augmented = images_list + images_train_extension
-    annotation_list_augmented = annotation_list + annotation_list_extension
+    annotation_list_augmented = annotation_list + annotations_train_extension
     
     
     #saving data into processed-data file 
     train_filepath= '../../data/processed/train'
     test_filepath = '../../data/processed/test'
-    os.mkdir(test_filepath), os.mkdir(train_filepath)
+    os.makedirs(test_filepath,  exist_ok=True), os.makedirs(train_filepath,  exist_ok=True)
     
     torch.save(annotation_list, '../../data/processed/train/annotation_list.pt')
     torch.save(annotation_list_augmented, '../../data/processed/train/annotation_list_augmented.pt')
@@ -71,7 +71,7 @@ def main():
     #    x_rgb = x_rgb.unsqueeze(0)  # BxCxHxW
         
         #resize the images so that they all have the same size
-    return annotation_list, images_list  , annotation_list_augmented, images_list_augmented 
+    return annotation_list, images_list  , annotation_list_augmented, images_list_augmented
     
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -84,4 +84,4 @@ if __name__ == '__main__':
     # load up the .env entries as environment variables
     load_dotenv(find_dotenv())
 
-    annotation_list, images_list, annotation_list_augmented, images_list_augmented  = main()
+    annotation_list, images_list  , annotation_list_augmented, images_list_augmented  = main()
