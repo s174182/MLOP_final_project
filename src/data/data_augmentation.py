@@ -30,6 +30,14 @@ def applyVerticalFlip(img, ann):
     annt = retrieveBBfromBinImg(bbt)
     return imgt, annt
 
+def applyHorizontalFlip(img, ann):
+    bb = createBinImgFromBB(img, ann)
+    hflip = kornia.geometry.transform.flips.Hflip()
+    imgt= hflip(img.squeeze()).unsqueeze_(0)
+    bbt = hflip(bb)
+    annt = retrieveBBfromBinImg(bbt)
+    return imgt, annt
+
 def applyAffineWarp(img, ann):
     bb= createBinImgFromBB(img, ann)
     bb=bb.unsqueeze_(0).unsqueeze_(0).float()
