@@ -41,12 +41,9 @@ class TestModels(object):
         model.to(device)
 
 
+        test_images_list = torch.load('../../data/processed/train/images_test.pt')
+        test_annotation_list = torch.load('../../data/processed/train/annotations_test.pt')
 
-     #   test_images_list = torch.load('../../data/processed/test/images_list.pt')
-     #   test_annotation_list = torch.load('../../data/processed/test/annotation_list.pt')
-
-        test_images_list = torch.load('../../data/processed/images_list.pt')
-        test_annotation_list = torch.load('../../data/processed/annotation_list.pt')
 
         my_dataset = construct_dataset.costructDataset(test_annotation_list, test_images_list,None)
 

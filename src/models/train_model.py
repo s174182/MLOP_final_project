@@ -68,12 +68,13 @@ class TrainOREvaluate(object):
         device = 'cpu'
      #   torch.cuda.max_memory_allocated()
 
-        if self.dataset == 'annotation':
+        if self.dataset == 'normal':
             annotation_list = torch.load('../../data/processed/train/annotation_list.pt')
             images_list = torch.load('../../data/processed/train/images_list.pt')
-     #   images_list =TrainOREvaluate.pngToPIL('../../data/raw/images')
-      #  images_list =  torch.load('../../data/processed/train/images_list.pt')
-      #  annotation_list = torch.load('../../data/processed/train/annotation_list.pt')
+        else:
+            annotation_list = torch.load('../../data/processed/train/annotation_list_augmented.pt')
+            images_list = torch.load('../../data/processed/train/images_list_augmented.pt')
+
 
 
         my_dataset = construct_dataset.costructDataset(annotation_list, images_list,None)
@@ -134,7 +135,7 @@ if __name__ == '__main__':
                         default=8,
                         type=int)
     parser.add_argument('-dataset',
-                        default='annotation',
+                        default='augmentation',
                         type=str)
     args = parser.parse_args()
 
