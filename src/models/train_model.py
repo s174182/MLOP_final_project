@@ -8,14 +8,14 @@ import argparse
 
 import sys
 from os import listdir
-
+from torch.utils.tensorboard import SummaryWriter
 import torch
 import torchvision
 
 
 from PIL import Image
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
-
+import time
 from engine import train_one_epoch, evaluate
 from torch.utils.data import Dataset
 import construct_dataset
@@ -60,12 +60,11 @@ class TrainOREvaluate(object):
         # add any additional argument that you want
         args = parser.parse_args(sys.argv[2:])
         print(args)
-
-
+        
 
         device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
         print(device)
-        device = 'cpu'
+
      #   torch.cuda.max_memory_allocated()
 
         if self.dataset == 'normal':
@@ -75,14 +74,14 @@ class TrainOREvaluate(object):
             annotation_list = torch.load('../../data/processed/train/annotation_list_augmented.pt')
             images_list = torch.load('../../data/processed/train/images_list_augmented.pt')
 
-
+        
 
         my_dataset = construct_dataset.costructDataset(annotation_list, images_list,None)
 
 
 
         data_loader = torch.utils.data.DataLoader(
-            my_dataset, batch_size=2, shuffle=True, num_workers=4,
+            my_dataset, batch_size=2, shuffle=True, num_workers=6,
             collate_fn=utils.collate_fn)
 
 
@@ -111,22 +110,28 @@ class TrainOREvaluate(object):
                                                        gamma=0.1)
 
         metric_collector = []
-
-
+            
+        
         for epoch in range(self.num_epocs):
+            start = time.time()
             # train for one epoch, printing every 5 iterations
             metric_logger = train_one_epoch(model, optimizer, data_loader, device, epoch, print_freq=5)
             metric_collector.append(metric_logger)
             # update the learning rate
             lr_scheduler.step()
             # Evaluate with validation dataset
-       #     evaluate(model, data_loader_validation, device=device)
+            # evaluate(model, data_loader_validation, device=device)
             # save checlpoint
+            end = time.time()
+            writer.add_scalar('Time pr epoch', end-start,epoch)
+            writer.add_text('string of metric logger',metric_logger)
+            
         torch.save(model.state_dict(),  '../../models/sheep_train.pth')
 
 
 
 if __name__ == '__main__':
+    writer = SummaryWriter()
     parser = argparse.ArgumentParser()
     parser.add_argument('-lr',
                         default=0.005,
@@ -138,7 +143,7 @@ if __name__ == '__main__':
                         default='augmentation',
                         type=str)
     args = parser.parse_args()
-
+    writer.add_text('Data trained on',"{}".format(args.dataset))
     if (args.lr and args.num_epocs and args.dataset):
         trainObj = TrainOREvaluate(args.lr,args.num_epocs,args.dataset)
         trainObj.train()
