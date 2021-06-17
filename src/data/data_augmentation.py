@@ -66,7 +66,6 @@ def augmentDataset(annotation_list, image_list):
     annotation_list3=[]
     image_list3=[]
     for i in range(len(image_list_joined)):
-        print(i)
         ann = annotation_list_joined[i]
         annt=np.empty((0,4))
         if len(list(ann.get('boxes').size())) == 1:
