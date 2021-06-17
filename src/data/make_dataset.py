@@ -90,6 +90,7 @@ def main():
     #    x_rgb: torch.tensor = torchvision.io.read_image(file_path)  # CxHxW / torch.uint8
     #    x_rgb = x_rgb.unsqueeze(0)  # BxCxHxW
 
+
     # resize the images so that they all have the same size
     return (
         annotation_list,
@@ -101,6 +102,7 @@ def main():
 
 if __name__ == "__main__":
     log_fmt = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
     logging.basicConfig(level=logging.INFO, format=log_fmt)
 
     # not used in this stub but often useful for finding various files
@@ -110,9 +112,11 @@ if __name__ == "__main__":
     # load up the .env entries as environment variables
     load_dotenv(find_dotenv())
 
+
     (
         annotation_list,
         images_list,
         annotation_list_augmented,
         images_list_augmented,
     ) = main()
+

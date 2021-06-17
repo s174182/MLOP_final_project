@@ -58,7 +58,6 @@ def applyAffineWarp(img, ann):
     annt = retrieveBBfromBinImg(bbt)
     return imgt, annt
 
-
 def augmentDataset(annotation_list, image_list, opt):
     image_list2 = []
     annotation_list2 = []
