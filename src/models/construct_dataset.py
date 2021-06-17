@@ -11,37 +11,32 @@ class costructDataset(Dataset):
 
 
 
-
-
     def __getitem__(self, idx, transform=None):
-        boxes = self.load_box[idx]  # return list of [xmin, ymin, xmax, ymax]
-        img = self.load_image[idx]  # return an image
+
+        boxes = self.load_box[idx].get('boxes')  # return list of [xmin, ymin, xmax, ymax]
+        boxes = torch.as_tensor(boxes, dtype=torch.float16)
+        boxes = boxes.reshape(-1,4)
+        img = self.load_image[idx]  # return a tensor
         self.transform = transform
+        img = torch.squeeze(img)
 
-        if (len(list(boxes.shape)) > 1):
-            boxes = torch.as_tensor(boxes, dtype=torch.float32)
-            num_box = boxes.shape[0]
-
-        else:
-            # negative example, ref: https://github.com/pytorch/vision/issues/2144
-
-            boxes=boxes.unsqueeze_(0)
-            num_box = 1
+        num_box = boxes.shape[0]
 
 
         labels = torch.ones((num_box,), dtype=torch.int64)
         image_id = torch.tensor([idx])
         area = (boxes[:, 3] - boxes[:, 1]) * (boxes[:, 2] - boxes[:, 0])
-        issheep = torch.zeros((num_box,), dtype=torch.int64)
+        iscrowd = torch.zeros((num_box,), dtype=torch.int8)
         target = {}
-        target["boxes"] = boxes
+
+        target["boxes"] = boxes.float()
         target["labels"] = labels
         target["image_id"] = image_id
-        target["area"] = area
-        target["issheep"] = issheep
+        target["area"] = area.float()
+        target["iscrowd"] = iscrowd
 
-        if self.transforms is not None:
-            img, target = self.transforms(img, target)
+   #     if self.transforms is not None:
+     #       img, target = self.transforms(img, target)
 
 
         return img, target
