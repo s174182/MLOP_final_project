@@ -3,16 +3,17 @@ import numpy as np
 import pytest
 
 
+datapath='../data/processed/train/'
 
-
-#annotation_list=torch.load(datapath + 'annotation_list.pt')
-#images_list=torch.load(datapath + 'images_list.pt')
+annotation_list=torch.load(datapath + 'annotation_list.pt')
+images_list=torch.load(datapath + 'images_list.pt')
 
 
 class TestClass:  
-    def paths(self, augmentation):
+    '''
+    def paths(self, aug_opt):
         datapath='../data/processed/train/'
-        if augmentation: 
+        if aug_opt: 
             annotation_list=torch.load(datapath + 'annotation_list_augmented.pt')
             images_list=torch.load(datapath + 'images_list_augmented.pt')
         else :
@@ -20,8 +21,11 @@ class TestClass:
             images_list=torch.load(datapath + 'images_list.pt')
         return annotation_list, images_list
     
+    @pytest.mark.parametrize("augmentation",aug_opt)
+    '''
+    
     def test_images(self):
-        annotation_list, images_list=TestClass.paths(augmentation)
+#        annotation_list, images_list=TestClass.paths(augmentation)
         length_images=len(images_list)
         
         for j in range(length_images):
@@ -33,7 +37,7 @@ class TestClass:
         
         
     def test_annotations(self):   
-        annotation_list, images_list=TestClass.paths(augmentation)
+#        annotation_list, images_list=TestClass.paths(augmentation)
         length_annotations = len(annotation_list)
         
         for j in range(length_annotations):
