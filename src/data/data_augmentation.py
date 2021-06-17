@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Jun 12 11:50:28 2021
+
 @author: KWesselkamp
 """
 
@@ -14,6 +15,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 import os
+
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
 def show(img):
@@ -28,6 +30,14 @@ def applyVerticalFlip(img, ann):
     annt = retrieveBBfromBinImg(bbt)
     return imgt, annt
 
+def applyHorizontalFlip(img, ann):
+    bb = createBinImgFromBB(img, ann)
+    hflip = kornia.geometry.transform.flips.Hflip()
+    imgt= hflip(img.squeeze()).unsqueeze_(0)
+    bbt = hflip(bb)
+    annt = retrieveBBfromBinImg(bbt)
+    return imgt, annt
+
 def applyAffineWarp(img, ann):
     bb= createBinImgFromBB(img, ann)
     bb=bb.unsqueeze_(0).unsqueeze_(0).float()
@@ -39,7 +49,7 @@ def applyAffineWarp(img, ann):
     annt = retrieveBBfromBinImg(bbt)
     return imgt, annt
     
-def augmentDataset(annotation_list, image_list):
+def augmentDataset(annotation_list, image_list, opt):
     image_list2 = []
     annotation_list2 = []
     for i in range(len(image_list)):
@@ -86,7 +96,11 @@ def augmentDataset(annotation_list, image_list):
     
     annotation_list_final_join = annotation_list_joined + annotation_list3
     image_list_final_join = image_list_joined + image_list3
-    return annotation_list_final_join, image_list_final_join
+    
+    if opt == 'joined': 
+        return annotation_list_final_join, image_list_final_join
+    if opt == 'extension':
+        return annotation_list2 + annotation_list3, image_list2 + image_list3
         
 #annotation_list, image_list = make_target_tensors()
 #img = image_list[1]
