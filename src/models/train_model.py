@@ -68,11 +68,12 @@ class TrainOREvaluate(object):
         device = 'cpu'
      #   torch.cuda.max_memory_allocated()
 
-     #   annotation_list = torch.load(self.dataset+'/annotation_list.pt')
-       # images_list = torch.load(self.dataset+'/images_list.pt')
+        if self.dataset == 'annotation':
+            annotation_list = torch.load('../../data/processed/train/annotation_list.pt')
+            images_list = torch.load('../../data/processed/train/images_list.pt')
      #   images_list =TrainOREvaluate.pngToPIL('../../data/raw/images')
-        images_list =  torch.load('../../data/processed/images_list.pt')
-        annotation_list = torch.load('../../data/processed/annotation_list.pt')
+      #  images_list =  torch.load('../../data/processed/train/images_list.pt')
+      #  annotation_list = torch.load('../../data/processed/train/annotation_list.pt')
 
 
         my_dataset = construct_dataset.costructDataset(annotation_list, images_list,None)
@@ -80,7 +81,7 @@ class TrainOREvaluate(object):
 
 
         data_loader = torch.utils.data.DataLoader(
-            my_dataset, batch_size=2, shuffle=True, num_workers=1,
+            my_dataset, batch_size=2, shuffle=True, num_workers=4,
             collate_fn=utils.collate_fn)
 
 
@@ -130,10 +131,10 @@ if __name__ == '__main__':
                         default=0.005,
                         type=int)
     parser.add_argument('-num_epocs',
-                        default=10,
+                        default=8,
                         type=int)
     parser.add_argument('-dataset',
-                        default='../../data/processed/augmented',
+                        default='annotation',
                         type=str)
     args = parser.parse_args()
 
