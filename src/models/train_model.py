@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jun  7 12:30:04 2021
-
 @author: KWesselkamp
 """
 import argparse
 
 import sys
 from os import listdir
-from torch.utils.tensorboard import SummaryWriter
+import time
 import torch
 import torchvision
-
-
+from torch.utils.tensorboard import SummaryWriter
 from PIL import Image
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
-import time
 from engine import train_one_epoch, evaluate
 from torch.utils.data import Dataset
 import construct_dataset
@@ -40,10 +37,8 @@ class TrainOREvaluate(object):
         for fl in img_files_list:
             img_file_path_sg = img_file_path + '/' + fl
             image = Image.open(img_file_path_sg).convert('RGB')
-
             images_list.append(image)
         return images_list
-
     def get_transform(train):
         transforms = []
         transforms.append(T.ToTensor())
@@ -60,12 +55,13 @@ class TrainOREvaluate(object):
         # add any additional argument that you want
         args = parser.parse_args(sys.argv[2:])
         print(args)
-        
+
+
 
         device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
         print(device)
+        device='cpu'
 
-     #   torch.cuda.max_memory_allocated()
 
         if self.dataset == 'normal':
             annotation_list = torch.load('../../data/processed/train/annotation_list.pt')
@@ -74,19 +70,21 @@ class TrainOREvaluate(object):
             annotation_list = torch.load('../../data/processed/train/annotation_list_augmented.pt')
             images_list = torch.load('../../data/processed/train/images_list_augmented.pt')
 
-        
+
 
         my_dataset = construct_dataset.costructDataset(annotation_list, images_list,None)
 
 
 
         data_loader = torch.utils.data.DataLoader(
-            my_dataset, batch_size=2, shuffle=True, num_workers=6,
+            my_dataset, batch_size=4, shuffle=True, num_workers=6,
             collate_fn=utils.collate_fn)
 
 
 
         model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
+        
+        torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
 
         # replace the classifier with a new one, that has
         # num_classes which is user-defined
@@ -110,8 +108,8 @@ class TrainOREvaluate(object):
                                                        gamma=0.1)
 
         metric_collector = []
-            
-        
+
+
         for epoch in range(self.num_epocs):
             start = time.time()
             # train for one epoch, printing every 5 iterations
@@ -124,9 +122,6 @@ class TrainOREvaluate(object):
             # save checlpoint
             end = time.time()
             writer.add_scalar('Time pr epoch', end-start,epoch)
-            writer.add_text('string of metric logger',metric_logger)
-            
-        torch.save(model.state_dict(),  '../../models/sheep_train.pth')
 
 
 
@@ -135,12 +130,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-lr',
                         default=0.005,
-                        type=int)
+                        type=float)
     parser.add_argument('-num_epocs',
                         default=8,
                         type=int)
     parser.add_argument('-dataset',
-                        default='augmentation',
+                        default='normal',
                         type=str)
     args = parser.parse_args()
     writer.add_text('Data trained on',"{}".format(args.dataset))
