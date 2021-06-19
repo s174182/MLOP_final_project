@@ -22,15 +22,25 @@ import construct_dataset
 import transforms as T
 import utils
 
+from azureml.core import Run
 
 class TrainOREvaluate(object):
 
     def __init__(self):
+        
+        # Get the experiment run context
+        self.run = Run.get_context()  
+
         self.lr = args.lr
         self.num_epochs = args.num_epochs
         self.dataset = args.dataset
         self.batch_size = args.batch_size
         self.train_size = args.train_size
+
+        self.run.log('num_epochs', self.num_epochs)
+        self.run.log('dataset', self.dataset)
+        self.run.log('batch_size', self.batch_size)
+        self.run.log('train_size', self.train_size)
 
     def train(self):
         print("Training day and night")
@@ -72,6 +82,8 @@ class TrainOREvaluate(object):
 
         torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
 
+        run.register_model(model_path='../../models/sheep_vanilla.pth', model_name='sheep_vanilla')
+
         model.to(device)
 
 
@@ -94,7 +106,12 @@ class TrainOREvaluate(object):
             # Evaluate with validation dataset
             evaluate(model, validation_loader, device=device)
             # save checkpoint
-            torch.save(model.state_dict(),  '../../models/sheep_train_' + self.dataset + '.pth')
+        
+        torch.save(model.state_dict(),  '../../models/sheep_train_' + self.dataset + '.pth')
+
+        run.register_model(model_path='../../models/sheep_train_' + self.dataset + '.pth', model_name='sheep_train_' + self.dataset,
+                            properties={'no_epochs': self.num_epochs, 'dataset': self.dataset, 'batch_size':self.batch_size, 
+                                        'train_size':self.train_size})
 
         # Creating the test set and testing
         annotation_list = torch.load('../../data/processed/test/annotations_test.pt')
@@ -110,6 +127,7 @@ class TrainOREvaluate(object):
 
 
 if __name__ == '__main__':
+
     parser = argparse.ArgumentParser()
     parser.add_argument('-lr',
                         default=0.005,
