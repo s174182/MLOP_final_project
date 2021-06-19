@@ -82,6 +82,8 @@ class TrainOREvaluate(object):
 
         torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
 
+        run.register_model(model_path='../../models/sheep_vanilla.pth', model_name='sheep_vanilla')
+
         model.to(device)
 
 
@@ -104,7 +106,12 @@ class TrainOREvaluate(object):
             # Evaluate with validation dataset
             evaluate(model, validation_loader, device=device)
             # save checkpoint
-            torch.save(model.state_dict(),  '../../models/sheep_train_' + self.dataset + '.pth')
+        
+        torch.save(model.state_dict(),  '../../models/sheep_train_' + self.dataset + '.pth')
+
+        run.register_model(model_path='../../models/sheep_train_' + self.dataset + '.pth', model_name='sheep_train_' + self.dataset,
+                            properties={'no_epochs': self.num_epochs, 'dataset': self.dataset, 'batch_size':self.batch_size, 
+                                        'train_size':self.train_size})
 
         # Creating the test set and testing
         annotation_list = torch.load('../../data/processed/test/annotations_test.pt')

@@ -8,7 +8,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 ws = Workspace.from_config()
 experiment_folder = '/home/azureuser/cloudfiles/code/Users/s202581/project/first_experiment'
 log_folder = '/home/azureuser/cloudfiles/code/Users/s202581/project/first_experiment/run_downloaded_logs'
-target = ComputeTarget(workspace=ws, name ='MLOps-GPU')
+target = ComputeTarget(workspace=ws, name ='MLOps-BigBoi')
 
 # Create a Python environment for the experiment
 env = Environment.from_pip_requirements('env', '/home/azureuser/cloudfiles/code/Users/s202581/project/first_experiment/requirements.txt')
