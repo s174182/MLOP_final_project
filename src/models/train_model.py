@@ -49,23 +49,24 @@ class TrainOREvaluate(object):
 
 
     def train(self):
+        writer = SummaryWriter(log_dir='/content/drive/MyDrive/MLOPS/MLOP_final_project/runs')
         print("Training day and night")
         parser = argparse.ArgumentParser(description='Training arguments')
         parser.add_argument('--lr', default=0.001)
         # add any additional argument that you want
         args = parser.parse_args(sys.argv[2:])
         print(args)
-
+        writer.add_text('Data trained on',"{}".format(self.dataset))
 
 
         device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
         print(device)
-        device='cpu'
+       
 
 
         if self.dataset == 'normal':
-            annotation_list = torch.load('../../data/processed/train/annotation_list.pt')
-            images_list = torch.load('../../data/processed/train/images_list.pt')
+            annotation_list = torch.load('/content/drive/MyDrive/MLOPS/MLOP_final_project/data/processed/train/annotation_list.pt')
+            images_list = torch.load('/content/drive/MyDrive/MLOPS/MLOP_final_project/data/processed/train/images_list.pt')
         else:
             annotation_list = torch.load('../../data/processed/train/annotation_list_augmented.pt')
             images_list = torch.load('../../data/processed/train/images_list_augmented.pt')
@@ -75,16 +76,19 @@ class TrainOREvaluate(object):
         my_dataset = construct_dataset.costructDataset(annotation_list, images_list,None)
 
 
-
+        num_workers=16
+        batch_size=16
         data_loader = torch.utils.data.DataLoader(
-            my_dataset, batch_size=4, shuffle=True, num_workers=6,
+            my_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers,
             collate_fn=utils.collate_fn)
+        writer.add_scalar("Num_workers",num_workers)
+        writer.add_scalar("Batch size",batch_size)
 
 
 
         model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
         
-        torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
+        #torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
 
         # replace the classifier with a new one, that has
         # num_classes which is user-defined
@@ -115,18 +119,23 @@ class TrainOREvaluate(object):
             # train for one epoch, printing every 5 iterations
             metric_logger = train_one_epoch(model, optimizer, data_loader, device, epoch, print_freq=5)
             metric_collector.append(metric_logger)
+            TL=(metric_logger.loss.total)
+            count=(metric_logger.loss.count)
+            SL=float(TL/count)
+            writer.add_scalar('loss/train',SL,epoch)
             # update the learning rate
             lr_scheduler.step()
             # Evaluate with validation dataset
             # evaluate(model, data_loader_validation, device=device)
             # save checlpoint
             end = time.time()
-            writer.add_scalar('Time pr epoch', end-start,epoch)
-
+            
+            writer.add_scalar('time/Time_pr_epoch', end-start,epoch)
+        torch.save(model.state_dict(),  '/content/drive/MyDrive/MLOPS/MLOP_final_project/models/sheep_trained_own_data.pth')
 
 
 if __name__ == '__main__':
-    writer = SummaryWriter()
+    
     parser = argparse.ArgumentParser()
     parser.add_argument('-lr',
                         default=0.005,
@@ -138,7 +147,7 @@ if __name__ == '__main__':
                         default='normal',
                         type=str)
     args = parser.parse_args()
-    writer.add_text('Data trained on',"{}".format(args.dataset))
+    
     if (args.lr and args.num_epocs and args.dataset):
         trainObj = TrainOREvaluate(args.lr,args.num_epocs,args.dataset)
         trainObj.train()
