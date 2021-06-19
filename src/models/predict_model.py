@@ -21,10 +21,10 @@ os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
 class TestModels(object):
 
-    def __init__(self, num_epocs, path_to_folder):
+    def __init__(self, num_epochs, path_to_folder):
 
         self.path_to_model = path_to_folder
-        self.num_epocs = num_epocs
+        self.num_epochs = num_epochs
 
 
     def modelEvaluation(self):
@@ -40,18 +40,16 @@ class TestModels(object):
         model.load_state_dict(torch.load(args.load_model_from))
         model.to(device)
 
+        test_images_list = torch.load('../../data/processed/test/images_test.pt')
+        test_annotation_list = torch.load('../../data/processed/test/annotations_test.pt')
 
-        test_images_list = torch.load('../../data/processed/train/images_test.pt')
-        test_annotation_list = torch.load('../../data/processed/train/annotations_test.pt')
-
-
-        my_dataset = construct_dataset.costructDataset(test_annotation_list, test_images_list,None)
+        my_dataset = construct_dataset.constructDataset(test_annotation_list, test_images_list,None)
 
         data_loader = torch.utils.data.DataLoader(
             my_dataset, batch_size=2, shuffle=True, num_workers=4,
             collate_fn=utils.collate_fn)
 
-        for epoch in range(self.num_epocs):
+        for epoch in range(self.num_epochs):
             evaluate(model, data_loader, device=device)
 
 
@@ -117,14 +115,14 @@ if __name__ == '__main__':
     parser.add_argument('-load_model_from',
                         default='../../models/sheep_vanilla.pth',
                         type=str)
-    parser.add_argument('-num_epocs',
+    parser.add_argument('-num_epochs',
                         default=1,
                         type=int)
     args = parser.parse_args()
 
-    if (args.num_epocs and args.load_model_from):
-        obj_evaluate = TestModels(args.num_epocs,args.load_model_from)
-        obj_evaluate.evaluate_model()
+    if (args.num_epochs and args.load_model_from):
+        obj_evaluate = TestModels(args.num_epochs,args.load_model_from)
+        obj_evaluate.modelEvaluation()
 
     else:
         print('Please provide for a valid model path for evaluation')
