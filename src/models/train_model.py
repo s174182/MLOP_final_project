@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jun  7 12:30:04 2021
-
 @author: KWesselkamp
 """
 import argparse
 
 import sys
 from os import listdir
-
+import time
 import torch
 import torchvision
-
-
+from torch.utils.tensorboard import SummaryWriter
 from PIL import Image
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
-
 from engine import train_one_epoch, evaluate
 from torch.utils.data import Dataset
 import construct_dataset
@@ -32,8 +29,11 @@ class TrainOREvaluate(object):
         self.batch_size = args.batch_size
         self.train_size = args.train_size
 
+
     def train(self):
+        writer = SummaryWriter(log_dir='/content/drive/MyDrive/MLOPS/MLOP_final_project/runs')
         print("Training day and night")
+
      
         device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
         print('Training on :', device)
@@ -42,6 +42,7 @@ class TrainOREvaluate(object):
             annotation_list = torch.load('../../data/processed/train/annotation_list.pt')
             images_list = torch.load('../../data/processed/train/images_list.pt')
         elif self.dataset == 'augmented':
+
             annotation_list = torch.load('../../data/processed/train/annotation_list_augmented.pt')
             images_list = torch.load('../../data/processed/train/images_list_augmented.pt')
        
@@ -52,9 +53,16 @@ class TrainOREvaluate(object):
 
         train_set, validation_set = torch.utils.data.random_split(train_dataset, lengths=[train_len, valid_len])
 
-        train_loader = torch.utils.data.DataLoader(
-            train_set, batch_size=self.batch_size, shuffle=True, num_workers=4,
-            collate_fn=utils.collate_fn) # collate_fn allows you to have images (tensors) of different sizes
+
+
+        num_workers=16
+        batch_size=16
+        data_loader = torch.utils.data.DataLoader(
+            train_set, batch_size=batch_size, shuffle=True, num_workers=num_workers,
+            collate_fn=utils.collate_fn)
+        writer.add_scalar("Num_workers",num_workers)
+        writer.add_scalar("Batch size",batch_size)
+
 
         validation_loader = torch.utils.data.DataLoader(
             validation_set, batch_size=self.batch_size, shuffle=True, num_workers=4,
@@ -62,6 +70,9 @@ class TrainOREvaluate(object):
 
         model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
         
+
+        #torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
+
         # replace the classifier with a new one, that has
         # num_classes which is user-defined
         num_classes = 2  # 1 class (sheep) + background
@@ -85,40 +96,39 @@ class TrainOREvaluate(object):
 
         metric_collector = []
 
-        for epoch in range(self.num_epochs):
+
+        for epoch in range(self.num_epocs):
+            start = time.time()
             # train for one epoch, printing every 5 iterations
             metric_logger = train_one_epoch(model, optimizer, train_loader, device, epoch, print_freq=5)
             metric_collector.append(metric_logger)
+            TL=(metric_logger.loss.total)
+            count=(metric_logger.loss.count)
+            SL=float(TL/count)
+            writer.add_scalar('loss/train',SL,epoch)
             # update the learning rate
             lr_scheduler.step()
             # Evaluate with validation dataset
             evaluate(model, validation_loader, device=device)
-            # save checkpoint
-            torch.save(model.state_dict(),  '../../models/sheep_train_' + self.dataset + '.pth')
-
-        # Creating the test set and testing
-        annotation_list = torch.load('../../data/processed/test/annotations_test.pt')
-        images_list = torch.load('../../data/processed/test/images_test.pt')
-       
-        test_dataset = construct_dataset.constructDataset(annotation_list,images_list,transform=None)
-
-        test_loader = torch.utils.data.DataLoader(
-            test_dataset, batch_size=self.batch_size, shuffle=True, num_workers=4,
-            collate_fn=utils.collate_fn) # collate_fn allows you to have images (tensors) of different sizes
-
-        evaluate(model, test_loader, device=device)
-
+            # save checlpoint
+            end = time.time()
+            
+            writer.add_scalar('time/Time_pr_epoch', end-start,epoch)
+        torch.save(model.state_dict(),  '/content/drive/MyDrive/MLOPS/MLOP_final_project/models/sheep_trained_own_data.pth')
 
 if __name__ == '__main__':
+    
     parser = argparse.ArgumentParser()
     parser.add_argument('-lr',
                         default=0.005,
                         type=float)
-    parser.add_argument('-num_epochs',
-                        default=5,
+
+    parser.add_argument('-num_epocs',
+                        default=8,
                         type=int)
     parser.add_argument('-dataset',
-                        default='augmented',
+                        default='normal',
+
                         type=str)
     parser.add_argument('-batch_size',
                         default=2,
@@ -128,5 +138,7 @@ if __name__ == '__main__':
                         type=float)
     args = parser.parse_args()
 
+
     trainObj = TrainOREvaluate()
     trainObj.train()
+
