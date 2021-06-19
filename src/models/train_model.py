@@ -20,74 +20,57 @@ import transforms as T
 import utils
 
 
-
-
-
 class TrainOREvaluate(object):
 
-    def __init__(self,lr,num_epocs,dataset):
-        self.lr = lr
-        self.num_epocs = num_epocs
-        self.dataset = dataset
-
-    '''
-        def pngToPIL(img_file_path: str):
-        img_files_list = listdir(img_file_path)
-        images_list = []
-        for fl in img_files_list:
-            img_file_path_sg = img_file_path + '/' + fl
-            image = Image.open(img_file_path_sg).convert('RGB')
-            images_list.append(image)
-        return images_list
-    def get_transform(train):
-        transforms = []
-        transforms.append(T.ToTensor())
-        if train:
-            transforms.append(T.RandomHorizontalFlip(0.5))
-        return T.Compose(transforms)
-    '''
+    def __init__(self):
+        self.lr = args.lr
+        self.num_epochs = args.num_epochs
+        self.dataset = args.dataset
+        self.batch_size = args.batch_size
+        self.train_size = args.train_size
 
 
     def train(self):
         writer = SummaryWriter(log_dir='/content/drive/MyDrive/MLOPS/MLOP_final_project/runs')
         print("Training day and night")
-        parser = argparse.ArgumentParser(description='Training arguments')
-        parser.add_argument('--lr', default=0.001)
-        # add any additional argument that you want
-        args = parser.parse_args(sys.argv[2:])
-        print(args)
-        writer.add_text('Data trained on',"{}".format(self.dataset))
 
-
+     
         device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-        print(device)
-       
-
+        print('Training on :', device)
 
         if self.dataset == 'normal':
-            annotation_list = torch.load('/content/drive/MyDrive/MLOPS/MLOP_final_project/data/processed/train/annotation_list.pt')
-            images_list = torch.load('/content/drive/MyDrive/MLOPS/MLOP_final_project/data/processed/train/images_list.pt')
-        else:
+            annotation_list = torch.load('../../data/processed/train/annotation_list.pt')
+            images_list = torch.load('../../data/processed/train/images_list.pt')
+        elif self.dataset == 'augmented':
+
             annotation_list = torch.load('../../data/processed/train/annotation_list_augmented.pt')
             images_list = torch.load('../../data/processed/train/images_list_augmented.pt')
+       
+        train_dataset = construct_dataset.constructDataset(annotation_list,images_list,transform=None)
 
+        train_len = int(self.train_size * len(train_dataset))
+        valid_len = len(train_dataset) - train_len
 
+        train_set, validation_set = torch.utils.data.random_split(train_dataset, lengths=[train_len, valid_len])
 
-        my_dataset = construct_dataset.costructDataset(annotation_list, images_list,None)
 
 
         num_workers=16
         batch_size=16
         data_loader = torch.utils.data.DataLoader(
-            my_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers,
+            train_set, batch_size=batch_size, shuffle=True, num_workers=num_workers,
             collate_fn=utils.collate_fn)
         writer.add_scalar("Num_workers",num_workers)
         writer.add_scalar("Batch size",batch_size)
 
 
+        validation_loader = torch.utils.data.DataLoader(
+            validation_set, batch_size=self.batch_size, shuffle=True, num_workers=4,
+            collate_fn=utils.collate_fn) # collate_fn allows you to have images (tensors) of different sizes
 
         model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
         
+
         #torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
 
         # replace the classifier with a new one, that has
@@ -95,12 +78,12 @@ class TrainOREvaluate(object):
         num_classes = 2  # 1 class (sheep) + background
         # get number of input features for the classifier
         in_features = model.roi_heads.box_predictor.cls_score.in_features
-        # replace the pre-trained head with a new one
+        # replace the pre-trained final layer classification and box regression layers with a new one
         model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
 
+        torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
 
         model.to(device)
-
 
 
         params = [p for p in model.parameters() if p.requires_grad]
@@ -117,7 +100,7 @@ class TrainOREvaluate(object):
         for epoch in range(self.num_epocs):
             start = time.time()
             # train for one epoch, printing every 5 iterations
-            metric_logger = train_one_epoch(model, optimizer, data_loader, device, epoch, print_freq=5)
+            metric_logger = train_one_epoch(model, optimizer, train_loader, device, epoch, print_freq=5)
             metric_collector.append(metric_logger)
             TL=(metric_logger.loss.total)
             count=(metric_logger.loss.count)
@@ -126,13 +109,12 @@ class TrainOREvaluate(object):
             # update the learning rate
             lr_scheduler.step()
             # Evaluate with validation dataset
-            # evaluate(model, data_loader_validation, device=device)
+            evaluate(model, validation_loader, device=device)
             # save checlpoint
             end = time.time()
             
             writer.add_scalar('time/Time_pr_epoch', end-start,epoch)
         torch.save(model.state_dict(),  '/content/drive/MyDrive/MLOPS/MLOP_final_project/models/sheep_trained_own_data.pth')
-
 
 if __name__ == '__main__':
     
@@ -140,18 +122,23 @@ if __name__ == '__main__':
     parser.add_argument('-lr',
                         default=0.005,
                         type=float)
+
     parser.add_argument('-num_epocs',
                         default=8,
                         type=int)
     parser.add_argument('-dataset',
                         default='normal',
-                        type=str)
-    args = parser.parse_args()
-    
-    if (args.lr and args.num_epocs and args.dataset):
-        trainObj = TrainOREvaluate(args.lr,args.num_epocs,args.dataset)
-        trainObj.train()
 
-    else:
-        print('Please provide the right arguments for evaluation')
-        exit(1)
+                        type=str)
+    parser.add_argument('-batch_size',
+                        default=2,
+                        type=int)
+    parser.add_argument('-train_size',
+                        default=0.9,
+                        type=float)
+    args = parser.parse_args()
+
+
+    trainObj = TrainOREvaluate()
+    trainObj.train()
+
