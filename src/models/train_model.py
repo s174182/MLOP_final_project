@@ -49,11 +49,11 @@ class TrainOREvaluate(object):
         print('Training on :', device)
 
         if self.dataset == 'normal':
-            annotation_list = torch.load('../../data/processed/train/annotation_list.pt')
-            images_list = torch.load('../../data/processed/train/images_list.pt')
+            annotation_list = torch.load('./data/processed/train/annotation_list.pt')
+            images_list = torch.load('./data/processed/train/images_list.pt')
         elif self.dataset == 'augmented':
-            annotation_list = torch.load('../../data/processed/train/annotation_list_augmented.pt')
-            images_list = torch.load('../../data/processed/train/images_list_augmented.pt')
+            annotation_list = torch.load('./data/processed/train/annotation_list_augmented.pt')
+            images_list = torch.load('./data/processed/train/images_list_augmented.pt')
        
         train_dataset = construct_dataset.constructDataset(annotation_list,images_list,transform=None)
 
@@ -80,9 +80,10 @@ class TrainOREvaluate(object):
         # replace the pre-trained final layer classification and box regression layers with a new one
         model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
 
-        torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
-
-        run.register_model(model_path='../../models/sheep_vanilla.pth', model_name='sheep_vanilla')
+        model_file = 'sheep_vanilla.pth'      
+        torch.save(model.state_dict(),  './models/' + model_file)
+        self.run.upload_file(name = './outputs/' + model_file, path_or_stream = './models/' + model_file)
+        self.run.register_model(model_path='./outputs/' + model_file, model_name='sheep_vanilla')
 
         model.to(device)
 
@@ -107,15 +108,16 @@ class TrainOREvaluate(object):
             evaluate(model, validation_loader, device=device)
             # save checkpoint
         
-        torch.save(model.state_dict(),  '../../models/sheep_train_' + self.dataset + '.pth')
+        # Save the trained model
 
-        run.register_model(model_path='../../models/sheep_train_' + self.dataset + '.pth', model_name='sheep_train_' + self.dataset,
-                            properties={'no_epochs': self.num_epochs, 'dataset': self.dataset, 'batch_size':self.batch_size, 
-                                        'train_size':self.train_size})
+        model_file = 'sheep_train_' + self.dataset + '.pth'      
+        torch.save(model.state_dict(),  './models/' + model_file)
+        self.run.upload_file(name = './outputs/' + model_file, path_or_stream = './models/' + model_file)
+        self.run.register_model(model_path='./outputs/' + model_file, model_name='sheep_train_' + self.dataset, properties={'no_epochs': self.num_epochs, 'dataset': self.dataset, 'batch_size':self.batch_size,'train_size':self.train_size})
 
         # Creating the test set and testing
-        annotation_list = torch.load('../../data/processed/test/annotations_test.pt')
-        images_list = torch.load('../../data/processed/test/images_test.pt')
+        annotation_list = torch.load('./data/processed/test/annotations_test.pt')
+        images_list = torch.load('./data/processed/test/images_test.pt')
        
         test_dataset = construct_dataset.constructDataset(annotation_list,images_list,transform=None)
 
