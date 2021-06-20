@@ -16,14 +16,10 @@ target = ComputeTarget(workspace=ws, name ='MLOps-BigBoi')
 # Create a Python environment for the experiment
 env = Environment.from_pip_requirements('env', '/home/azureuser/cloudfiles/code/Users/s202581/MLOP_final_project/requirements.txt')
 
-# # Ensure the required packages are installed (we need pip and Azure ML defaults)
-# packages = CondaDependencies.create(conda_packages=['pip','pytorch','torchvision','matplotlib','joblib'],
-#                                     pip_packages=['azureml-defaults'])
-# env.python.conda_dependencies = packages
-
 # Create a script config
 script_config = ScriptRunConfig(source_directory=experiment_folder,
                                 script='/home/azureuser/cloudfiles/code/Users/s202581/MLOP_final_project/src/models/train_model.py',
+                                arguments=['-dataset','normal','-batch_size',4],
                                 compute_target=target,
                                 environment=env)
 
