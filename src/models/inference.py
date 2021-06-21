@@ -93,3 +93,4 @@ if __name__ == '__main__':
 
     obj_evaluate = UseModel(args.model, args.image)
     obj_evaluate.use(args.threshold)
+    
