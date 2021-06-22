@@ -2,7 +2,7 @@ name: flake8 clearance
 
 on: [push]
 
-jobs: flake8 clearance
+jobs: 
   build:
 
     runs-on: ubuntu-latest
