@@ -22,15 +22,25 @@ import construct_dataset
 import transforms as T
 import utils
 
+from azureml.core import Run
 
 class TrainOREvaluate(object):
 
     def __init__(self):
+        
+        # Get the experiment run context
+        self.run = Run.get_context()  
+
         self.lr = args.lr
         self.num_epochs = args.num_epochs
         self.dataset = args.dataset
         self.batch_size = args.batch_size
         self.train_size = args.train_size
+
+        self.run.log('num_epochs', self.num_epochs)
+        self.run.log('dataset', self.dataset)
+        self.run.log('batch_size', self.batch_size)
+        self.run.log('train_size', self.train_size)
 
     def train(self):
         print("Training day and night")
@@ -39,11 +49,11 @@ class TrainOREvaluate(object):
         print('Training on :', device)
 
         if self.dataset == 'normal':
-            annotation_list = torch.load('../../data/processed/train/annotation_list.pt')
-            images_list = torch.load('../../data/processed/train/images_list.pt')
+            annotation_list = torch.load('./data/processed/train/annotation_list.pt')
+            images_list = torch.load('./data/processed/train/images_list.pt')
         elif self.dataset == 'augmented':
-            annotation_list = torch.load('../../data/processed/train/annotation_list_augmented.pt')
-            images_list = torch.load('../../data/processed/train/images_list_augmented.pt')
+            annotation_list = torch.load('./data/processed/train/annotation_list_augmented.pt')
+            images_list = torch.load('./data/processed/train/images_list_augmented.pt')
        
         train_dataset = construct_dataset.constructDataset(annotation_list,images_list,transform=None)
 
@@ -70,7 +80,10 @@ class TrainOREvaluate(object):
         # replace the pre-trained final layer classification and box regression layers with a new one
         model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
 
-        torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
+        model_file = 'sheep_vanilla.pth'      
+        torch.save(model.state_dict(),  './models/' + model_file)
+        self.run.upload_file(name = './outputs/' + model_file, path_or_stream = './models/' + model_file)
+        self.run.register_model(model_path='./outputs/' + model_file, model_name='sheep_vanilla')
 
         model.to(device)
 
@@ -94,11 +107,17 @@ class TrainOREvaluate(object):
             # Evaluate with validation dataset
             evaluate(model, validation_loader, device=device)
             # save checkpoint
-            torch.save(model.state_dict(),  '../../models/sheep_train_' + self.dataset + '.pth')
+        
+        # Save the trained model
+
+        model_file = 'sheep_train_' + self.dataset + '.pth'      
+        torch.save(model.state_dict(),  './models/' + model_file)
+        self.run.upload_file(name = './outputs/' + model_file, path_or_stream = './models/' + model_file)
+        self.run.register_model(model_path='./outputs/' + model_file, model_name='sheep_train_' + self.dataset, properties={'no_epochs': self.num_epochs, 'dataset': self.dataset, 'batch_size':self.batch_size,'train_size':self.train_size})
 
         # Creating the test set and testing
-        annotation_list = torch.load('../../data/processed/test/annotations_test.pt')
-        images_list = torch.load('../../data/processed/test/images_test.pt')
+        annotation_list = torch.load('./data/processed/test/annotations_test.pt')
+        images_list = torch.load('./data/processed/test/images_test.pt')
        
         test_dataset = construct_dataset.constructDataset(annotation_list,images_list,transform=None)
 
@@ -110,6 +129,7 @@ class TrainOREvaluate(object):
 
 
 if __name__ == '__main__':
+
     parser = argparse.ArgumentParser()
     parser.add_argument('-lr',
                         default=0.005,

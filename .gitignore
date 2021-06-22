@@ -1,2 +1,6 @@
 /data/
 /src/data/__pycache__/
+/first_experiment/
+__pycache__/
+*.amltmp
+*.pth
