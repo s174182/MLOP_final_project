@@ -21,6 +21,7 @@ import construct_dataset
 import transforms as T
 import utils
 import optuna
+import matplotlib.pyplot as plt
 
 
 class TrainOREvaluate(object):
@@ -151,7 +152,7 @@ if __name__ == '__main__':
     #                     default=0.005,
     #                     type=float)
     parser.add_argument('-num_epochs',
-                        default=2,
+                        default=3,
                         type=int)
     parser.add_argument('-dataset',
                         default='augmented',
@@ -195,6 +196,7 @@ if __name__ == '__main__':
     for key, value in trial.params.items():
         print("    {}: {}".format(key, value))
 
-    optuna.visualization.plot_optimization_history(study)
-    optuna.visualization.plot_param_importances(study)
-    optuna.visualization.plot_edf(study)
+    fig_history = optuna.visualization.matplotlib.plot_optimization_history(study)
+    plt.savefig('fig_history.png')
+    fig_param_importances = optuna.visualization.matplotlib.plot_param_importances(study)
+    plt.savefig('fig_param_importances.png')
