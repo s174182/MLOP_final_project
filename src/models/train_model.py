@@ -4,7 +4,7 @@ Created on Mon Jun  7 12:30:04 2021
 @author: KWesselkamp
 """
 import argparse
-
+from torchsummary import summary
 import sys
 from os import listdir
 import time
@@ -18,7 +18,7 @@ from torch.utils.data import Dataset
 import construct_dataset
 import transforms as T
 import utils
-
+torch.cuda.empty_cache()
 
 class TrainOREvaluate(object):
 
@@ -31,6 +31,11 @@ class TrainOREvaluate(object):
 
 
     def train(self):
+      
+
+      
+
+        
         writer = SummaryWriter(log_dir='/content/drive/MyDrive/MLOPS/MLOP_final_project/runs')
         print("Training day and night")
 
@@ -39,14 +44,14 @@ class TrainOREvaluate(object):
         print('Training on :', device)
 
         if self.dataset == 'normal':
-            annotation_list = torch.load('../../data/processed/train/annotation_list.pt')
-            images_list = torch.load('../../data/processed/train/images_list.pt')
+            annotation_list = torch.load('/content/drive/MyDrive/MLOPS/MLOP_final_project/data/processed/train/annotation_list.pt')
+            images_list = torch.load('/content/drive/MyDrive/MLOPS/MLOP_final_project/data/processed/train/images_list.pt')
         elif self.dataset == 'augmented':
 
             annotation_list = torch.load('../../data/processed/train/annotation_list_augmented.pt')
             images_list = torch.load('../../data/processed/train/images_list_augmented.pt')
        
-        train_dataset = construct_dataset.constructDataset(annotation_list,images_list,transform=None)
+        train_dataset = construct_dataset.costructDataset(annotation_list,images_list,transform=None)
 
         train_len = int(self.train_size * len(train_dataset))
         valid_len = len(train_dataset) - train_len
@@ -55,9 +60,9 @@ class TrainOREvaluate(object):
 
 
 
-        num_workers=16
-        batch_size=16
-        data_loader = torch.utils.data.DataLoader(
+        num_workers=4
+        batch_size=4
+        train_loader = torch.utils.data.DataLoader(
             train_set, batch_size=batch_size, shuffle=True, num_workers=num_workers,
             collate_fn=utils.collate_fn)
         writer.add_scalar("Num_workers",num_workers)
@@ -81,8 +86,6 @@ class TrainOREvaluate(object):
         # replace the pre-trained final layer classification and box regression layers with a new one
         model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
 
-        torch.save(model.state_dict(),  '../../models/sheep_vanilla.pth')
-
         model.to(device)
 
 
@@ -97,7 +100,7 @@ class TrainOREvaluate(object):
         metric_collector = []
 
 
-        for epoch in range(self.num_epocs):
+        for epoch in range(self.num_epochs):
             start = time.time()
             # train for one epoch, printing every 5 iterations
             metric_logger = train_one_epoch(model, optimizer, train_loader, device, epoch, print_freq=5)
@@ -109,8 +112,10 @@ class TrainOREvaluate(object):
             # update the learning rate
             lr_scheduler.step()
             # Evaluate with validation dataset
-            evaluate(model, validation_loader, device=device)
+            evaluation_result= evaluate(model, validation_loader, device=device)
             # save checlpoint
+            test_accuracy=evaluation_result.coco_eval.get('bbox').stats[0]
+            writer.add_scalar('loss/test',test_accuracy,epoch)
             end = time.time()
             
             writer.add_scalar('time/Time_pr_epoch', end-start,epoch)
@@ -123,7 +128,7 @@ if __name__ == '__main__':
                         default=0.005,
                         type=float)
 
-    parser.add_argument('-num_epocs',
+    parser.add_argument('-num_epochs',
                         default=8,
                         type=int)
     parser.add_argument('-dataset',
