@@ -19,7 +19,7 @@ env = Environment.from_pip_requirements('env', '/home/azureuser/cloudfiles/code/
 # Create a script config
 script_config = ScriptRunConfig(source_directory=experiment_folder,
                                 script='/home/azureuser/cloudfiles/code/Users/s202581/MLOP_final_project/src/models/train_model.py',
-                                arguments=['-dataset','normal','-batch_size',4],
+                                arguments=['-dataset','augmented','-batch_size',4, '-no_epochs', 1],
                                 compute_target=target,
                                 environment=env)
 
