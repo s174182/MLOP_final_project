@@ -35,17 +35,19 @@ class TrainOREvaluate(object):
 
     def suggest_hyperparameters(trial):
         # Learning rate on a logarithmic scale
-        lr = trial.suggest_float("lr", 1e-6, 1e-2, log=True)
+        lr = trial.suggest_float("lr", 1e-5, 1e-2, log=True)
         # Batch size  in the range from 2 to 6 with step size 1
         batch_size = int(trial.suggest_float("batch_size", 1, 4, step=1))
+        optimizer_name = trial.suggest_categorical("optimizer_name", ["SGD", "Adam"])
 
-        return lr, batch_size
+        return lr, batch_size, optimizer_name
 
     def train(self, trial):
         print("Training day and night")
 
-        device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-        lr, batch_size = TrainOREvaluate.suggest_hyperparameters(trial)
+       # device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+        device = 'cpu'
+        lr, batch_size, optimizer_name = TrainOREvaluate.suggest_hyperparameters(trial)
 
         print('Training on :', device)
 
@@ -88,9 +90,13 @@ class TrainOREvaluate(object):
 
         model.to(device)
 
+        # Pick an optimizer based on Optuna's parameter suggestion
         params = [p for p in model.parameters() if p.requires_grad]
-        optimizer = torch.optim.SGD(params, lr=lr,
-                                    momentum=0.9, weight_decay=0.0005)
+        if optimizer_name == "Adam":
+            optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+        if optimizer_name == "SGD":
+            optimizer = torch.optim.SGD(params, lr=lr,
+                                        momentum=0.9, weight_decay=0.0005)
 
         lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer,
                                                        step_size=3,
@@ -168,10 +174,10 @@ if __name__ == '__main__':
     study.optimize(trainObj.train, n_trials=20)
 
     # Initialize the best_val_loss value
-    mean_AP_accuracy = best_val_loss = float('Inf')
+   # mean_AP_accuracy = best_val_loss = float('Inf')
 
-    if mean_AP_accuracy <= best_val_loss:
-        best_val_loss = mean_AP_accuracy
+   # if mean_AP_accuracy <= best_val_loss:
+   #     best_val_loss = mean_AP_accuracy
 
     # Print optuna study statistics
     print("\n++++++++++++++++++++++++++++++++++\n")
@@ -188,3 +194,7 @@ if __name__ == '__main__':
     lr = 0
     for key, value in trial.params.items():
         print("    {}: {}".format(key, value))
+
+    optuna.visualization.plot_optimization_history(study)
+    optuna.visualization.plot_param_importances(study)
+    optuna.visualization.plot_edf(study)
