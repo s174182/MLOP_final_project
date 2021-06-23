@@ -13,17 +13,17 @@ jobs:
         run: pip install black
       - name: Run black --check .
         run: black --check .
-      - name: If needed, commit black changes to the pull request
-        if: failure()
-        run: |
-          black .
-          git config --global user.name 'autoblack'
-          git config --global user.email 'blabla@dummy.com'
-          echo 'config'
-          git remote set-url origin https://x-access-token:${{ secrets.Klaras_access }}@github.com/s174182/MLOP_final_project
-          git checkout -b git_action_changes
-          echo 'on new branch now'
-          git commit -am "fixup: Format Python code with Black"
-          echo 'commited'
-          git push 
-          git branch -d git_action_changes
+#      - name: If needed, commit black changes to the pull request
+#        if: failure()
+#        run: |
+#          black .
+#          git config --global user.name 'autoblack'
+#          git config --global user.email 'blabla@dummy.com'
+#          echo 'config'
+#          git remote set-url origin https://x-access-token:${{ secrets.Klaras_access }}@github.com/s174182/MLOP_final_project
+#          git checkout -b git_action_changes
+#          echo 'on new branch now'
+#          git commit -am "fixup: Format Python code with Black"
+#          echo 'commited'
+#          git push 
+#          git branch -d git_action_changes
