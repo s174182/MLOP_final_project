@@ -3,16 +3,20 @@ import numpy as np
 import pytest
 
 
-datapath='../data/processed/train/'
+#### Run this test with or with out command line parameter --database=augmented 
+#### If not set the test is performed on the original dataset
 
-annotation_list=torch.load(datapath + 'annotation_list.pt')
-images_list=torch.load(datapath + 'images_list.pt')
+
+datapath='../../data/processed/train/'
+#annotation_list=torch.load(datapath + 'annotation_list.pt')
+#images_list=torch.load(datapath + 'images_list.pt')
+
 
 
 class TestClass:  
     '''
     def paths(self, aug_opt):
-        datapath='../data/processed/train/'
+        datapath='../../data/processed/train/'
         if aug_opt: 
             annotation_list=torch.load(datapath + 'annotation_list_augmented.pt')
             images_list=torch.load(datapath + 'images_list_augmented.pt')
@@ -20,11 +24,36 @@ class TestClass:
             annotation_list=torch.load(datapath + 'annotation_list.pt')
             images_list=torch.load(datapath + 'images_list.pt')
         return annotation_list, images_list
-    
     @pytest.mark.parametrize("augmentation",aug_opt)
+    
+    
     '''
     
-    def test_images(self):
+    @pytest.fixture()
+    def database(self, pytestconfig):
+        return pytestconfig.getoption("database")
+
+    def test_print_name(self, database):
+        print(f"\ncommand line param (database): {database}")
+    
+    @pytest.fixture()
+    def dataset(self, database):
+        dataset_opt=database
+        if dataset_opt == 'augmented':
+            annotation_list=torch.load(datapath + 'annotation_list_augmented.pt')
+            images_list=torch.load(datapath + 'images_list_augmented.pt')
+        else:
+            annotation_list=torch.load(datapath + 'annotation_list.pt')
+            images_list=torch.load(datapath + 'images_list.pt')
+        return annotation_list, images_list  
+ 
+    
+    def test_print_dataset(self, dataset):
+        annotation_list, images_list = dataset
+        assert(len(annotation_list))
+    
+    def test_images(self, dataset):
+        annotation_list, images_list = dataset
 #        annotation_list, images_list=TestClass.paths(augmentation)
         length_images=len(images_list)
         
@@ -36,7 +65,8 @@ class TestClass:
             assert ((images_list[j].size()[0]==1) & (images_list[j].size()[1]==3))
         
         
-    def test_annotations(self):   
+    def test_annotations(self, dataset):   
+        annotation_list, images_list = dataset
 #        annotation_list, images_list=TestClass.paths(augmentation)
         length_annotations = len(annotation_list)
         

@@ -69,11 +69,12 @@ class UseModel(object):
         pred_score = list(pred[0]['scores'].detach().numpy())
         pred_t = [pred_score.index(thing) for thing in pred_score if thing > threshold]
         if len(pred_t) == 0:
-            print(f'Selected threshold of {threshold} is too high. Try lowering it')
-            exit(1)
-        pred_t = pred_t[-1]
-        pred_boxes = pred_boxes[:pred_t + 1]
-        pred_class = pred_class[:pred_t + 1]
+            pred_boxes = []
+            pred_class = []
+        else:
+            pred_t = pred_t[-1]
+            pred_boxes = pred_boxes[:pred_t + 1]
+            pred_class = pred_class[:pred_t + 1]
 
         self.object_detection_api(pred_boxes, pred_class, threshold=threshold, rect_th=3, text_size=3, text_th=3)
 

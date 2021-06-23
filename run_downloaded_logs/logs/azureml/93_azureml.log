@@ -1,0 +1,299 @@
+2021-06-20 17:48:02,212|azureml|DEBUG|Inputs:: kwargs: {'OutputCollection': True, 'EnableMLflowTracking': True, 'snapshotProject': True, 'only_in_process_features': True, 'skip_track_logs_dir': True}, track_folders: None, deny_list: None, directories_to_watch: []
+2021-06-20 17:48:02,213|azureml.history._tracking.PythonWorkingDirectory|DEBUG|Execution target type: batchai
+2021-06-20 17:48:02,224|azureml.history._tracking.PythonWorkingDirectory|DEBUG|Failed to import pyspark with error: No module named 'pyspark'
+2021-06-20 17:48:02,224|azureml.history._tracking.PythonWorkingDirectory.workingdir|DEBUG|Pinning working directory for filesystems: ['pyfs']
+2021-06-20 17:48:02,429|azureml.core|WARNING|Failure while loading azureml_run_type_providers. Failed to load entrypoint azureml.scriptrun = azureml.core.script_run:ScriptRun._from_run_dto with exception (ruamel.yaml 0.17.9 (/azureml-envs/azureml_1f2d3f199716b8480f8ef1f911c168d8/lib/python3.6/site-packages), Requirement.parse('ruamel.yaml<0.17.5,>=0.15.35')).
+2021-06-20 17:48:02,430|azureml.core.run|DEBUG|Identity in use is not set. Falling back to using AMLToken
+2021-06-20 17:48:02,430|azureml.core.run|DEBUG|Using AMLToken auth for remote run
+2021-06-20 17:48:02,432|azureml.core.authentication.TokenRefresherDaemon|DEBUG|Starting daemon and triggering first instance
+2021-06-20 17:48:02,439|azureml._restclient.clientbase|INFO|Created a worker pool for first use
+2021-06-20 17:48:02,439|azureml.core.authentication|DEBUG|Time to expire 1814343.560196 seconds
+2021-06-20 17:48:02,439|azureml._restclient.service_context|DEBUG|Created a static thread pool for ServiceContext class
+2021-06-20 17:48:02,440|azureml._restclient.clientbase|DEBUG|ClientBase: Calling get with url None
+2021-06-20 17:48:02,470|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:02,470|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:02,471|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:02,471|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:02,471|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:02,471|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:02,471|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:02,587|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.RunClient.get_by_exp_id-async:False|DEBUG|[START]
+2021-06-20 17:48:02,587|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.RunClient|DEBUG|ClientBase: Calling get_by_exp_id with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experimentids/{experimentId}/runs/{runId}
+2021-06-20 17:48:02,645|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.RunClient.get_by_exp_id-async:False|DEBUG|[STOP]
+2021-06-20 17:48:02,646|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2|DEBUG|Constructing run from dto. type: azureml.scriptrun, source: None, props: {'_azureml.ComputeTargetType': 'amlcompute', 'ContentSnapshotId': '94becc38-b5ea-4943-9d2c-56365c27d921', 'azureml.git.repository_uri': 'https://github.com/s174182/MLOP_final_project', 'mlflow.source.git.repoURL': 'https://github.com/s174182/MLOP_final_project', 'azureml.git.branch': 'azure', 'mlflow.source.git.branch': 'azure', 'azureml.git.commit': 'dd323553886006147500c70efec9de424f2e87b0', 'mlflow.source.git.commit': 'dd323553886006147500c70efec9de424f2e87b0', 'azureml.git.dirty': 'True', 'ProcessInfoFile': 'azureml-logs/process_info.json', 'ProcessStatusFile': 'azureml-logs/process_status.json'}
+2021-06-20 17:48:02,646|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunContextManager|DEBUG|Valid logs dir, setting up content loader
+2021-06-20 17:48:02,647|azureml|WARNING|Could not import azureml.mlflow or azureml.contrib.mlflow mlflow APIs will not run against AzureML services.  Add azureml-mlflow as a conda dependency for the run if this behavior is desired
+2021-06-20 17:48:02,647|azureml.WorkerPool|DEBUG|[START]
+2021-06-20 17:48:02,647|azureml.SendRunKillSignal|DEBUG|[START]
+2021-06-20 17:48:02,647|azureml.RunStatusContext|DEBUG|[START]
+2021-06-20 17:48:02,647|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunContextManager.RunStatusContext|DEBUG|[START]
+2021-06-20 17:48:02,647|azureml.MetricsClient|DEBUG|[START]
+2021-06-20 17:48:02,647|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|[START]
+2021-06-20 17:48:02,647|azureml.WorkingDirectoryCM|DEBUG|[START]
+2021-06-20 17:48:02,647|azureml.history._tracking.PythonWorkingDirectory.workingdir|DEBUG|[START]
+2021-06-20 17:48:02,647|azureml.history._tracking.PythonWorkingDirectory|INFO|Current working dir: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624211181_9205ffa2/mounts/workspaceblobstore/azureml/train_test_sheep_1624211181_9205ffa2
+2021-06-20 17:48:02,647|azureml.history._tracking.PythonWorkingDirectory.workingdir|DEBUG|Calling pyfs
+2021-06-20 17:48:02,648|azureml.history._tracking.PythonWorkingDirectory.workingdir|DEBUG|Storing working dir for pyfs as /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624211181_9205ffa2/mounts/workspaceblobstore/azureml/train_test_sheep_1624211181_9205ffa2
+2021-06-20 17:48:04,268|azureml.core.run|DEBUG|Identity in use is not set. Falling back to using AMLToken
+2021-06-20 17:48:04,268|azureml.core.run|DEBUG|Using AMLToken auth for remote run
+2021-06-20 17:48:04,268|azureml._restclient.service_context|DEBUG|Access an existing static threadpool for ServiceContext class
+2021-06-20 17:48:04,268|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:04,269|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:04,269|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:04,269|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:04,270|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:04,270|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:04,270|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-20 17:48:04,300|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.RunClient.get_by_exp_id-async:False|DEBUG|[START]
+2021-06-20 17:48:04,300|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.RunClient|DEBUG|ClientBase: Calling get_by_exp_id with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experimentids/{experimentId}/runs/{runId}
+2021-06-20 17:48:04,347|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.RunClient.get_by_exp_id-async:False|DEBUG|[STOP]
+2021-06-20 17:48:04,347|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2|DEBUG|Constructing run from dto. type: azureml.scriptrun, source: None, props: {'_azureml.ComputeTargetType': 'amlcompute', 'ContentSnapshotId': '94becc38-b5ea-4943-9d2c-56365c27d921', 'azureml.git.repository_uri': 'https://github.com/s174182/MLOP_final_project', 'mlflow.source.git.repoURL': 'https://github.com/s174182/MLOP_final_project', 'azureml.git.branch': 'azure', 'mlflow.source.git.branch': 'azure', 'azureml.git.commit': 'dd323553886006147500c70efec9de424f2e87b0', 'mlflow.source.git.commit': 'dd323553886006147500c70efec9de424f2e87b0', 'azureml.git.dirty': 'True', 'ProcessInfoFile': 'azureml-logs/process_info.json', 'ProcessStatusFile': 'azureml-logs/process_status.json'}
+2021-06-20 17:48:04,348|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunContextManager|DEBUG|Valid logs dir, setting up content loader
+2021-06-20 17:48:04,348|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Overrides: Max batch size: 50, batch cushion: 5, Interval: 1.
+2021-06-20 17:48:04,348|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.PostMetricsBatchV2Daemon|DEBUG|Starting daemon and triggering first instance
+2021-06-20 17:48:04,348|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Used <class 'azureml._common.async_utils.batch_task_queue.BatchTaskQueue'> for use_batch=True.
+2021-06-20 17:48:05,349|azureml.BatchTaskQueueAdd_1_Batches|DEBUG|[Start]
+2021-06-20 17:48:05,349|azureml.BatchTaskQueueAdd_1_Batches.WorkerPool|DEBUG|submitting future: _handle_batch
+2021-06-20 17:48:05,351|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2|DEBUG|Batch size 4.
+2021-06-20 17:48:05,351|azureml.BatchTaskQueueAdd_1_Batches.0__handle_batch|DEBUG|Using basic handler - no exception handling
+2021-06-20 17:48:05,351|azureml._restclient.service_context.WorkerPool|DEBUG|submitting future: _log_batch_v2
+2021-06-20 17:48:05,351|azureml.BatchTaskQueueAdd_1_Batches|DEBUG|Adding task 0__handle_batch to queue of approximate size: 0
+2021-06-20 17:48:05,352|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Metrics Client: _log_batch_v2 is calling post_run_metrics posting 4 values.
+2021-06-20 17:48:05,352|azureml.BatchTaskQueueAdd_1_Batches|DEBUG|[Stop] - waiting default timeout
+2021-06-20 17:48:05,353|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.0__log_batch_v2|DEBUG|Using basic handler - no exception handling
+2021-06-20 17:48:05,353|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient._post_run_metrics_log_failed_validations-async:False|DEBUG|[START]
+2021-06-20 17:48:05,353|azureml.BatchTaskQueueAdd_1_Batches.WaitFlushSource:BatchTaskQueueAdd_1_Batches|DEBUG|[START]
+2021-06-20 17:48:05,353|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2|DEBUG|Adding task 0__log_batch_v2 to queue of approximate size: 0
+2021-06-20 17:48:05,354|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|ClientBase: Calling _post_run_metrics_log_failed_validations with url None
+2021-06-20 17:48:05,354|azureml.BatchTaskQueueAdd_1_Batches.WaitFlushSource:BatchTaskQueueAdd_1_Batches|DEBUG|Overriding default flush timeout from None to 120
+2021-06-20 17:48:05,358|azureml.BatchTaskQueueAdd_1_Batches.WaitFlushSource:BatchTaskQueueAdd_1_Batches|DEBUG|Waiting 120 seconds on tasks: [AsyncTask(0__handle_batch)].
+2021-06-20 17:48:05,359|azureml.BatchTaskQueueAdd_1_Batches.0__handle_batch.WaitingTask|DEBUG|[START]
+2021-06-20 17:48:05,359|azureml.BatchTaskQueueAdd_1_Batches.0__handle_batch.WaitingTask|DEBUG|Awaiter is BatchTaskQueueAdd_1_Batches
+2021-06-20 17:48:05,359|azureml.BatchTaskQueueAdd_1_Batches.0__handle_batch.WaitingTask|DEBUG|[STOP]
+2021-06-20 17:48:05,359|azureml.BatchTaskQueueAdd_1_Batches|DEBUG|
+2021-06-20 17:48:05,359|azureml.BatchTaskQueueAdd_1_Batches.WaitFlushSource:BatchTaskQueueAdd_1_Batches|DEBUG|[STOP]
+2021-06-20 17:48:05,593|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient._post_run_metrics_log_failed_validations-async:False|DEBUG|[STOP]
+2021-06-20 17:48:06,769|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient|DEBUG|Called upload_artifact
+2021-06-20 17:48:06,769|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient|DEBUG|Uploading path artifact
+2021-06-20 17:48:06,770|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.batch_create_empty_artifacts-async:False|DEBUG|[START]
+2021-06-20 17:48:06,770|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient|DEBUG|ClientBase: Calling batch_create_empty_artifacts with url /artifact/v2.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/artifacts/batch/metadata/{origin}/{container}
+2021-06-20 17:48:06,969|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.batch_create_empty_artifacts-async:False|DEBUG|[STOP]
+2021-06-20 17:48:06,969|azureml._restclient.clientbase|DEBUG|ClientBase: Calling create_blob_from_stream with url None
+2021-06-20 17:48:08,417|azureml._file_utils.upload|DEBUG|Uploaded blob ExperimentRun/dcid.train_test_sheep_1624211181_9205ffa2/outputs/sheep_vanilla.pth with size 165721587, file size 165721587.
+2021-06-20 17:48:08,418|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient|DEBUG|Fetching files for prefix in ExperimentRun, dcid.train_test_sheep_1624211181_9205ffa2, outputs/sheep_vanilla.pth
+2021-06-20 17:48:08,418|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix-async:True|DEBUG|[START]
+2021-06-20 17:48:08,418|azureml._restclient.service_context.WorkerPool|DEBUG|submitting future: _execute_with_base_arguments
+2021-06-20 17:48:08,419|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient|DEBUG|ClientBase: Calling list_sas_by_prefix with url /artifact/v2.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/artifacts/prefix/contentinfo/{origin}/{container}/{path}
+2021-06-20 17:48:08,419|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix|DEBUG|Using basic handler - no exception handling
+2021-06-20 17:48:08,422|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix-async:True|DEBUG|[STOP]
+2021-06-20 17:48:08,422|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix.WaitingTask|DEBUG|[START]
+2021-06-20 17:48:08,422|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix.WaitingTask|DEBUG|Awaiter is ApiPagination
+2021-06-20 17:48:08,566|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix.WaitingTask|DEBUG|[STOP]
+2021-06-20 17:48:08,566|azureml._restclient.clientbase|DEBUG|Found continuation_token field in DTO
+2021-06-20 17:48:08,566|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.AssetsClient.create-async:False|DEBUG|[START]
+2021-06-20 17:48:08,566|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.AssetsClient|DEBUG|ClientBase: Calling create with url /modelmanagement/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/assets
+2021-06-20 17:48:08,662|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.AssetsClient.create-async:False|DEBUG|[STOP]
+2021-06-20 17:48:08,670|azureml.ModelsClient.register-async:False|DEBUG|[START]
+2021-06-20 17:48:08,670|azureml.ModelsClient|DEBUG|ClientBase: Calling register with url /modelmanagement/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models
+2021-06-20 17:48:08,904|azureml.ModelsClient.register-async:False|DEBUG|[STOP]
+2021-06-20 17:48:08,905|azureml.WorkspaceClient.get-async:False|DEBUG|[START]
+2021-06-20 17:48:08,905|azureml.WorkspaceClient|DEBUG|ClientBase: Calling get with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}
+2021-06-20 17:48:08,954|azureml.WorkspaceClient.get-async:False|DEBUG|[STOP]
+2021-06-20 17:48:08,954|azureml.RunClient.get_by_exp_id-async:False|DEBUG|[START]
+2021-06-20 17:48:08,954|azureml.RunClient|DEBUG|ClientBase: Calling get_by_exp_id with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experimentids/{experimentId}/runs/{runId}
+2021-06-20 17:48:09,005|azureml.RunClient.get_by_exp_id-async:False|DEBUG|[STOP]
+2021-06-20 17:48:09,005|azureml.core.run|DEBUG|Available factories for run types {}
+2021-06-20 17:48:09,005|azureml.core.run|DEBUG|Initializing Run train_test_sheep_1624211181_9205ffa2 from type azureml.scriptrun
+2021-06-20 17:48:09,006|azureml.Run#train_test_sheep_1624211181_9205ffa2|DEBUG|Constructing run from dto. type: azureml.scriptrun, source: None, props: {'_azureml.ComputeTargetType': 'amlcompute', 'ContentSnapshotId': '94becc38-b5ea-4943-9d2c-56365c27d921', 'azureml.git.repository_uri': 'https://github.com/s174182/MLOP_final_project', 'mlflow.source.git.repoURL': 'https://github.com/s174182/MLOP_final_project', 'azureml.git.branch': 'azure', 'mlflow.source.git.branch': 'azure', 'azureml.git.commit': 'dd323553886006147500c70efec9de424f2e87b0', 'mlflow.source.git.commit': 'dd323553886006147500c70efec9de424f2e87b0', 'azureml.git.dirty': 'True', 'ProcessInfoFile': 'azureml-logs/process_info.json', 'ProcessStatusFile': 'azureml-logs/process_status.json'}
+2021-06-20 17:48:09,006|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunContextManager|DEBUG|Valid logs dir, setting up content loader
+2021-06-20 17:48:32,433|azureml.core.authentication|DEBUG|Time to expire 1814313.566963 seconds
+2021-06-20 17:49:02,433|azureml.core.authentication|DEBUG|Time to expire 1814283.566898 seconds
+2021-06-20 17:49:32,433|azureml.core.authentication|DEBUG|Time to expire 1814253.566671 seconds
+2021-06-20 17:50:02,433|azureml.core.authentication|DEBUG|Time to expire 1814223.566468 seconds
+2021-06-20 17:50:32,433|azureml.core.authentication|DEBUG|Time to expire 1814193.566264 seconds
+2021-06-20 17:51:02,434|azureml.core.authentication|DEBUG|Time to expire 1814163.565773 seconds
+2021-06-20 17:51:32,437|azureml.core.authentication|DEBUG|Time to expire 1814133.562599 seconds
+2021-06-20 17:52:02,437|azureml.core.authentication|DEBUG|Time to expire 1814103.562415 seconds
+2021-06-20 17:52:32,437|azureml.core.authentication|DEBUG|Time to expire 1814073.562127 seconds
+2021-06-20 17:53:02,438|azureml.core.authentication|DEBUG|Time to expire 1814043.561822 seconds
+2021-06-20 17:53:32,438|azureml.core.authentication|DEBUG|Time to expire 1814013.561544 seconds
+2021-06-20 17:54:02,439|azureml.core.authentication|DEBUG|Time to expire 1813983.560517 seconds
+2021-06-20 17:54:32,439|azureml.core.authentication|DEBUG|Time to expire 1813953.560498 seconds
+2021-06-20 17:55:02,439|azureml.core.authentication|DEBUG|Time to expire 1813923.560225 seconds
+2021-06-20 17:55:32,440|azureml.core.authentication|DEBUG|Time to expire 1813893.559919 seconds
+2021-06-20 17:56:02,440|azureml.core.authentication|DEBUG|Time to expire 1813863.559673 seconds
+2021-06-20 17:56:32,441|azureml.core.authentication|DEBUG|Time to expire 1813833.559018 seconds
+2021-06-20 17:57:02,441|azureml.core.authentication|DEBUG|Time to expire 1813803.55903 seconds
+2021-06-20 17:57:32,441|azureml.core.authentication|DEBUG|Time to expire 1813773.558731 seconds
+2021-06-20 17:58:02,441|azureml.core.authentication|DEBUG|Time to expire 1813743.55843 seconds
+2021-06-20 17:58:32,441|azureml.core.authentication|DEBUG|Time to expire 1813713.558182 seconds
+2021-06-20 17:59:02,442|azureml.core.authentication|DEBUG|Time to expire 1813683.557884 seconds
+2021-06-20 17:59:32,442|azureml.core.authentication|DEBUG|Time to expire 1813653.557263 seconds
+2021-06-20 18:00:02,442|azureml.core.authentication|DEBUG|Time to expire 1813623.557209 seconds
+2021-06-20 18:00:32,443|azureml.core.authentication|DEBUG|Time to expire 1813593.556799 seconds
+2021-06-20 18:01:02,443|azureml.core.authentication|DEBUG|Time to expire 1813563.556512 seconds
+2021-06-20 18:01:32,444|azureml.core.authentication|DEBUG|Time to expire 1813533.55605 seconds
+2021-06-20 18:02:02,444|azureml.core.authentication|DEBUG|Time to expire 1813503.555434 seconds
+2021-06-20 18:02:06,601|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient|DEBUG|Called upload_artifact
+2021-06-20 18:02:06,601|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient|DEBUG|Uploading path artifact
+2021-06-20 18:02:06,602|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.batch_create_empty_artifacts-async:False|DEBUG|[START]
+2021-06-20 18:02:06,602|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient|DEBUG|ClientBase: Calling batch_create_empty_artifacts with url /artifact/v2.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/artifacts/batch/metadata/{origin}/{container}
+2021-06-20 18:02:06,726|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.batch_create_empty_artifacts-async:False|DEBUG|[STOP]
+2021-06-20 18:02:06,726|azureml._restclient.clientbase|DEBUG|ClientBase: Calling create_blob_from_stream with url None
+2021-06-20 18:02:08,199|azureml._file_utils.upload|DEBUG|Uploaded blob ExperimentRun/dcid.train_test_sheep_1624211181_9205ffa2/outputs/sheep_train_normal.pth with size 165725683, file size 165725683.
+2021-06-20 18:02:08,199|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient|DEBUG|Fetching files for prefix in ExperimentRun, dcid.train_test_sheep_1624211181_9205ffa2, outputs/sheep_train_normal.pth
+2021-06-20 18:02:08,200|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix-async:True|DEBUG|[START]
+2021-06-20 18:02:08,200|azureml._restclient.service_context.WorkerPool|DEBUG|submitting future: _execute_with_base_arguments
+2021-06-20 18:02:08,200|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient|DEBUG|ClientBase: Calling list_sas_by_prefix with url /artifact/v2.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/artifacts/prefix/contentinfo/{origin}/{container}/{path}
+2021-06-20 18:02:08,201|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix|DEBUG|Using basic handler - no exception handling
+2021-06-20 18:02:08,201|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix-async:True|DEBUG|[STOP]
+2021-06-20 18:02:08,203|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix.WaitingTask|DEBUG|[START]
+2021-06-20 18:02:08,204|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix.WaitingTask|DEBUG|Awaiter is ApiPagination
+2021-06-20 18:02:08,377|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.ArtifactsClient.list_sas_by_prefix.WaitingTask|DEBUG|[STOP]
+2021-06-20 18:02:08,377|azureml._restclient.clientbase|DEBUG|Found continuation_token field in DTO
+2021-06-20 18:02:08,377|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.AssetsClient.create-async:False|DEBUG|[START]
+2021-06-20 18:02:08,377|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.AssetsClient|DEBUG|ClientBase: Calling create with url /modelmanagement/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/assets
+2021-06-20 18:02:08,465|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.AssetsClient.create-async:False|DEBUG|[STOP]
+2021-06-20 18:02:08,465|azureml.ModelsClient.register-async:False|DEBUG|[START]
+2021-06-20 18:02:08,465|azureml.ModelsClient|DEBUG|ClientBase: Calling register with url /modelmanagement/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models
+2021-06-20 18:02:08,747|azureml.ModelsClient.register-async:False|DEBUG|[STOP]
+2021-06-20 18:02:08,748|azureml.WorkspaceClient.get-async:False|DEBUG|[START]
+2021-06-20 18:02:08,748|azureml.WorkspaceClient|DEBUG|ClientBase: Calling get with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}
+2021-06-20 18:02:08,825|azureml.WorkspaceClient.get-async:False|DEBUG|[STOP]
+2021-06-20 18:02:08,826|azureml.RunClient.get_by_exp_id-async:False|DEBUG|[START]
+2021-06-20 18:02:08,826|azureml.RunClient|DEBUG|ClientBase: Calling get_by_exp_id with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experimentids/{experimentId}/runs/{runId}
+2021-06-20 18:02:08,888|azureml.RunClient.get_by_exp_id-async:False|DEBUG|[STOP]
+2021-06-20 18:02:08,888|azureml.core.run|DEBUG|Available factories for run types {}
+2021-06-20 18:02:08,888|azureml.core.run|DEBUG|Initializing Run train_test_sheep_1624211181_9205ffa2 from type azureml.scriptrun
+2021-06-20 18:02:08,890|azureml.Run#train_test_sheep_1624211181_9205ffa2|DEBUG|Constructing run from dto. type: azureml.scriptrun, source: None, props: {'_azureml.ComputeTargetType': 'amlcompute', 'ContentSnapshotId': '94becc38-b5ea-4943-9d2c-56365c27d921', 'azureml.git.repository_uri': 'https://github.com/s174182/MLOP_final_project', 'mlflow.source.git.repoURL': 'https://github.com/s174182/MLOP_final_project', 'azureml.git.branch': 'azure', 'mlflow.source.git.branch': 'azure', 'azureml.git.commit': 'dd323553886006147500c70efec9de424f2e87b0', 'mlflow.source.git.commit': 'dd323553886006147500c70efec9de424f2e87b0', 'azureml.git.dirty': 'True', 'ProcessInfoFile': 'azureml-logs/process_info.json', 'ProcessStatusFile': 'azureml-logs/process_status.json'}
+2021-06-20 18:02:08,890|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunContextManager|DEBUG|Valid logs dir, setting up content loader
+2021-06-20 18:02:32,445|azureml.core.authentication|DEBUG|Time to expire 1813473.555028 seconds
+2021-06-20 18:03:02,445|azureml.core.authentication|DEBUG|Time to expire 1813443.554941 seconds
+2021-06-20 18:03:32,445|azureml.core.authentication|DEBUG|Time to expire 1813413.554627 seconds
+2021-06-20 18:03:32,891|azureml.history._tracking.PythonWorkingDirectory.workingdir|DEBUG|Calling pyfs
+2021-06-20 18:03:32,891|azureml.history._tracking.PythonWorkingDirectory|INFO|Current working dir: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624211181_9205ffa2/mounts/workspaceblobstore/azureml/train_test_sheep_1624211181_9205ffa2
+2021-06-20 18:03:32,891|azureml.history._tracking.PythonWorkingDirectory.workingdir|DEBUG|Reverting working dir from /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624211181_9205ffa2/mounts/workspaceblobstore/azureml/train_test_sheep_1624211181_9205ffa2 to /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624211181_9205ffa2/mounts/workspaceblobstore/azureml/train_test_sheep_1624211181_9205ffa2
+2021-06-20 18:03:32,891|azureml.history._tracking.PythonWorkingDirectory|INFO|Working dir is already updated /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624211181_9205ffa2/mounts/workspaceblobstore/azureml/train_test_sheep_1624211181_9205ffa2
+2021-06-20 18:03:32,891|azureml.history._tracking.PythonWorkingDirectory.workingdir|DEBUG|[STOP]
+2021-06-20 18:03:32,891|azureml.WorkingDirectoryCM|DEBUG|[STOP]
+2021-06-20 18:03:32,892|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[START]
+2021-06-20 18:03:32,892|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Overrides: Max batch size: 50, batch cushion: 5, Interval: 1.
+2021-06-20 18:03:32,892|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.PostMetricsBatchDaemon|DEBUG|Starting daemon and triggering first instance
+2021-06-20 18:03:32,892|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Used <class 'azureml._common.async_utils.batch_task_queue.BatchTaskQueue'> for use_batch=True.
+2021-06-20 18:03:32,892|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:32,892|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|flush timeout 120 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:32,892|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|Waiting 120 seconds on tasks: [].
+2021-06-20 18:03:32,893|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch|DEBUG|
+2021-06-20 18:03:32,893|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:32,893|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Overrides: Max batch size: 50, batch cushion: 5, Interval: 1.
+2021-06-20 18:03:32,893|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.PostMetricsBatchV2Daemon|DEBUG|Starting daemon and triggering first instance
+2021-06-20 18:03:32,893|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Used <class 'azureml._common.async_utils.batch_task_queue.BatchTaskQueue'> for use_batch=True.
+2021-06-20 18:03:32,893|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:32,893|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|flush timeout 120 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:32,893|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|Waiting 120 seconds on tasks: [].
+2021-06-20 18:03:32,894|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2|DEBUG|
+2021-06-20 18:03:32,894|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:32,894|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:32,894|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[START]
+2021-06-20 18:03:32,894|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|ClientBase: Calling wait_on_ingest with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs/{runId}/metricsingest/wait
+2021-06-20 18:03:32,998|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[STOP]
+2021-06-20 18:03:32,999|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:32,999|azureml.MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:32,999|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[START]
+2021-06-20 18:03:32,999|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:32,999|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|flush timeout 300 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:32,999|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|Waiting 300 seconds on tasks: [].
+2021-06-20 18:03:32,999|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch|DEBUG|
+2021-06-20 18:03:32,999|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,000|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,000|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|flush timeout 300 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:33,000|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|Waiting 300 seconds on tasks: [].
+2021-06-20 18:03:33,000|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2|DEBUG|
+2021-06-20 18:03:33,000|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,000|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,000|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[START]
+2021-06-20 18:03:33,000|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|ClientBase: Calling wait_on_ingest with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs/{runId}/metricsingest/wait
+2021-06-20 18:03:33,059|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[STOP]
+2021-06-20 18:03:33,060|azureml.RunStatusContext|DEBUG|[STOP]
+2021-06-20 18:03:33,060|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,060|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,060|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|flush timeout 900.0 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:33,060|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|Waiting 900.0 seconds on tasks: [].
+2021-06-20 18:03:33,060|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch|DEBUG|
+2021-06-20 18:03:33,060|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,060|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,061|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|flush timeout 900.0 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:33,061|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|Waiting 900.0 seconds on tasks: [].
+2021-06-20 18:03:33,061|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2|DEBUG|
+2021-06-20 18:03:33,061|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,061|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,061|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[START]
+2021-06-20 18:03:33,061|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|ClientBase: Calling wait_on_ingest with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs/{runId}/metricsingest/wait
+2021-06-20 18:03:33,127|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[STOP]
+2021-06-20 18:03:33,127|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,127|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Overrides: Max batch size: 50, batch cushion: 5, Interval: 1.
+2021-06-20 18:03:33,128|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.PostMetricsBatchDaemon|DEBUG|Starting daemon and triggering first instance
+2021-06-20 18:03:33,128|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Used <class 'azureml._common.async_utils.batch_task_queue.BatchTaskQueue'> for use_batch=True.
+2021-06-20 18:03:33,128|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,128|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|flush timeout 900.0 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:33,128|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|Waiting 900.0 seconds on tasks: [].
+2021-06-20 18:03:33,128|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch|DEBUG|
+2021-06-20 18:03:33,128|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,128|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,128|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|flush timeout 900.0 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:33,129|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|Waiting 900.0 seconds on tasks: [AsyncTask(0__log_batch_v2)].
+2021-06-20 18:03:33,129|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.0__log_batch_v2.WaitingTask|DEBUG|[START]
+2021-06-20 18:03:33,129|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.0__log_batch_v2.WaitingTask|DEBUG|Awaiter is PostMetricsBatchV2
+2021-06-20 18:03:33,129|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.0__log_batch_v2.WaitingTask|DEBUG|[STOP]
+2021-06-20 18:03:33,129|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2|DEBUG|
+2021-06-20 18:03:33,129|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,129|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,129|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[START]
+2021-06-20 18:03:33,129|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|ClientBase: Calling wait_on_ingest with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs/{runId}/metricsingest/wait
+2021-06-20 18:03:33,186|azureml._SubmittedRun#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[STOP]
+2021-06-20 18:03:33,186|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,186|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Overrides: Max batch size: 50, batch cushion: 5, Interval: 1.
+2021-06-20 18:03:33,186|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.PostMetricsBatchDaemon|DEBUG|Starting daemon and triggering first instance
+2021-06-20 18:03:33,187|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Used <class 'azureml._common.async_utils.batch_task_queue.BatchTaskQueue'> for use_batch=True.
+2021-06-20 18:03:33,187|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,187|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|flush timeout 900.0 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:33,187|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|Waiting 900.0 seconds on tasks: [].
+2021-06-20 18:03:33,187|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch|DEBUG|
+2021-06-20 18:03:33,187|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,187|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Overrides: Max batch size: 50, batch cushion: 5, Interval: 1.
+2021-06-20 18:03:33,187|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.PostMetricsBatchV2Daemon|DEBUG|Starting daemon and triggering first instance
+2021-06-20 18:03:33,188|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Used <class 'azureml._common.async_utils.batch_task_queue.BatchTaskQueue'> for use_batch=True.
+2021-06-20 18:03:33,188|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,188|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|flush timeout 900.0 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:33,188|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|Waiting 900.0 seconds on tasks: [].
+2021-06-20 18:03:33,188|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2|DEBUG|
+2021-06-20 18:03:33,189|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,189|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,189|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[START]
+2021-06-20 18:03:33,189|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|ClientBase: Calling wait_on_ingest with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs/{runId}/metricsingest/wait
+2021-06-20 18:03:33,250|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[STOP]
+2021-06-20 18:03:33,251|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,251|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Overrides: Max batch size: 50, batch cushion: 5, Interval: 1.
+2021-06-20 18:03:33,251|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.PostMetricsBatchDaemon|DEBUG|Starting daemon and triggering first instance
+2021-06-20 18:03:33,251|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Used <class 'azureml._common.async_utils.batch_task_queue.BatchTaskQueue'> for use_batch=True.
+2021-06-20 18:03:33,251|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,251|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|flush timeout 900.0 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:33,251|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|Waiting 900.0 seconds on tasks: [].
+2021-06-20 18:03:33,252|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch|DEBUG|
+2021-06-20 18:03:33,252|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatch.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,252|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Overrides: Max batch size: 50, batch cushion: 5, Interval: 1.
+2021-06-20 18:03:33,252|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.PostMetricsBatchV2Daemon|DEBUG|Starting daemon and triggering first instance
+2021-06-20 18:03:33,252|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|Used <class 'azureml._common.async_utils.batch_task_queue.BatchTaskQueue'> for use_batch=True.
+2021-06-20 18:03:33,252|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[START]
+2021-06-20 18:03:33,252|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|flush timeout 900.0 is different from task queue timeout 120, using flush timeout
+2021-06-20 18:03:33,252|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|Waiting 900.0 seconds on tasks: [].
+2021-06-20 18:03:33,252|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2|DEBUG|
+2021-06-20 18:03:33,252|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.PostMetricsBatchV2.WaitFlushSource:MetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,253|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.FlushingMetricsClient|DEBUG|[STOP]
+2021-06-20 18:03:33,253|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[START]
+2021-06-20 18:03:33,253|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient|DEBUG|ClientBase: Calling wait_on_ingest with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs/{runId}/metricsingest/wait
+2021-06-20 18:03:33,315|azureml.Run#train_test_sheep_1624211181_9205ffa2.RunHistoryFacade.MetricsClient.wait_on_ingest-async:False|DEBUG|[STOP]
+2021-06-20 18:03:33,315|azureml.SendRunKillSignal|DEBUG|[STOP]
+2021-06-20 18:03:33,315|azureml.HistoryTrackingWorkerPool.WorkerPoolShutdown|DEBUG|[START]
+2021-06-20 18:03:33,315|azureml.HistoryTrackingWorkerPool.WorkerPoolShutdown|DEBUG|[STOP]
+2021-06-20 18:03:33,315|azureml.WorkerPool|DEBUG|[STOP]

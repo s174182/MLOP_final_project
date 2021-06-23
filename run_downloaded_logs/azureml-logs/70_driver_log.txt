@@ -1,0 +1,352 @@
+2021/06/22 12:44:13 Starting App Insight Logger for task:  runTaskLet
+2021/06/22 12:44:13 Version: 3.0.01622.0001 Branch: .SourceBranch Commit: 1141612
+2021/06/22 12:44:13 Attempt 1 of http call to http://10.0.0.4:16384/sendlogstoartifacts/info
+2021/06/22 12:44:13 Attempt 1 of http call to http://10.0.0.4:16384/sendlogstoartifacts/status
+[2021-06-22T12:44:13.538349] Entering context manager injector.
+[context_manager_injector.py] Command line Options: Namespace(inject=['ProjectPythonPath:context_managers.ProjectPythonPath', 'RunHistory:context_managers.RunHistory', 'TrackUserError:context_managers.TrackUserError'], invocation=['src/models/train_model.py', '-dataset', 'augmented', '-batch_size', '4', '-num_epochs', '5'])
+Script type = None
+[2021-06-22T12:44:14.401346] Entering Run History Context Manager.
+[2021-06-22T12:44:14.850385] Current directory: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7
+[2021-06-22T12:44:14.850612] Preparing to call script [src/models/train_model.py] with arguments:['-dataset', 'augmented', '-batch_size', '4', '-num_epochs', '5']
+[2021-06-22T12:44:14.850697] After variable expansion, calling script [src/models/train_model.py] with arguments:['-dataset', 'augmented', '-batch_size', '4', '-num_epochs', '5']
+
+Training day and night
+Training on : cuda
+Downloading: "https://download.pytorch.org/models/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth" to /root/.cache/torch/hub/checkpoints/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth
+2021/06/22 12:44:18 Not exporting to RunHistory as the exporter is either stopped or there is no data.
+Stopped: false
+OriginalData: 1
+FilteredData: 0.
+  0%|          | 0.00/160M [00:00<?, ?B/s]  2%|▏         | 2.77M/160M [00:00<00:05, 29.0MB/s] 13%|█▎        | 21.1M/160M [00:00<00:01, 125MB/s]  25%|██▍       | 39.6M/160M [00:00<00:00, 156MB/s] 35%|███▌      | 56.1M/160M [00:00<00:00, 163MB/s] 45%|████▍     | 71.6M/160M [00:00<00:00, 159MB/s] 57%|█████▋    | 90.8M/160M [00:00<00:00, 173MB/s] 68%|██████▊   | 109M/160M [00:00<00:00, 179MB/s]  80%|████████  | 128M/160M [00:00<00:00, 184MB/s] 92%|█████████▏| 146M/160M [00:00<00:00, 187MB/s]100%|██████████| 160M/160M [00:00<00:00, 169MB/s]
+/azureml-envs/azureml_1f2d3f199716b8480f8ef1f911c168d8/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+Epoch: [0]  [  0/138]  eta: 0:08:05  lr: 0.000041  loss: 1.5687 (1.5687)  loss_classifier: 1.3079 (1.3079)  loss_box_reg: 0.1711 (0.1711)  loss_objectness: 0.0701 (0.0701)  loss_rpn_box_reg: 0.0196 (0.0196)  time: 3.5210  data: 0.1493  max mem: 4873
+Epoch: [0]  [  5/138]  eta: 0:07:42  lr: 0.000224  loss: 1.2987 (1.2660)  loss_classifier: 1.0996 (1.0575)  loss_box_reg: 0.1225 (0.1307)  loss_objectness: 0.0464 (0.0572)  loss_rpn_box_reg: 0.0196 (0.0206)  time: 3.4784  data: 0.0386  max mem: 7172
+Epoch: [0]  [ 10/138]  eta: 0:07:16  lr: 0.000406  loss: 0.7996 (0.8402)  loss_classifier: 0.5394 (0.6497)  loss_box_reg: 0.1330 (0.1321)  loss_objectness: 0.0333 (0.0417)  loss_rpn_box_reg: 0.0155 (0.0167)  time: 3.4125  data: 0.0249  max mem: 7172
+Epoch: [0]  [ 15/138]  eta: 0:06:53  lr: 0.000588  loss: 0.3086 (0.6564)  loss_classifier: 0.1417 (0.4824)  loss_box_reg: 0.1090 (0.1211)  loss_objectness: 0.0276 (0.0351)  loss_rpn_box_reg: 0.0155 (0.0178)  time: 3.3583  data: 0.0206  max mem: 7172
+Epoch: [0]  [ 20/138]  eta: 0:06:58  lr: 0.000771  loss: 0.3386 (0.6042)  loss_classifier: 0.1731 (0.4191)  loss_box_reg: 0.1205 (0.1289)  loss_objectness: 0.0276 (0.0387)  loss_rpn_box_reg: 0.0155 (0.0176)  time: 3.5435  data: 0.0115  max mem: 7542
+Epoch: [0]  [ 25/138]  eta: 0:06:43  lr: 0.000953  loss: 0.2942 (0.5470)  loss_classifier: 0.1347 (0.3637)  loss_box_reg: 0.1205 (0.1317)  loss_objectness: 0.0192 (0.0342)  loss_rpn_box_reg: 0.0150 (0.0174)  time: 3.6012  data: 0.0101  max mem: 7542
+Epoch: [0]  [ 30/138]  eta: 0:06:21  lr: 0.001135  loss: 0.2781 (0.4989)  loss_classifier: 0.1300 (0.3198)  loss_box_reg: 0.1215 (0.1315)  loss_objectness: 0.0144 (0.0312)  loss_rpn_box_reg: 0.0150 (0.0164)  time: 3.6030  data: 0.0106  max mem: 7542
+Epoch: [0]  [ 35/138]  eta: 0:06:00  lr: 0.001318  loss: 0.2778 (0.4625)  loss_classifier: 0.1099 (0.2878)  loss_box_reg: 0.1234 (0.1290)  loss_objectness: 0.0152 (0.0293)  loss_rpn_box_reg: 0.0145 (0.0163)  time: 3.6208  data: 0.0122  max mem: 7542
+Epoch: [0]  [ 40/138]  eta: 0:05:40  lr: 0.001500  loss: 0.2446 (0.4367)  loss_classifier: 0.0907 (0.2626)  loss_box_reg: 0.1185 (0.1280)  loss_objectness: 0.0152 (0.0293)  loss_rpn_box_reg: 0.0120 (0.0168)  time: 3.3941  data: 0.0123  max mem: 7542
+Epoch: [0]  [ 45/138]  eta: 0:05:24  lr: 0.001682  loss: 0.2274 (0.4112)  loss_classifier: 0.0720 (0.2408)  loss_box_reg: 0.1176 (0.1259)  loss_objectness: 0.0170 (0.0278)  loss_rpn_box_reg: 0.0130 (0.0167)  time: 3.3774  data: 0.0122  max mem: 7544
+Epoch: [0]  [ 50/138]  eta: 0:05:05  lr: 0.001864  loss: 0.2274 (0.3963)  loss_classifier: 0.0655 (0.2267)  loss_box_reg: 0.1105 (0.1269)  loss_objectness: 0.0170 (0.0265)  loss_rpn_box_reg: 0.0130 (0.0162)  time: 3.3701  data: 0.0122  max mem: 7544
+Epoch: [0]  [ 55/138]  eta: 0:04:49  lr: 0.002047  loss: 0.1823 (0.3767)  loss_classifier: 0.0628 (0.2113)  loss_box_reg: 0.1034 (0.1235)  loss_objectness: 0.0145 (0.0254)  loss_rpn_box_reg: 0.0130 (0.0165)  time: 3.4693  data: 0.0106  max mem: 7544
+Epoch: [0]  [ 60/138]  eta: 0:04:32  lr: 0.002229  loss: 0.1897 (0.3680)  loss_classifier: 0.0628 (0.2013)  loss_box_reg: 0.1034 (0.1244)  loss_objectness: 0.0137 (0.0255)  loss_rpn_box_reg: 0.0130 (0.0167)  time: 3.5351  data: 0.0105  max mem: 7544
+Epoch: [0]  [ 65/138]  eta: 0:04:14  lr: 0.002411  loss: 0.1897 (0.3568)  loss_classifier: 0.0628 (0.1926)  loss_box_reg: 0.0954 (0.1227)  loss_objectness: 0.0136 (0.0254)  loss_rpn_box_reg: 0.0104 (0.0162)  time: 3.4652  data: 0.0114  max mem: 7544
+Epoch: [0]  [ 70/138]  eta: 0:03:56  lr: 0.002594  loss: 0.1897 (0.3448)  loss_classifier: 0.0604 (0.1832)  loss_box_reg: 0.0954 (0.1214)  loss_objectness: 0.0117 (0.0246)  loss_rpn_box_reg: 0.0104 (0.0157)  time: 3.4894  data: 0.0116  max mem: 7544
+Epoch: [0]  [ 75/138]  eta: 0:03:38  lr: 0.002776  loss: 0.1950 (0.3334)  loss_classifier: 0.0604 (0.1747)  loss_box_reg: 0.0992 (0.1191)  loss_objectness: 0.0121 (0.0240)  loss_rpn_box_reg: 0.0106 (0.0156)  time: 3.3950  data: 0.0117  max mem: 7544
+Epoch: [0]  [ 80/138]  eta: 0:03:20  lr: 0.002958  loss: 0.1950 (0.3285)  loss_classifier: 0.0604 (0.1699)  loss_box_reg: 0.0992 (0.1189)  loss_objectness: 0.0134 (0.0240)  loss_rpn_box_reg: 0.0115 (0.0156)  time: 3.3437  data: 0.0120  max mem: 7544
+Epoch: [0]  [ 85/138]  eta: 0:03:02  lr: 0.003141  loss: 0.1737 (0.3187)  loss_classifier: 0.0553 (0.1637)  loss_box_reg: 0.0906 (0.1159)  loss_objectness: 0.0136 (0.0235)  loss_rpn_box_reg: 0.0126 (0.0156)  time: 3.3348  data: 0.0112  max mem: 7544
+Epoch: [0]  [ 90/138]  eta: 0:02:45  lr: 0.003323  loss: 0.1816 (0.3111)  loss_classifier: 0.0602 (0.1581)  loss_box_reg: 0.0862 (0.1147)  loss_objectness: 0.0134 (0.0228)  loss_rpn_box_reg: 0.0131 (0.0155)  time: 3.3461  data: 0.0109  max mem: 7544
+Epoch: [0]  [ 95/138]  eta: 0:02:27  lr: 0.003505  loss: 0.1816 (0.3045)  loss_classifier: 0.0602 (0.1533)  loss_box_reg: 0.0862 (0.1133)  loss_objectness: 0.0134 (0.0224)  loss_rpn_box_reg: 0.0131 (0.0155)  time: 3.3421  data: 0.0108  max mem: 7544
+Epoch: [0]  [100/138]  eta: 0:02:10  lr: 0.003687  loss: 0.1820 (0.3012)  loss_classifier: 0.0614 (0.1499)  loss_box_reg: 0.0858 (0.1131)  loss_objectness: 0.0125 (0.0226)  loss_rpn_box_reg: 0.0136 (0.0155)  time: 3.3653  data: 0.0104  max mem: 7544
+Epoch: [0]  [105/138]  eta: 0:01:53  lr: 0.003870  loss: 0.1839 (0.2957)  loss_classifier: 0.0669 (0.1461)  loss_box_reg: 0.0858 (0.1119)  loss_objectness: 0.0125 (0.0225)  loss_rpn_box_reg: 0.0126 (0.0152)  time: 3.4536  data: 0.0104  max mem: 7544
+Epoch: [0]  [110/138]  eta: 0:01:36  lr: 0.004052  loss: 0.1949 (0.2941)  loss_classifier: 0.0732 (0.1438)  loss_box_reg: 0.0896 (0.1128)  loss_objectness: 0.0158 (0.0223)  loss_rpn_box_reg: 0.0126 (0.0152)  time: 3.4941  data: 0.0106  max mem: 7544
+Epoch: [0]  [115/138]  eta: 0:01:19  lr: 0.004234  loss: 0.2045 (0.2897)  loss_classifier: 0.0759 (0.1407)  loss_box_reg: 0.1001 (0.1121)  loss_objectness: 0.0157 (0.0220)  loss_rpn_box_reg: 0.0118 (0.0149)  time: 3.5362  data: 0.0109  max mem: 7544
+Epoch: [0]  [120/138]  eta: 0:01:02  lr: 0.004417  loss: 0.1940 (0.2853)  loss_classifier: 0.0745 (0.1377)  loss_box_reg: 0.0968 (0.1112)  loss_objectness: 0.0149 (0.0215)  loss_rpn_box_reg: 0.0079 (0.0148)  time: 3.5722  data: 0.0109  max mem: 7544
+Epoch: [0]  [125/138]  eta: 0:00:45  lr: 0.004599  loss: 0.1940 (0.2800)  loss_classifier: 0.0731 (0.1342)  loss_box_reg: 0.0913 (0.1099)  loss_objectness: 0.0110 (0.0211)  loss_rpn_box_reg: 0.0109 (0.0148)  time: 3.6139  data: 0.0116  max mem: 7544
+Epoch: [0]  [130/138]  eta: 0:00:27  lr: 0.004781  loss: 0.1691 (0.2761)  loss_classifier: 0.0642 (0.1313)  loss_box_reg: 0.0758 (0.1087)  loss_objectness: 0.0097 (0.0211)  loss_rpn_box_reg: 0.0109 (0.0149)  time: 3.5522  data: 0.0122  max mem: 7544
+Epoch: [0]  [135/138]  eta: 0:00:10  lr: 0.004964  loss: 0.1575 (0.2728)  loss_classifier: 0.0579 (0.1293)  loss_box_reg: 0.0727 (0.1078)  loss_objectness: 0.0094 (0.0208)  loss_rpn_box_reg: 0.0110 (0.0149)  time: 3.5548  data: 0.0119  max mem: 7544
+Epoch: [0]  [137/138]  eta: 0:00:03  lr: 0.005000  loss: 0.1523 (0.2706)  loss_classifier: 0.0517 (0.1280)  loss_box_reg: 0.0727 (0.1069)  loss_objectness: 0.0086 (0.0206)  loss_rpn_box_reg: 0.0111 (0.0152)  time: 3.4518  data: 0.0117  max mem: 7544
+Epoch: [0] Total time: 0:07:57 (3.4636 s / it)
+creating index...
+index created!
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+Test:  [ 0/16]  eta: 0:00:27  model_time: 1.6089 (1.6089)  evaluator_time: 0.0128 (0.0128)  time: 1.7500  data: 0.1257  max mem: 7544
+Test:  [15/16]  eta: 0:00:01  model_time: 1.6089 (1.6215)  evaluator_time: 0.0103 (0.0110)  time: 1.6505  data: 0.0160  max mem: 7544
+Test: Total time: 0:00:26 (1.6554 s / it)
+Averaged stats: model_time: 1.6089 (1.6215)  evaluator_time: 0.0103 (0.0110)
+Accumulating evaluation results...
+DONE (t=0.03s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.086
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.302
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.003
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.002
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.099
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.104
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.243
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.336
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.171
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.361
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+Epoch: [1]  [  0/138]  eta: 0:08:04  lr: 0.005000  loss: 0.1442 (0.1442)  loss_classifier: 0.0604 (0.0604)  loss_box_reg: 0.0693 (0.0693)  loss_objectness: 0.0066 (0.0066)  loss_rpn_box_reg: 0.0078 (0.0078)  time: 3.5136  data: 0.1128  max mem: 7544
+Epoch: [1]  [  5/138]  eta: 0:07:38  lr: 0.005000  loss: 0.1872 (0.1862)  loss_classifier: 0.0604 (0.0640)  loss_box_reg: 0.0966 (0.0983)  loss_objectness: 0.0076 (0.0083)  loss_rpn_box_reg: 0.0129 (0.0157)  time: 3.4495  data: 0.0314  max mem: 7544
+Epoch: [1]  [ 10/138]  eta: 0:07:31  lr: 0.005000  loss: 0.1958 (0.2033)  loss_classifier: 0.0697 (0.0712)  loss_box_reg: 0.1037 (0.1057)  loss_objectness: 0.0080 (0.0088)  loss_rpn_box_reg: 0.0129 (0.0175)  time: 3.5243  data: 0.0206  max mem: 7544
+Epoch: [1]  [ 15/138]  eta: 0:07:05  lr: 0.005000  loss: 0.1958 (0.2034)  loss_classifier: 0.0718 (0.0731)  loss_box_reg: 0.0966 (0.1033)  loss_objectness: 0.0086 (0.0112)  loss_rpn_box_reg: 0.0116 (0.0159)  time: 3.4609  data: 0.0173  max mem: 7544
+Epoch: [1]  [ 20/138]  eta: 0:06:50  lr: 0.005000  loss: 0.1956 (0.2008)  loss_classifier: 0.0718 (0.0733)  loss_box_reg: 0.0990 (0.1022)  loss_objectness: 0.0086 (0.0111)  loss_rpn_box_reg: 0.0102 (0.0142)  time: 3.4764  data: 0.0111  max mem: 7544
+Epoch: [1]  [ 25/138]  eta: 0:06:36  lr: 0.005000  loss: 0.1902 (0.1909)  loss_classifier: 0.0718 (0.0690)  loss_box_reg: 0.0946 (0.0962)  loss_objectness: 0.0086 (0.0114)  loss_rpn_box_reg: 0.0102 (0.0142)  time: 3.5254  data: 0.0099  max mem: 7544
+Epoch: [1]  [ 30/138]  eta: 0:06:14  lr: 0.005000  loss: 0.1887 (0.1883)  loss_classifier: 0.0718 (0.0686)  loss_box_reg: 0.0876 (0.0943)  loss_objectness: 0.0086 (0.0119)  loss_rpn_box_reg: 0.0097 (0.0135)  time: 3.4366  data: 0.0105  max mem: 7544
+Epoch: [1]  [ 35/138]  eta: 0:05:54  lr: 0.005000  loss: 0.1678 (0.1833)  loss_classifier: 0.0613 (0.0665)  loss_box_reg: 0.0773 (0.0923)  loss_objectness: 0.0077 (0.0115)  loss_rpn_box_reg: 0.0097 (0.0130)  time: 3.4275  data: 0.0105  max mem: 7544
+Epoch: [1]  [ 40/138]  eta: 0:05:40  lr: 0.005000  loss: 0.1440 (0.1808)  loss_classifier: 0.0536 (0.0646)  loss_box_reg: 0.0720 (0.0913)  loss_objectness: 0.0072 (0.0110)  loss_rpn_box_reg: 0.0105 (0.0138)  time: 3.4785  data: 0.0105  max mem: 7544
+Epoch: [1]  [ 45/138]  eta: 0:05:21  lr: 0.005000  loss: 0.1709 (0.1815)  loss_classifier: 0.0571 (0.0652)  loss_box_reg: 0.0773 (0.0919)  loss_objectness: 0.0071 (0.0109)  loss_rpn_box_reg: 0.0098 (0.0135)  time: 3.4019  data: 0.0109  max mem: 7544
+Epoch: [1]  [ 50/138]  eta: 0:05:06  lr: 0.005000  loss: 0.1709 (0.1825)  loss_classifier: 0.0611 (0.0653)  loss_box_reg: 0.0863 (0.0916)  loss_objectness: 0.0078 (0.0121)  loss_rpn_box_reg: 0.0105 (0.0135)  time: 3.4993  data: 0.0116  max mem: 7544
+Epoch: [1]  [ 55/138]  eta: 0:04:48  lr: 0.005000  loss: 0.1897 (0.1895)  loss_classifier: 0.0694 (0.0676)  loss_box_reg: 0.0968 (0.0930)  loss_objectness: 0.0095 (0.0146)  loss_rpn_box_reg: 0.0126 (0.0142)  time: 3.5530  data: 0.0116  max mem: 7544
+Epoch: [1]  [ 60/138]  eta: 0:04:32  lr: 0.005000  loss: 0.1924 (0.1968)  loss_classifier: 0.0748 (0.0702)  loss_box_reg: 0.0974 (0.0963)  loss_objectness: 0.0155 (0.0158)  loss_rpn_box_reg: 0.0138 (0.0145)  time: 3.5279  data: 0.0116  max mem: 7544
+Epoch: [1]  [ 65/138]  eta: 0:04:15  lr: 0.005000  loss: 0.2140 (0.1962)  loss_classifier: 0.0765 (0.0697)  loss_box_reg: 0.0968 (0.0955)  loss_objectness: 0.0174 (0.0160)  loss_rpn_box_reg: 0.0149 (0.0150)  time: 3.6080  data: 0.0112  max mem: 7544
+Epoch: [1]  [ 70/138]  eta: 0:03:57  lr: 0.005000  loss: 0.1880 (0.1971)  loss_classifier: 0.0768 (0.0702)  loss_box_reg: 0.0910 (0.0944)  loss_objectness: 0.0208 (0.0169)  loss_rpn_box_reg: 0.0189 (0.0155)  time: 3.5119  data: 0.0107  max mem: 7544
+Epoch: [1]  [ 75/138]  eta: 0:03:40  lr: 0.005000  loss: 0.1841 (0.1973)  loss_classifier: 0.0736 (0.0703)  loss_box_reg: 0.0861 (0.0946)  loss_objectness: 0.0155 (0.0169)  loss_rpn_box_reg: 0.0161 (0.0155)  time: 3.5579  data: 0.0107  max mem: 7544
+Epoch: [1]  [ 80/138]  eta: 0:03:23  lr: 0.005000  loss: 0.1751 (0.1948)  loss_classifier: 0.0530 (0.0691)  loss_box_reg: 0.0726 (0.0931)  loss_objectness: 0.0149 (0.0168)  loss_rpn_box_reg: 0.0189 (0.0159)  time: 3.5695  data: 0.0107  max mem: 7544
+Epoch: [1]  [ 85/138]  eta: 0:03:06  lr: 0.005000  loss: 0.1751 (0.1927)  loss_classifier: 0.0530 (0.0680)  loss_box_reg: 0.0726 (0.0924)  loss_objectness: 0.0149 (0.0165)  loss_rpn_box_reg: 0.0143 (0.0159)  time: 3.5581  data: 0.0107  max mem: 7544
+Epoch: [1]  [ 90/138]  eta: 0:02:48  lr: 0.005000  loss: 0.1577 (0.1915)  loss_classifier: 0.0501 (0.0672)  loss_box_reg: 0.0745 (0.0921)  loss_objectness: 0.0142 (0.0168)  loss_rpn_box_reg: 0.0140 (0.0155)  time: 3.5685  data: 0.0109  max mem: 7544
+Epoch: [1]  [ 95/138]  eta: 0:02:30  lr: 0.005000  loss: 0.1610 (0.1933)  loss_classifier: 0.0526 (0.0685)  loss_box_reg: 0.0772 (0.0923)  loss_objectness: 0.0142 (0.0172)  loss_rpn_box_reg: 0.0133 (0.0154)  time: 3.4525  data: 0.0110  max mem: 7544
+Epoch: [1]  [100/138]  eta: 0:02:13  lr: 0.005000  loss: 0.1771 (0.1954)  loss_classifier: 0.0617 (0.0695)  loss_box_reg: 0.0802 (0.0934)  loss_objectness: 0.0142 (0.0172)  loss_rpn_box_reg: 0.0119 (0.0153)  time: 3.4560  data: 0.0109  max mem: 7544
+Epoch: [1]  [105/138]  eta: 0:01:55  lr: 0.005000  loss: 0.1927 (0.1979)  loss_classifier: 0.0758 (0.0707)  loss_box_reg: 0.0840 (0.0943)  loss_objectness: 0.0162 (0.0177)  loss_rpn_box_reg: 0.0117 (0.0152)  time: 3.4019  data: 0.0113  max mem: 7544
+Epoch: [1]  [110/138]  eta: 0:01:37  lr: 0.005000  loss: 0.2488 (0.1985)  loss_classifier: 0.0909 (0.0711)  loss_box_reg: 0.1183 (0.0947)  loss_objectness: 0.0162 (0.0176)  loss_rpn_box_reg: 0.0117 (0.0150)  time: 3.4511  data: 0.0111  max mem: 7544
+Epoch: [1]  [115/138]  eta: 0:01:20  lr: 0.005000  loss: 0.1941 (0.1972)  loss_classifier: 0.0863 (0.0708)  loss_box_reg: 0.0929 (0.0939)  loss_objectness: 0.0176 (0.0175)  loss_rpn_box_reg: 0.0119 (0.0150)  time: 3.5396  data: 0.0110  max mem: 7544
+Epoch: [1]  [120/138]  eta: 0:01:03  lr: 0.005000  loss: 0.1941 (0.2002)  loss_classifier: 0.0754 (0.0724)  loss_box_reg: 0.0929 (0.0949)  loss_objectness: 0.0188 (0.0179)  loss_rpn_box_reg: 0.0128 (0.0150)  time: 3.4974  data: 0.0109  max mem: 7544
+Epoch: [1]  [125/138]  eta: 0:00:45  lr: 0.005000  loss: 0.1657 (0.1993)  loss_classifier: 0.0726 (0.0723)  loss_box_reg: 0.0810 (0.0943)  loss_objectness: 0.0150 (0.0180)  loss_rpn_box_reg: 0.0093 (0.0147)  time: 3.4819  data: 0.0111  max mem: 7544
+Epoch: [1]  [130/138]  eta: 0:00:28  lr: 0.005000  loss: 0.1657 (0.1994)  loss_classifier: 0.0726 (0.0726)  loss_box_reg: 0.0874 (0.0944)  loss_objectness: 0.0149 (0.0179)  loss_rpn_box_reg: 0.0086 (0.0145)  time: 3.5276  data: 0.0115  max mem: 7544
+Epoch: [1]  [135/138]  eta: 0:00:10  lr: 0.005000  loss: 0.1943 (0.1993)  loss_classifier: 0.0778 (0.0726)  loss_box_reg: 0.0916 (0.0947)  loss_objectness: 0.0133 (0.0177)  loss_rpn_box_reg: 0.0093 (0.0143)  time: 3.4336  data: 0.0114  max mem: 7544
+Epoch: [1]  [137/138]  eta: 0:00:03  lr: 0.005000  loss: 0.1929 (0.1993)  loss_classifier: 0.0726 (0.0730)  loss_box_reg: 0.0874 (0.0946)  loss_objectness: 0.0121 (0.0176)  loss_rpn_box_reg: 0.0085 (0.0142)  time: 3.3168  data: 0.0110  max mem: 7544
+Epoch: [1] Total time: 0:07:59 (3.4711 s / it)
+creating index...
+index created!
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+Test:  [ 0/16]  eta: 0:00:38  model_time: 2.2936 (2.2936)  evaluator_time: 0.0063 (0.0063)  time: 2.4195  data: 0.1172  max mem: 7544
+Test:  [15/16]  eta: 0:00:01  model_time: 1.6165 (1.6734)  evaluator_time: 0.0067 (0.0070)  time: 1.6991  data: 0.0168  max mem: 7544
+Test: Total time: 0:00:27 (1.7046 s / it)
+Averaged stats: model_time: 1.6165 (1.6734)  evaluator_time: 0.0067 (0.0070)
+Accumulating evaluation results...
+DONE (t=0.02s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.093
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.374
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.023
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.106
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.142
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.249
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.269
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.305
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+Epoch: [2]  [  0/138]  eta: 0:07:25  lr: 0.005000  loss: 0.1143 (0.1143)  loss_classifier: 0.0461 (0.0461)  loss_box_reg: 0.0520 (0.0520)  loss_objectness: 0.0071 (0.0071)  loss_rpn_box_reg: 0.0091 (0.0091)  time: 3.2316  data: 0.1338  max mem: 7544
+Epoch: [2]  [  5/138]  eta: 0:07:54  lr: 0.005000  loss: 0.1541 (0.2039)  loss_classifier: 0.0521 (0.0735)  loss_box_reg: 0.0715 (0.0932)  loss_objectness: 0.0091 (0.0134)  loss_rpn_box_reg: 0.0153 (0.0238)  time: 3.5666  data: 0.0295  max mem: 7544
+Epoch: [2]  [ 10/138]  eta: 0:07:52  lr: 0.005000  loss: 0.1868 (0.2145)  loss_classifier: 0.0600 (0.0811)  loss_box_reg: 0.0991 (0.0941)  loss_objectness: 0.0141 (0.0179)  loss_rpn_box_reg: 0.0153 (0.0214)  time: 3.6930  data: 0.0217  max mem: 7544
+Epoch: [2]  [ 15/138]  eta: 0:07:24  lr: 0.005000  loss: 0.1868 (0.2067)  loss_classifier: 0.0600 (0.0792)  loss_box_reg: 0.0717 (0.0888)  loss_objectness: 0.0141 (0.0201)  loss_rpn_box_reg: 0.0126 (0.0186)  time: 3.6105  data: 0.0185  max mem: 7544
+Epoch: [2]  [ 20/138]  eta: 0:07:02  lr: 0.005000  loss: 0.1868 (0.2110)  loss_classifier: 0.0648 (0.0802)  loss_box_reg: 0.0966 (0.0921)  loss_objectness: 0.0142 (0.0206)  loss_rpn_box_reg: 0.0126 (0.0182)  time: 3.6012  data: 0.0107  max mem: 7544
+Epoch: [2]  [ 25/138]  eta: 0:06:52  lr: 0.005000  loss: 0.1861 (0.2155)  loss_classifier: 0.0772 (0.0809)  loss_box_reg: 0.0937 (0.0943)  loss_objectness: 0.0142 (0.0214)  loss_rpn_box_reg: 0.0126 (0.0188)  time: 3.6786  data: 0.0112  max mem: 7544
+Epoch: [2]  [ 30/138]  eta: 0:06:31  lr: 0.005000  loss: 0.1964 (0.2168)  loss_classifier: 0.0772 (0.0815)  loss_box_reg: 0.0966 (0.0971)  loss_objectness: 0.0168 (0.0209)  loss_rpn_box_reg: 0.0103 (0.0174)  time: 3.5921  data: 0.0113  max mem: 7544
+Epoch: [2]  [ 35/138]  eta: 0:06:09  lr: 0.005000  loss: 0.1964 (0.2184)  loss_classifier: 0.0772 (0.0830)  loss_box_reg: 0.0989 (0.0984)  loss_objectness: 0.0168 (0.0206)  loss_rpn_box_reg: 0.0102 (0.0165)  time: 3.5652  data: 0.0110  max mem: 7544
+Epoch: [2]  [ 40/138]  eta: 0:05:51  lr: 0.005000  loss: 0.1822 (0.2100)  loss_classifier: 0.0683 (0.0791)  loss_box_reg: 0.0884 (0.0951)  loss_objectness: 0.0168 (0.0201)  loss_rpn_box_reg: 0.0103 (0.0158)  time: 3.5851  data: 0.0112  max mem: 7544
+Epoch: [2]  [ 45/138]  eta: 0:05:36  lr: 0.005000  loss: 0.1956 (0.2109)  loss_classifier: 0.0708 (0.0801)  loss_box_reg: 0.0962 (0.0961)  loss_objectness: 0.0161 (0.0190)  loss_rpn_box_reg: 0.0103 (0.0157)  time: 3.5634  data: 0.0119  max mem: 7544
+Epoch: [2]  [ 50/138]  eta: 0:05:16  lr: 0.005000  loss: 0.1822 (0.2092)  loss_classifier: 0.0708 (0.0792)  loss_box_reg: 0.0851 (0.0953)  loss_objectness: 0.0141 (0.0193)  loss_rpn_box_reg: 0.0122 (0.0155)  time: 3.5532  data: 0.0114  max mem: 7544
+Epoch: [2]  [ 55/138]  eta: 0:04:56  lr: 0.005000  loss: 0.1884 (0.2092)  loss_classifier: 0.0636 (0.0789)  loss_box_reg: 0.0851 (0.0963)  loss_objectness: 0.0141 (0.0188)  loss_rpn_box_reg: 0.0122 (0.0152)  time: 3.5514  data: 0.0120  max mem: 7544
+Epoch: [2]  [ 60/138]  eta: 0:04:36  lr: 0.005000  loss: 0.2002 (0.2085)  loss_classifier: 0.0755 (0.0788)  loss_box_reg: 0.1017 (0.0962)  loss_objectness: 0.0141 (0.0188)  loss_rpn_box_reg: 0.0117 (0.0146)  time: 3.4540  data: 0.0129  max mem: 7544
+Epoch: [2]  [ 65/138]  eta: 0:04:18  lr: 0.005000  loss: 0.1941 (0.2068)  loss_classifier: 0.0743 (0.0778)  loss_box_reg: 0.0992 (0.0957)  loss_objectness: 0.0148 (0.0185)  loss_rpn_box_reg: 0.0110 (0.0148)  time: 3.3795  data: 0.0124  max mem: 7544
+Epoch: [2]  [ 70/138]  eta: 0:04:02  lr: 0.005000  loss: 0.1884 (0.2043)  loss_classifier: 0.0686 (0.0762)  loss_box_reg: 0.0992 (0.0948)  loss_objectness: 0.0148 (0.0182)  loss_rpn_box_reg: 0.0099 (0.0151)  time: 3.4764  data: 0.0125  max mem: 7544
+Epoch: [2]  [ 75/138]  eta: 0:03:43  lr: 0.005000  loss: 0.1794 (0.2056)  loss_classifier: 0.0686 (0.0767)  loss_box_reg: 0.0859 (0.0963)  loss_objectness: 0.0141 (0.0178)  loss_rpn_box_reg: 0.0110 (0.0148)  time: 3.4779  data: 0.0123  max mem: 7544
+Epoch: [2]  [ 80/138]  eta: 0:03:25  lr: 0.005000  loss: 0.1681 (0.2033)  loss_classifier: 0.0542 (0.0754)  loss_box_reg: 0.0845 (0.0961)  loss_objectness: 0.0121 (0.0174)  loss_rpn_box_reg: 0.0114 (0.0144)  time: 3.5159  data: 0.0116  max mem: 7544
+Epoch: [2]  [ 85/138]  eta: 0:03:06  lr: 0.005000  loss: 0.1681 (0.2039)  loss_classifier: 0.0542 (0.0755)  loss_box_reg: 0.0859 (0.0967)  loss_objectness: 0.0126 (0.0174)  loss_rpn_box_reg: 0.0114 (0.0142)  time: 3.4623  data: 0.0115  max mem: 7544
+Epoch: [2]  [ 90/138]  eta: 0:02:49  lr: 0.005000  loss: 0.1861 (0.2036)  loss_classifier: 0.0573 (0.0756)  loss_box_reg: 0.0898 (0.0964)  loss_objectness: 0.0125 (0.0177)  loss_rpn_box_reg: 0.0076 (0.0139)  time: 3.4013  data: 0.0113  max mem: 7544
+Epoch: [2]  [ 95/138]  eta: 0:02:31  lr: 0.005000  loss: 0.1757 (0.2027)  loss_classifier: 0.0558 (0.0749)  loss_box_reg: 0.0845 (0.0957)  loss_objectness: 0.0125 (0.0177)  loss_rpn_box_reg: 0.0121 (0.0144)  time: 3.4194  data: 0.0108  max mem: 7544
+Epoch: [2]  [100/138]  eta: 0:02:13  lr: 0.005000  loss: 0.1861 (0.2037)  loss_classifier: 0.0618 (0.0756)  loss_box_reg: 0.0951 (0.0965)  loss_objectness: 0.0126 (0.0174)  loss_rpn_box_reg: 0.0123 (0.0143)  time: 3.4216  data: 0.0106  max mem: 7544
+Epoch: [2]  [105/138]  eta: 0:01:55  lr: 0.005000  loss: 0.1757 (0.2033)  loss_classifier: 0.0579 (0.0752)  loss_box_reg: 0.0820 (0.0967)  loss_objectness: 0.0126 (0.0173)  loss_rpn_box_reg: 0.0123 (0.0142)  time: 3.4050  data: 0.0108  max mem: 7544
+Epoch: [2]  [110/138]  eta: 0:01:38  lr: 0.005000  loss: 0.1757 (0.2044)  loss_classifier: 0.0618 (0.0756)  loss_box_reg: 0.0861 (0.0970)  loss_objectness: 0.0126 (0.0174)  loss_rpn_box_reg: 0.0140 (0.0143)  time: 3.4107  data: 0.0109  max mem: 7544
+Epoch: [2]  [115/138]  eta: 0:01:20  lr: 0.005000  loss: 0.1651 (0.2014)  loss_classifier: 0.0564 (0.0741)  loss_box_reg: 0.0861 (0.0960)  loss_objectness: 0.0115 (0.0170)  loss_rpn_box_reg: 0.0114 (0.0143)  time: 3.3694  data: 0.0109  max mem: 7544
+Epoch: [2]  [120/138]  eta: 0:01:02  lr: 0.005000  loss: 0.1549 (0.2018)  loss_classifier: 0.0499 (0.0740)  loss_box_reg: 0.0820 (0.0965)  loss_objectness: 0.0115 (0.0169)  loss_rpn_box_reg: 0.0140 (0.0144)  time: 3.3707  data: 0.0111  max mem: 7544
+Epoch: [2]  [125/138]  eta: 0:00:45  lr: 0.005000  loss: 0.1975 (0.2031)  loss_classifier: 0.0713 (0.0744)  loss_box_reg: 0.0951 (0.0973)  loss_objectness: 0.0110 (0.0168)  loss_rpn_box_reg: 0.0152 (0.0147)  time: 3.3836  data: 0.0109  max mem: 7544
+Epoch: [2]  [130/138]  eta: 0:00:27  lr: 0.005000  loss: 0.1975 (0.2038)  loss_classifier: 0.0654 (0.0749)  loss_box_reg: 0.0953 (0.0973)  loss_objectness: 0.0110 (0.0171)  loss_rpn_box_reg: 0.0140 (0.0146)  time: 3.4189  data: 0.0109  max mem: 7544
+Epoch: [2]  [135/138]  eta: 0:00:10  lr: 0.005000  loss: 0.2057 (0.2032)  loss_classifier: 0.0767 (0.0746)  loss_box_reg: 0.1027 (0.0973)  loss_objectness: 0.0136 (0.0169)  loss_rpn_box_reg: 0.0104 (0.0144)  time: 3.4210  data: 0.0112  max mem: 7544
+Epoch: [2]  [137/138]  eta: 0:00:03  lr: 0.005000  loss: 0.2019 (0.2023)  loss_classifier: 0.0767 (0.0743)  loss_box_reg: 0.0903 (0.0969)  loss_objectness: 0.0115 (0.0168)  loss_rpn_box_reg: 0.0102 (0.0143)  time: 3.3077  data: 0.0111  max mem: 7544
+Epoch: [2] Total time: 0:07:58 (3.4655 s / it)
+creating index...
+index created!
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+Test:  [ 0/16]  eta: 0:00:28  model_time: 1.6126 (1.6126)  evaluator_time: 0.0117 (0.0117)  time: 1.7752  data: 0.1485  max mem: 7544
+Test:  [15/16]  eta: 0:00:01  model_time: 1.6091 (1.6311)  evaluator_time: 0.0111 (0.0118)  time: 1.6615  data: 0.0166  max mem: 7544
+Test: Total time: 0:00:26 (1.6667 s / it)
+Averaged stats: model_time: 1.6091 (1.6311)  evaluator_time: 0.0111 (0.0118)
+Accumulating evaluation results...
+DONE (t=0.03s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.102
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.388
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.025
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.013
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.116
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.122
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.230
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.313
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.157
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.337
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+Epoch: [3]  [  0/138]  eta: 0:07:59  lr: 0.000500  loss: 0.1106 (0.1106)  loss_classifier: 0.0320 (0.0320)  loss_box_reg: 0.0530 (0.0530)  loss_objectness: 0.0088 (0.0088)  loss_rpn_box_reg: 0.0169 (0.0169)  time: 3.4744  data: 0.1173  max mem: 7544
+Epoch: [3]  [  5/138]  eta: 0:08:01  lr: 0.000500  loss: 0.1416 (0.1675)  loss_classifier: 0.0573 (0.0631)  loss_box_reg: 0.0628 (0.0736)  loss_objectness: 0.0166 (0.0156)  loss_rpn_box_reg: 0.0127 (0.0152)  time: 3.6190  data: 0.0300  max mem: 7544
+Epoch: [3]  [ 10/138]  eta: 0:07:37  lr: 0.000500  loss: 0.1772 (0.1850)  loss_classifier: 0.0698 (0.0694)  loss_box_reg: 0.0916 (0.0892)  loss_objectness: 0.0134 (0.0139)  loss_rpn_box_reg: 0.0122 (0.0125)  time: 3.5752  data: 0.0202  max mem: 7544
+Epoch: [3]  [ 15/138]  eta: 0:07:07  lr: 0.000500  loss: 0.1772 (0.2004)  loss_classifier: 0.0671 (0.0732)  loss_box_reg: 0.0966 (0.0960)  loss_objectness: 0.0134 (0.0167)  loss_rpn_box_reg: 0.0119 (0.0144)  time: 3.4763  data: 0.0177  max mem: 7544
+Epoch: [3]  [ 20/138]  eta: 0:06:45  lr: 0.000500  loss: 0.1772 (0.2068)  loss_classifier: 0.0671 (0.0755)  loss_box_reg: 0.0966 (0.0997)  loss_objectness: 0.0115 (0.0178)  loss_rpn_box_reg: 0.0117 (0.0138)  time: 3.4387  data: 0.0109  max mem: 7544
+Epoch: [3]  [ 25/138]  eta: 0:06:27  lr: 0.000500  loss: 0.1665 (0.1984)  loss_classifier: 0.0541 (0.0715)  loss_box_reg: 0.0966 (0.0959)  loss_objectness: 0.0099 (0.0168)  loss_rpn_box_reg: 0.0117 (0.0141)  time: 3.3759  data: 0.0109  max mem: 7544
+Epoch: [3]  [ 30/138]  eta: 0:06:13  lr: 0.000500  loss: 0.1603 (0.2052)  loss_classifier: 0.0503 (0.0742)  loss_box_reg: 0.0880 (0.1007)  loss_objectness: 0.0096 (0.0168)  loss_rpn_box_reg: 0.0114 (0.0135)  time: 3.3989  data: 0.0117  max mem: 7544
+Epoch: [3]  [ 35/138]  eta: 0:05:54  lr: 0.000500  loss: 0.1499 (0.1969)  loss_classifier: 0.0489 (0.0703)  loss_box_reg: 0.0798 (0.0976)  loss_objectness: 0.0092 (0.0158)  loss_rpn_box_reg: 0.0117 (0.0133)  time: 3.4170  data: 0.0115  max mem: 7544
+Epoch: [3]  [ 40/138]  eta: 0:05:40  lr: 0.000500  loss: 0.1506 (0.1971)  loss_classifier: 0.0489 (0.0704)  loss_box_reg: 0.0880 (0.0981)  loss_objectness: 0.0096 (0.0155)  loss_rpn_box_reg: 0.0118 (0.0131)  time: 3.5106  data: 0.0117  max mem: 7544
+Epoch: [3]  [ 45/138]  eta: 0:05:27  lr: 0.000500  loss: 0.1705 (0.1957)  loss_classifier: 0.0547 (0.0695)  loss_box_reg: 0.0896 (0.0975)  loss_objectness: 0.0104 (0.0155)  loss_rpn_box_reg: 0.0115 (0.0132)  time: 3.6436  data: 0.0118  max mem: 7544
+Epoch: [3]  [ 50/138]  eta: 0:05:13  lr: 0.000500  loss: 0.1705 (0.1942)  loss_classifier: 0.0580 (0.0686)  loss_box_reg: 0.0866 (0.0965)  loss_objectness: 0.0104 (0.0152)  loss_rpn_box_reg: 0.0121 (0.0139)  time: 3.7113  data: 0.0116  max mem: 7544
+Epoch: [3]  [ 55/138]  eta: 0:04:55  lr: 0.000500  loss: 0.1705 (0.1910)  loss_classifier: 0.0645 (0.0679)  loss_box_reg: 0.0851 (0.0949)  loss_objectness: 0.0108 (0.0147)  loss_rpn_box_reg: 0.0118 (0.0135)  time: 3.7863  data: 0.0116  max mem: 7544
+Epoch: [3]  [ 60/138]  eta: 0:04:37  lr: 0.000500  loss: 0.1585 (0.1922)  loss_classifier: 0.0625 (0.0679)  loss_box_reg: 0.0851 (0.0954)  loss_objectness: 0.0094 (0.0143)  loss_rpn_box_reg: 0.0121 (0.0147)  time: 3.7267  data: 0.0118  max mem: 7544
+Epoch: [3]  [ 65/138]  eta: 0:04:20  lr: 0.000500  loss: 0.1585 (0.1925)  loss_classifier: 0.0642 (0.0684)  loss_box_reg: 0.0851 (0.0955)  loss_objectness: 0.0092 (0.0145)  loss_rpn_box_reg: 0.0089 (0.0142)  time: 3.6546  data: 0.0113  max mem: 7544
+Epoch: [3]  [ 70/138]  eta: 0:04:02  lr: 0.000500  loss: 0.1585 (0.1946)  loss_classifier: 0.0645 (0.0695)  loss_box_reg: 0.0851 (0.0961)  loss_objectness: 0.0092 (0.0144)  loss_rpn_box_reg: 0.0111 (0.0146)  time: 3.5941  data: 0.0112  max mem: 7544
+Epoch: [3]  [ 75/138]  eta: 0:03:44  lr: 0.000500  loss: 0.1757 (0.1931)  loss_classifier: 0.0638 (0.0690)  loss_box_reg: 0.0900 (0.0955)  loss_objectness: 0.0095 (0.0142)  loss_rpn_box_reg: 0.0111 (0.0144)  time: 3.5798  data: 0.0109  max mem: 7544
+Epoch: [3]  [ 80/138]  eta: 0:03:26  lr: 0.000500  loss: 0.1805 (0.1932)  loss_classifier: 0.0733 (0.0698)  loss_box_reg: 0.0745 (0.0947)  loss_objectness: 0.0113 (0.0145)  loss_rpn_box_reg: 0.0096 (0.0142)  time: 3.5613  data: 0.0106  max mem: 7544
+Epoch: [3]  [ 85/138]  eta: 0:03:08  lr: 0.000500  loss: 0.1805 (0.1935)  loss_classifier: 0.0742 (0.0704)  loss_box_reg: 0.0784 (0.0945)  loss_objectness: 0.0153 (0.0146)  loss_rpn_box_reg: 0.0111 (0.0141)  time: 3.4972  data: 0.0108  max mem: 7544
+Epoch: [3]  [ 90/138]  eta: 0:02:50  lr: 0.000500  loss: 0.1834 (0.1955)  loss_classifier: 0.0742 (0.0716)  loss_box_reg: 0.0828 (0.0952)  loss_objectness: 0.0121 (0.0148)  loss_rpn_box_reg: 0.0096 (0.0139)  time: 3.4655  data: 0.0108  max mem: 7544
+Epoch: [3]  [ 95/138]  eta: 0:02:32  lr: 0.000500  loss: 0.1837 (0.1964)  loss_classifier: 0.0742 (0.0717)  loss_box_reg: 0.0903 (0.0960)  loss_objectness: 0.0143 (0.0147)  loss_rpn_box_reg: 0.0100 (0.0141)  time: 3.4264  data: 0.0110  max mem: 7544
+Epoch: [3]  [100/138]  eta: 0:02:14  lr: 0.000500  loss: 0.1803 (0.1959)  loss_classifier: 0.0718 (0.0717)  loss_box_reg: 0.0903 (0.0956)  loss_objectness: 0.0138 (0.0148)  loss_rpn_box_reg: 0.0103 (0.0139)  time: 3.4607  data: 0.0114  max mem: 7544
+Epoch: [3]  [105/138]  eta: 0:01:56  lr: 0.000500  loss: 0.1792 (0.1940)  loss_classifier: 0.0661 (0.0709)  loss_box_reg: 0.0851 (0.0947)  loss_objectness: 0.0117 (0.0146)  loss_rpn_box_reg: 0.0100 (0.0138)  time: 3.5080  data: 0.0110  max mem: 7544
+Epoch: [3]  [110/138]  eta: 0:01:39  lr: 0.000500  loss: 0.1672 (0.1951)  loss_classifier: 0.0622 (0.0713)  loss_box_reg: 0.0823 (0.0955)  loss_objectness: 0.0117 (0.0146)  loss_rpn_box_reg: 0.0103 (0.0137)  time: 3.5545  data: 0.0112  max mem: 7544
+Epoch: [3]  [115/138]  eta: 0:01:21  lr: 0.000500  loss: 0.1776 (0.1971)  loss_classifier: 0.0622 (0.0718)  loss_box_reg: 0.0851 (0.0969)  loss_objectness: 0.0115 (0.0145)  loss_rpn_box_reg: 0.0112 (0.0138)  time: 3.5285  data: 0.0111  max mem: 7544
+Epoch: [3]  [120/138]  eta: 0:01:03  lr: 0.000500  loss: 0.1819 (0.1973)  loss_classifier: 0.0633 (0.0717)  loss_box_reg: 0.0964 (0.0972)  loss_objectness: 0.0114 (0.0145)  loss_rpn_box_reg: 0.0129 (0.0138)  time: 3.5441  data: 0.0114  max mem: 7544
+Epoch: [3]  [125/138]  eta: 0:00:45  lr: 0.000500  loss: 0.2129 (0.1972)  loss_classifier: 0.0763 (0.0718)  loss_box_reg: 0.1029 (0.0973)  loss_objectness: 0.0115 (0.0144)  loss_rpn_box_reg: 0.0116 (0.0136)  time: 3.4696  data: 0.0119  max mem: 7544
+Epoch: [3]  [130/138]  eta: 0:00:28  lr: 0.000500  loss: 0.2164 (0.1988)  loss_classifier: 0.0777 (0.0724)  loss_box_reg: 0.1056 (0.0981)  loss_objectness: 0.0102 (0.0147)  loss_rpn_box_reg: 0.0119 (0.0136)  time: 3.4201  data: 0.0123  max mem: 7544
+Epoch: [3]  [135/138]  eta: 0:00:10  lr: 0.000500  loss: 0.1906 (0.1991)  loss_classifier: 0.0777 (0.0727)  loss_box_reg: 0.1023 (0.0976)  loss_objectness: 0.0125 (0.0152)  loss_rpn_box_reg: 0.0117 (0.0136)  time: 3.4615  data: 0.0124  max mem: 7544
+Epoch: [3]  [137/138]  eta: 0:00:03  lr: 0.000500  loss: 0.1874 (0.1979)  loss_classifier: 0.0713 (0.0723)  loss_box_reg: 0.0964 (0.0970)  loss_objectness: 0.0125 (0.0152)  loss_rpn_box_reg: 0.0109 (0.0135)  time: 3.2552  data: 0.0118  max mem: 7544
+Epoch: [3] Total time: 0:08:03 (3.5029 s / it)
+creating index...
+index created!
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+Test:  [ 0/16]  eta: 0:00:28  model_time: 1.6204 (1.6204)  evaluator_time: 0.0135 (0.0135)  time: 1.7613  data: 0.1248  max mem: 7544
+Test:  [15/16]  eta: 0:00:01  model_time: 1.6180 (1.6601)  evaluator_time: 0.0112 (0.0120)  time: 1.6921  data: 0.0180  max mem: 7544
+Test: Total time: 0:00:27 (1.6980 s / it)
+Averaged stats: model_time: 1.6180 (1.6601)  evaluator_time: 0.0112 (0.0120)
+Accumulating evaluation results...
+DONE (t=0.03s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.102
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.359
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.040
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.005
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.116
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.131
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.255
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.307
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.086
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.339
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+Epoch: [4]  [  0/138]  eta: 0:07:26  lr: 0.000500  loss: 0.2385 (0.2385)  loss_classifier: 0.0917 (0.0917)  loss_box_reg: 0.1259 (0.1259)  loss_objectness: 0.0120 (0.0120)  loss_rpn_box_reg: 0.0089 (0.0089)  time: 3.2370  data: 0.1367  max mem: 7544
+Epoch: [4]  [  5/138]  eta: 0:07:07  lr: 0.000500  loss: 0.1535 (0.1676)  loss_classifier: 0.0459 (0.0604)  loss_box_reg: 0.0728 (0.0789)  loss_objectness: 0.0120 (0.0137)  loss_rpn_box_reg: 0.0089 (0.0147)  time: 3.2121  data: 0.0317  max mem: 7544
+Epoch: [4]  [ 10/138]  eta: 0:06:55  lr: 0.000500  loss: 0.1677 (0.1758)  loss_classifier: 0.0657 (0.0666)  loss_box_reg: 0.0753 (0.0835)  loss_objectness: 0.0120 (0.0122)  loss_rpn_box_reg: 0.0113 (0.0135)  time: 3.2436  data: 0.0213  max mem: 7544
+Epoch: [4]  [ 15/138]  eta: 0:07:00  lr: 0.000500  loss: 0.1677 (0.1758)  loss_classifier: 0.0656 (0.0661)  loss_box_reg: 0.0768 (0.0848)  loss_objectness: 0.0110 (0.0116)  loss_rpn_box_reg: 0.0109 (0.0133)  time: 3.4149  data: 0.0191  max mem: 7544
+Epoch: [4]  [ 20/138]  eta: 0:06:41  lr: 0.000500  loss: 0.1687 (0.1938)  loss_classifier: 0.0657 (0.0723)  loss_box_reg: 0.0768 (0.0925)  loss_objectness: 0.0126 (0.0139)  loss_rpn_box_reg: 0.0114 (0.0150)  time: 3.4079  data: 0.0112  max mem: 7544
+Epoch: [4]  [ 25/138]  eta: 0:06:22  lr: 0.000500  loss: 0.1915 (0.1997)  loss_classifier: 0.0657 (0.0745)  loss_box_reg: 0.0940 (0.0950)  loss_objectness: 0.0126 (0.0155)  loss_rpn_box_reg: 0.0117 (0.0147)  time: 3.4391  data: 0.0113  max mem: 7544
+Epoch: [4]  [ 30/138]  eta: 0:06:11  lr: 0.000500  loss: 0.1869 (0.1970)  loss_classifier: 0.0668 (0.0730)  loss_box_reg: 0.0940 (0.0952)  loss_objectness: 0.0138 (0.0148)  loss_rpn_box_reg: 0.0117 (0.0140)  time: 3.5507  data: 0.0120  max mem: 7544
+Epoch: [4]  [ 35/138]  eta: 0:05:52  lr: 0.000500  loss: 0.1854 (0.1934)  loss_classifier: 0.0653 (0.0714)  loss_box_reg: 0.0974 (0.0939)  loss_objectness: 0.0140 (0.0144)  loss_rpn_box_reg: 0.0110 (0.0137)  time: 3.4272  data: 0.0118  max mem: 7544
+Epoch: [4]  [ 40/138]  eta: 0:05:34  lr: 0.000500  loss: 0.1822 (0.1910)  loss_classifier: 0.0641 (0.0710)  loss_box_reg: 0.0917 (0.0925)  loss_objectness: 0.0115 (0.0144)  loss_rpn_box_reg: 0.0099 (0.0132)  time: 3.4343  data: 0.0126  max mem: 7544
+Epoch: [4]  [ 45/138]  eta: 0:05:17  lr: 0.000500  loss: 0.1752 (0.1883)  loss_classifier: 0.0573 (0.0701)  loss_box_reg: 0.0867 (0.0910)  loss_objectness: 0.0116 (0.0143)  loss_rpn_box_reg: 0.0094 (0.0129)  time: 3.4524  data: 0.0132  max mem: 7544
+Epoch: [4]  [ 50/138]  eta: 0:05:05  lr: 0.000500  loss: 0.1647 (0.1881)  loss_classifier: 0.0573 (0.0702)  loss_box_reg: 0.0776 (0.0904)  loss_objectness: 0.0111 (0.0137)  loss_rpn_box_reg: 0.0110 (0.0138)  time: 3.5139  data: 0.0136  max mem: 7544
+Epoch: [4]  [ 55/138]  eta: 0:04:51  lr: 0.000500  loss: 0.1580 (0.1885)  loss_classifier: 0.0627 (0.0698)  loss_box_reg: 0.0776 (0.0906)  loss_objectness: 0.0102 (0.0137)  loss_rpn_box_reg: 0.0130 (0.0144)  time: 3.6713  data: 0.0132  max mem: 7544
+Epoch: [4]  [ 60/138]  eta: 0:04:32  lr: 0.000500  loss: 0.1632 (0.1886)  loss_classifier: 0.0627 (0.0697)  loss_box_reg: 0.0824 (0.0915)  loss_objectness: 0.0102 (0.0136)  loss_rpn_box_reg: 0.0130 (0.0139)  time: 3.6437  data: 0.0123  max mem: 7544
+Epoch: [4]  [ 65/138]  eta: 0:04:13  lr: 0.000500  loss: 0.1647 (0.1890)  loss_classifier: 0.0565 (0.0696)  loss_box_reg: 0.0876 (0.0920)  loss_objectness: 0.0093 (0.0135)  loss_rpn_box_reg: 0.0136 (0.0139)  time: 3.6244  data: 0.0122  max mem: 7544
+Epoch: [4]  [ 70/138]  eta: 0:03:58  lr: 0.000500  loss: 0.1804 (0.1907)  loss_classifier: 0.0586 (0.0703)  loss_box_reg: 0.0886 (0.0925)  loss_objectness: 0.0094 (0.0140)  loss_rpn_box_reg: 0.0116 (0.0139)  time: 3.5934  data: 0.0117  max mem: 7544
+Epoch: [4]  [ 75/138]  eta: 0:03:39  lr: 0.000500  loss: 0.1804 (0.1904)  loss_classifier: 0.0586 (0.0702)  loss_box_reg: 0.0886 (0.0926)  loss_objectness: 0.0081 (0.0140)  loss_rpn_box_reg: 0.0108 (0.0136)  time: 3.4148  data: 0.0119  max mem: 7544
+Epoch: [4]  [ 80/138]  eta: 0:03:24  lr: 0.000500  loss: 0.1652 (0.1895)  loss_classifier: 0.0586 (0.0698)  loss_box_reg: 0.0851 (0.0922)  loss_objectness: 0.0091 (0.0139)  loss_rpn_box_reg: 0.0110 (0.0136)  time: 3.6205  data: 0.0125  max mem: 7544
+Epoch: [4]  [ 85/138]  eta: 0:03:05  lr: 0.000500  loss: 0.1615 (0.1924)  loss_classifier: 0.0586 (0.0708)  loss_box_reg: 0.0798 (0.0929)  loss_objectness: 0.0112 (0.0150)  loss_rpn_box_reg: 0.0110 (0.0136)  time: 3.6065  data: 0.0129  max mem: 7544
+Epoch: [4]  [ 90/138]  eta: 0:02:48  lr: 0.000500  loss: 0.1615 (0.1915)  loss_classifier: 0.0529 (0.0705)  loss_box_reg: 0.0727 (0.0920)  loss_objectness: 0.0104 (0.0151)  loss_rpn_box_reg: 0.0110 (0.0139)  time: 3.5040  data: 0.0131  max mem: 7544
+Epoch: [4]  [ 95/138]  eta: 0:02:30  lr: 0.000500  loss: 0.1652 (0.1917)  loss_classifier: 0.0641 (0.0705)  loss_box_reg: 0.0897 (0.0926)  loss_objectness: 0.0121 (0.0149)  loss_rpn_box_reg: 0.0114 (0.0136)  time: 3.5920  data: 0.0126  max mem: 7544
+Epoch: [4]  [100/138]  eta: 0:02:13  lr: 0.000500  loss: 0.1750 (0.1932)  loss_classifier: 0.0612 (0.0711)  loss_box_reg: 0.0951 (0.0937)  loss_objectness: 0.0124 (0.0149)  loss_rpn_box_reg: 0.0108 (0.0136)  time: 3.4805  data: 0.0120  max mem: 7544
+Epoch: [4]  [105/138]  eta: 0:01:56  lr: 0.000500  loss: 0.1862 (0.1932)  loss_classifier: 0.0641 (0.0709)  loss_box_reg: 0.0965 (0.0938)  loss_objectness: 0.0109 (0.0148)  loss_rpn_box_reg: 0.0114 (0.0136)  time: 3.6103  data: 0.0110  max mem: 7544
+Epoch: [4]  [110/138]  eta: 0:01:38  lr: 0.000500  loss: 0.1884 (0.1949)  loss_classifier: 0.0641 (0.0717)  loss_box_reg: 0.0997 (0.0947)  loss_objectness: 0.0124 (0.0149)  loss_rpn_box_reg: 0.0113 (0.0136)  time: 3.6726  data: 0.0104  max mem: 7544
+Epoch: [4]  [115/138]  eta: 0:01:21  lr: 0.000500  loss: 0.1896 (0.1949)  loss_classifier: 0.0623 (0.0714)  loss_box_reg: 0.1049 (0.0954)  loss_objectness: 0.0106 (0.0147)  loss_rpn_box_reg: 0.0104 (0.0134)  time: 3.6486  data: 0.0104  max mem: 7544
+Epoch: [4]  [120/138]  eta: 0:01:03  lr: 0.000500  loss: 0.2237 (0.1975)  loss_classifier: 0.0818 (0.0723)  loss_box_reg: 0.1119 (0.0967)  loss_objectness: 0.0106 (0.0147)  loss_rpn_box_reg: 0.0114 (0.0138)  time: 3.5759  data: 0.0104  max mem: 7544
+Epoch: [4]  [125/138]  eta: 0:00:45  lr: 0.000500  loss: 0.2237 (0.1992)  loss_classifier: 0.0855 (0.0732)  loss_box_reg: 0.1046 (0.0977)  loss_objectness: 0.0106 (0.0146)  loss_rpn_box_reg: 0.0113 (0.0137)  time: 3.4500  data: 0.0105  max mem: 7544
+Epoch: [4]  [130/138]  eta: 0:00:28  lr: 0.000500  loss: 0.2147 (0.1993)  loss_classifier: 0.0855 (0.0734)  loss_box_reg: 0.1046 (0.0978)  loss_objectness: 0.0106 (0.0147)  loss_rpn_box_reg: 0.0093 (0.0135)  time: 3.4132  data: 0.0105  max mem: 7544
+Epoch: [4]  [135/138]  eta: 0:00:10  lr: 0.000500  loss: 0.2147 (0.2003)  loss_classifier: 0.0867 (0.0738)  loss_box_reg: 0.1005 (0.0985)  loss_objectness: 0.0121 (0.0147)  loss_rpn_box_reg: 0.0098 (0.0134)  time: 3.3329  data: 0.0106  max mem: 7544
+Epoch: [4]  [137/138]  eta: 0:00:03  lr: 0.000500  loss: 0.2131 (0.2000)  loss_classifier: 0.0867 (0.0737)  loss_box_reg: 0.1005 (0.0982)  loss_objectness: 0.0121 (0.0148)  loss_rpn_box_reg: 0.0093 (0.0133)  time: 3.2157  data: 0.0104  max mem: 7544
+Epoch: [4] Total time: 0:08:00 (3.4839 s / it)
+creating index...
+index created!
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+Test:  [ 0/16]  eta: 0:00:28  model_time: 1.6014 (1.6014)  evaluator_time: 0.0160 (0.0160)  time: 1.7618  data: 0.1416  max mem: 7544
+Test:  [15/16]  eta: 0:00:01  model_time: 1.6145 (1.6592)  evaluator_time: 0.0120 (0.0123)  time: 1.6896  data: 0.0161  max mem: 7544
+Test: Total time: 0:00:27 (1.6952 s / it)
+Averaged stats: model_time: 1.6145 (1.6592)  evaluator_time: 0.0120 (0.0123)
+Accumulating evaluation results...
+DONE (t=0.03s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.113
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.382
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.048
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.003
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.129
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.140
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.260
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.348
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.143
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.378
+creating index...
+index created!
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+Test:  [ 0/51]  eta: 0:01:33  model_time: 1.6727 (1.6727)  evaluator_time: 0.0119 (0.0119)  time: 1.8401  data: 0.1527  max mem: 7544
+Test:  [50/51]  eta: 0:00:01  model_time: 1.6130 (1.6243)  evaluator_time: 0.0103 (0.0110)  time: 1.5474  data: 0.0102  max mem: 7544
+Test: Total time: 0:01:24 (1.6530 s / it)
+Averaged stats: model_time: 1.6130 (1.6243)  evaluator_time: 0.0103 (0.0110)
+Accumulating evaluation results...
+DONE (t=0.08s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.100
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.358
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.006
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.120
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.185
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.283
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.324
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.054
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.381
+
+
+[2021-06-22T13:28:07.299852] The experiment completed successfully. Finalizing run...
+Cleaning up all outstanding Run operations, waiting 900.0 seconds
+4 items cleaning up...
+Cleanup took 0.28186631202697754 seconds
+[2021-06-22T13:28:07.756389] Finished context manager injector.
+2021/06/22 13:28:08 Attempt 1 of http call to http://10.0.0.4:16384/sendlogstoartifacts/status
+2021/06/22 13:28:09 Not exporting to RunHistory as the exporter is either stopped or there is no data.
+Stopped: false
+OriginalData: 2
+FilteredData: 0.
+2021/06/22 13:28:09 Process Exiting with Code:  0
+2021/06/22 13:28:09 All App Insights Logs was send successfully
