@@ -7,27 +7,32 @@ import os
 ws = Workspace.from_config()
 
 # Load the model and check the version
-model = ws.models['sheep_train_augmented']
+model = ws.models['sheep_train_normal']
 print(model.name, 'version', model.version)
 
 #Add the script file
 script_file = "score.py"
 
+
+#################
+myenv=CondaDependencies.create(conda_packages=["pip","opencv"],pip_packages=["azureml-defaults","torch","torchvision","pillow","kornia","numpy"])
+
+#################
 # Add the dependencies for our model (AzureML defaults is already included)
-myenv = CondaDependencies()
-myenv.add_conda_package('pytorch')
-myenv.add_conda_package('torchvision')
-myenv.add_conda_package('opencv')
+#myenv = CondaDependencies()
+#myenv.add_conda_package('pytorch>=1.6')
+#myenv.add_conda_package('torchvision')
+#myenv.add_conda_package('opencv')
 
 # Save the environment config as a .yml file
 env_file = "sheep_deployment_env.yml"
 with open(env_file,"w") as f:
     f.write(myenv.serialize_to_string())
-print("Saved dependency info in", env_file)
+#print("Saved dependency info in", env_file)
 
 # Print the .yml file
-with open(env_file,"r") as f:
-    print(f.read())
+#with open(pytorch_env,"r") as f:
+#    print(f.read())
 
 from azureml.core.webservice import AciWebservice
 from azureml.core.model import InferenceConfig
@@ -42,7 +47,7 @@ deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb 
 service_name = "sheep-service"
 
 service = Model.deploy(ws, service_name, [model], inference_config, deployment_config)
-print("we are happy so far")
+
 service.wait_for_deployment(True)
 print(service.state)
 
