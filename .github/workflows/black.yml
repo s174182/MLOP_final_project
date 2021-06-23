@@ -26,3 +26,4 @@ jobs:
           git commit -am "fixup: Format Python code with Black"
           echo 'commited'
           git push origin main
+          git branch -d git_action_changes
