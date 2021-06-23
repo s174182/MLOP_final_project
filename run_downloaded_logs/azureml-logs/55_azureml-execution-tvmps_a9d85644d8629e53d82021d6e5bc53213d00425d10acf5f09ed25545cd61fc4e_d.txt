@@ -1,0 +1,357 @@
+2021-06-22T12:41:25Z Successfully mounted a/an Blobfuse File System at /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore
+2021-06-22T12:41:25Z Failed to start nvidia-fabricmanager due to exit status 5 with output Failed to start nvidia-fabricmanager.service: Unit nvidia-fabricmanager.service not found.
+. Please ignore this if the GPUs don't utilize NVIDIA® NVLink® switches.
+2021-06-22T12:41:25Z Starting output-watcher...
+2021-06-22T12:41:25Z IsDedicatedCompute == True, won't poll for Low Pri Preemption
+2021-06-22T12:41:26Z Executing 'Copy ACR Details file' on 10.0.0.4
+2021-06-22T12:41:26Z Copy ACR Details file succeeded on 10.0.0.4. Output: 
+>>>   
+>>>   
+Login Succeeded
+Using default tag: latest
+latest: Pulling from azureml/azureml_13f0da07a5a85d4f65ee73147a410b63
+01bf7da0a88c: Pulling fs layer
+f3b4a5f15c7a: Pulling fs layer
+57ffbe87baa1: Pulling fs layer
+86120caa19f5: Pulling fs layer
+c0f2d44469de: Pulling fs layer
+638bc09d59ce: Pulling fs layer
+cec7eddb8044: Pulling fs layer
+31cda9815495: Pulling fs layer
+a1b48f84f0d1: Pulling fs layer
+484f821166bc: Pulling fs layer
+6d70e314b196: Pulling fs layer
+9c3b2a27aba4: Pulling fs layer
+6edce3cfa4b7: Pulling fs layer
+0e6db9d9d988: Pulling fs layer
+50d7dd437425: Pulling fs layer
+83766c46afd0: Pulling fs layer
+f42ea51f5f1b: Pulling fs layer
+09f9cce0bd4d: Pulling fs layer
+53d3ca61d43e: Pulling fs layer
+36fd273942c6: Pulling fs layer
+6d70e314b196: Waiting
+9c3b2a27aba4: Waiting
+83766c46afd0: Waiting
+53d3ca61d43e: Waiting
+6edce3cfa4b7: Waiting
+09f9cce0bd4d: Waiting
+f42ea51f5f1b: Waiting
+0e6db9d9d988: Waiting
+50d7dd437425: Waiting
+638bc09d59ce: Waiting
+cec7eddb8044: Waiting
+31cda9815495: Waiting
+a1b48f84f0d1: Waiting
+36fd273942c6: Waiting
+484f821166bc: Waiting
+86120caa19f5: Waiting
+c0f2d44469de: Waiting
+f3b4a5f15c7a: Verifying Checksum
+f3b4a5f15c7a: Download complete
+57ffbe87baa1: Verifying Checksum
+57ffbe87baa1: Download complete
+01bf7da0a88c: Verifying Checksum
+01bf7da0a88c: Download complete
+638bc09d59ce: Verifying Checksum
+638bc09d59ce: Download complete
+c0f2d44469de: Verifying Checksum
+c0f2d44469de: Download complete
+01bf7da0a88c: Pull complete
+31cda9815495: Verifying Checksum
+31cda9815495: Download complete
+86120caa19f5: Verifying Checksum
+86120caa19f5: Download complete
+484f821166bc: Verifying Checksum
+484f821166bc: Download complete
+6d70e314b196: Verifying Checksum
+6d70e314b196: Download complete
+cec7eddb8044: Verifying Checksum
+cec7eddb8044: Download complete
+9c3b2a27aba4: Verifying Checksum
+9c3b2a27aba4: Download complete
+6edce3cfa4b7: Verifying Checksum
+6edce3cfa4b7: Download complete
+a1b48f84f0d1: Verifying Checksum
+a1b48f84f0d1: Download complete
+50d7dd437425: Verifying Checksum
+50d7dd437425: Download complete
+0e6db9d9d988: Download complete
+f42ea51f5f1b: Download complete
+09f9cce0bd4d: Verifying Checksum
+09f9cce0bd4d: Download complete
+36fd273942c6: Verifying Checksum
+36fd273942c6: Download complete
+53d3ca61d43e: Verifying Checksum
+53d3ca61d43e: Download complete
+83766c46afd0: Verifying Checksum
+83766c46afd0: Download complete
+f3b4a5f15c7a: Pull complete
+57ffbe87baa1: Pull complete
+86120caa19f5: Pull complete
+c0f2d44469de: Pull complete
+638bc09d59ce: Pull complete
+cec7eddb8044: Pull complete
+31cda9815495: Pull complete
+a1b48f84f0d1: Pull complete
+484f821166bc: Pull complete
+6d70e314b196: Pull complete
+9c3b2a27aba4: Pull complete
+6edce3cfa4b7: Pull complete
+0e6db9d9d988: Pull complete
+50d7dd437425: Pull complete
+83766c46afd0: Pull complete
+f42ea51f5f1b: Pull complete
+09f9cce0bd4d: Pull complete
+53d3ca61d43e: Pull complete
+36fd273942c6: Pull complete
+Digest: sha256:374eabadc3b2cce36f173326071d3b6f9094cf904e52ded8c8ea641a63f41dca
+Status: Downloaded newer image for 141cbf83dd414806bb405c3b1de7408c.azurecr.io/azureml/azureml_13f0da07a5a85d4f65ee73147a410b63:latest
+141cbf83dd414806bb405c3b1de7408c.azurecr.io/azureml/azureml_13f0da07a5a85d4f65ee73147a410b63:latest
+2021-06-22T12:43:28Z Check if container train_test_sheep_1624365120_92246eb7 already exist exited with 0, 
+
+b0d4dc3aecad2f7141a08d31de74deaf5d345bb2a85863a01eeb50dd87adde14
+2021-06-22T12:43:30Z Parameters for containerSetup task: useDetonationChamer set to false and sshRequired set to false 
+2021-06-22T12:43:30Z containerSetup task cmd: [/mnt/batch/tasks/startup/wd/hosttools -task=containerSetup -traceContext=00-89e8f89ea1f2e7ea2643f8dfa490747c-c4e57642df7e193c-01 -sshRequired=false] 
+2021/06/22 12:43:31 Starting App Insight Logger for task:  containerSetup
+2021/06/22 12:43:31 Version: 3.0.01622.0001 Branch: .SourceBranch Commit: 1141612
+2021/06/22 12:43:31 Entered ContainerSetupTask - Preparing infiniband
+2021/06/22 12:43:31 Starting infiniband setup
+2021/06/22 12:43:31 Python Version found is Python 3.6.2 :: Anaconda, Inc.
+
+2021/06/22 12:43:31 Returning Python Version as 3.6
+2021/06/22 12:43:31 VMSize: standard_nc6, Host: ubuntu-18, Container: ubuntu-18.04
+2021/06/22 12:43:31 VMSize: standard_nc6, Host: ubuntu-18, Container: ubuntu-18.04
+2021-06-22T12:43:31Z VMSize: standard_nc6, Host: ubuntu-18, Container: ubuntu-18.04
+2021/06/22 12:43:31 /dev/infiniband/uverbs0 found (implying presence of InfiniBand)?: false
+2021/06/22 12:43:31 Not setting up Infiniband in Container
+2021/06/22 12:43:31 Not setting up Infiniband in Container
+2021-06-22T12:43:31Z Not setting up Infiniband in Container
+2021/06/22 12:43:31 Python Version found is Python 3.6.2 :: Anaconda, Inc.
+
+2021/06/22 12:43:31 Returning Python Version as 3.6
+2021/06/22 12:43:31 sshd inside container not required for job, skipping setup.
+2021/06/22 12:43:31 All App Insights Logs was send successfully
+2021/06/22 12:43:31 App Insight Client has already been closed
+2021/06/22 12:43:31 Not exporting to RunHistory as the exporter is either stopped or there is no data.
+Stopped: false
+OriginalData: 1
+FilteredData: 0.
+2021-06-22T12:43:31Z Starting docker container succeeded.
+2021-06-22T12:44:12Z Job environment preparation succeeded on 10.0.0.4. Output: 
+>>>   2021/06/22 12:41:24 Starting App Insight Logger for task:  prepareJobEnvironment
+>>>   2021/06/22 12:41:24 Version: 3.0.01622.0001 Branch: .SourceBranch Commit: 1141612
+>>>   2021/06/22 12:41:24 runtime.GOOS linux
+>>>   2021/06/22 12:41:24 Checking if '/tmp' exists
+>>>   2021/06/22 12:41:24 Reading dyanamic configs
+>>>   2021/06/22 12:41:24 Container sas url: https://baiscriptsdb3prod.blob.core.windows.net/aihosttools?sv=2018-03-28&sr=c&si=aihosttoolspolicy&sig=C5qYa8w7DcGiMMSKT2OPCw8bl0hKB9umyusoqUwMb%2Bk%3D
+>>>   2021/06/22 12:41:24 Failed to read from file /mnt/batch/tasks/startup/wd/az_resource/xdsenv.variable/azsecpack.variables, open /mnt/batch/tasks/startup/wd/az_resource/xdsenv.variable/azsecpack.variables: no such file or directory
+>>>   2021/06/22 12:41:24 [in autoUpgradeFromJobNodeSetup] Is Azsecpack installer on host: false. Is Azsecpack installation enabled: false,
+>>>   2021/06/22 12:41:24 Starting Azsecpack installation on machine: s2025811#f251f123-c9ce-448e-9277-34bb285911d9#ea3e203d-e284-47cd-9260-ad182a62a3a9#mlops#mlops_gpu#s2025811
+>>>   2021/06/22 12:41:24 Is Azsecpack enabled: false, GetDisableVsatlsscan: true
+>>>   2021/06/22 12:41:24 Turning off azsecpack, if it is already running
+>>>   2021/06/22 12:41:24 [doTurnOffAzsecpack] output:Unit mdsd.service could not be found.
+>>>   ,err:exit status 1.
+>>>   2021/06/22 12:41:24 OS patching disabled by dynamic configs. Skipping.
+>>>   2021/06/22 12:41:24 DetonationChamber is not enabled on this subscription: ea3e203d-e284-47cd-9260-ad182a62a3a9
+>>>   2021/06/22 12:41:24 Start to getting gpu count by running nvidia-smi command
+>>>   2021/06/22 12:41:24 GPU : GPU 0: NVIDIA Tesla K80 (UUID: GPU-0d5c857f-c59b-030c-0c3b-311dccd6a119)
+>>>   2021/06/22 12:41:24 GPU count found on the node: 1
+>>>   2021/06/22 12:41:24 Mellanox Inbox drivers found (implying presence of SR-IOV)?: false
+>>>   2021/06/22 12:41:24 Disabling IB for NCCL.
+>>>   2021/06/22 12:41:24 AMLComputeXDSEndpoint:  https://db3-prodk8ds.batchai.core.windows.net
+>>>   2021/06/22 12:41:24 AMLComputeXDSApiVersion:  2018-02-01
+>>>   2021/06/22 12:41:24 Creating directory /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/config
+>>>   2021/06/22 12:41:24 Creating directory /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/wd
+>>>   2021/06/22 12:41:24 Creating directory /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/shared
+>>>   2021/06/22 12:41:24 From the policy service, the filtering patterns is: , data store is 
+>>>   2021/06/22 12:41:24 Mounting job level file systems
+>>>   2021/06/22 12:41:24 Creating directory /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts
+>>>   2021/06/22 12:41:24 Attempting to read datastore credentials file: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/config/.amlcompute.datastorecredentials
+>>>   2021/06/22 12:41:24 Datastore credentials file not found, skipping.
+>>>   2021/06/22 12:41:24 Attempting to read runtime sas tokens file: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/config/.master.runtimesastokens
+>>>   2021/06/22 12:41:24 Runtime sas tokens file not found, skipping.
+>>>   2021/06/22 12:41:24 No NFS configured
+>>>   2021/06/22 12:41:24 No Azure File Shares configured
+>>>   2021/06/22 12:41:24 Mounting blob file systems
+>>>   2021/06/22 12:41:25 Blobfuse runtime version 1.3.7
+>>>   2021/06/22 12:41:25 Mounting azureml-blobstore-141cbf83-dd41-4806-bb40-5c3b1de7408c container from mlopsgpu9499160026 account at /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore
+>>>   2021/06/22 12:41:25 Error opening env file:  open /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/config/.batchai.IdentityResponder.envlist: no such file or directory
+>>>   2021/06/22 12:41:25 Using Compute Identity to authenticate Blobfuse: false.
+>>>   2021/06/22 12:41:25 Using Compute Identity to authenticate Blobfuse: false.
+>>>   2021/06/22 12:41:25 Blobfuse cache size set to 316490 MB.
+>>>   2021/06/22 12:41:25 Running following command: /bin/bash -c sudo blobfuse /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore --tmp-path=/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/caches/workspaceblobstore --file-cache-timeout-in-seconds=1000000 --cache-size-mb=316490 -o nonempty -o allow_other --config-file=/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/configs/workspaceblobstore.cfg --log-level=LOG_WARNING
+>>>   2021/06/22 12:41:25 Successfully mounted a/an Blobfuse File System at /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore
+>>>   2021/06/22 12:41:25 Waiting for blobfs to be mounted at /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore
+>>>   2021/06/22 12:41:25 Successfully mounted azureml-blobstore-141cbf83-dd41-4806-bb40-5c3b1de7408c container from mlopsgpu9499160026 account at /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore
+>>>   2021/06/22 12:41:25 Created run_id directory: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7
+>>>   2021/06/22 12:41:25 No unmanaged file systems configured
+>>>   2021/06/22 12:41:25 Start to getting gpu count by running nvidia-smi command
+>>>   2021/06/22 12:41:25 GPU : GPU 0: NVIDIA Tesla K80 (UUID: GPU-0d5c857f-c59b-030c-0c3b-311dccd6a119)
+>>>   2021/06/22 12:41:25 Failed to start nvidia-fabricmanager due to exit status 5 with output Failed to start nvidia-fabricmanager.service: Unit nvidia-fabricmanager.service not found.
+>>>   . Please ignore this if the GPUs don't utilize NVIDIA® NVLink® switches.
+>>>   2021/06/22 12:41:25 Failed to start nvidia-fabricmanager due to exit status 5 with output Failed to start nvidia-fabricmanager.service: Unit nvidia-fabricmanager.service not found.
+>>>   . Please ignore this if the GPUs don't utilize NVIDIA® NVLink® switches.
+>>>   2021/06/22 12:41:25 From the policy service, the filtering patterns is: , data store is 
+>>>   2021/06/22 12:41:25 Creating directory /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml_compute_logs
+>>>   2021/06/22 12:41:25 Creating directory /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/logs
+>>>   2021/06/22 12:41:25 Creating directory /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/outputs
+>>>   2021/06/22 12:41:25 Starting output-watcher...
+>>>   2021/06/22 12:41:25 Single file input dataset is enabled.
+>>>   2021/06/22 12:41:25 Start to pulling docker image: 141cbf83dd414806bb405c3b1de7408c.azurecr.io/azureml/azureml_13f0da07a5a85d4f65ee73147a410b63
+>>>   2021/06/22 12:41:25 Start pull docker image: 141cbf83dd414806bb405c3b1de7408c.azurecr.io
+>>>   2021/06/22 12:41:25 Getting credentials for image 141cbf83dd414806bb405c3b1de7408c.azurecr.io/azureml/azureml_13f0da07a5a85d4f65ee73147a410b63 with url 141cbf83dd414806bb405c3b1de7408c.azurecr.io
+>>>   2021/06/22 12:41:25 Container registry is ACR.
+>>>   2021/06/22 12:41:25 Skip getting ACR Credentials from Identity and will be getting it from EMS
+>>>   2021/06/22 12:41:25 Getting ACR Credentials from EMS for environment env:Autosave_2021-06-22T12:32:56Z_24cc4be4
+>>>   2021/06/22 12:41:25 Requesting XDS for registry details.
+>>>   2021/06/22 12:41:25 Attempt 1 of http call to https://db3-prodk8ds.batchai.core.windows.net/hosttoolapi/subscriptions/ea3e203d-e284-47cd-9260-ad182a62a3a9/resourceGroups/mlops/workspaces/mlops_gpu/clusters/s2025811/nodes/tvmps_a9d85644d8629e53d82021d6e5bc53213d00425d10acf5f09ed25545cd61fc4e_d?api-version=2018-02-01
+>>>   2021/06/22 12:41:26 Got container registry details from credentials service for registry address: 141cbf83dd414806bb405c3b1de7408c.azurecr.io.
+>>>   2021/06/22 12:41:26 Writing ACR Details to file...
+>>>   2021/06/22 12:41:26 Copying ACR Details file to worker nodes...
+>>>   2021/06/22 12:41:26 Executing 'Copy ACR Details file' on 10.0.0.4
+>>>   2021/06/22 12:41:26 Begin executing 'Copy ACR Details file' task on Node
+>>>   2021/06/22 12:41:26 'Copy ACR Details file' task Node result: succeeded
+>>>   2021/06/22 12:41:26 Copy ACR Details file succeeded on 10.0.0.4. Output: 
+>>>   >>>   
+>>>   >>>   
+>>>   2021/06/22 12:41:26 Successfully retrieved ACR Credentials from EMS.
+>>>   2021/06/22 12:41:26 EMS returned 141cbf83dd414806bb405c3b1de7408c.azurecr.io for environment env
+>>>   2021/06/22 12:41:26 Save docker credentials for image 141cbf83dd414806bb405c3b1de7408c.azurecr.io/azureml/azureml_13f0da07a5a85d4f65ee73147a410b63 in /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/wd/docker_login_9FA7F3A6F5A04E0A
+>>>   2021/06/22 12:41:26 Start login to the docker registry
+>>>   2021/06/22 12:41:28 Successfully logged into the docker registry.
+>>>   2021/06/22 12:41:28 Start run pull docker image command
+>>>   2021/06/22 12:41:29 Not exporting to RunHistory as the exporter is either stopped or there is no data.
+>>>   Stopped: false
+>>>   OriginalData: 18
+>>>   FilteredData: 0.
+>>>   2021/06/22 12:43:28 Pull docker image succeeded.
+>>>   2021/06/22 12:43:28 Removed docker config dir /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/wd/docker_login_9FA7F3A6F5A04E0A
+>>>   2021/06/22 12:43:28 Pull docker image time: 2m2.893423405s
+>>>   
+>>>   2021/06/22 12:43:28 Docker Version that this nodes use are: 20.10.6+azure
+>>>   
+>>>   2021/06/22 12:43:28 Start to getting gpu count by running nvidia-smi command
+>>>   2021/06/22 12:43:28 GPU : GPU 0: NVIDIA Tesla K80 (UUID: GPU-0d5c857f-c59b-030c-0c3b-311dccd6a119)
+>>>   2021/06/22 12:43:28 Setting the memory limit for docker container to be 55885 MB
+>>>   2021/06/22 12:43:28 The env variable file size is 38099 bytes
+>>>   2021/06/22 12:43:28 Creating parent cgroup 'train_test_sheep_1624365120_92246eb7' for Containers used in Job
+>>>   2021/06/22 12:43:28 Add parent cgroup 'train_test_sheep_1624365120_92246eb7' to container 'train_test_sheep_1624365120_92246eb7'
+>>>   2021/06/22 12:43:28 /dev/infiniband/uverbs0 found (implying presence of InfiniBand)?: false
+>>>   2021/06/22 12:43:28 Original Arguments: run,--ulimit,memlock=9223372036854775807,--ulimit,nofile=262144:262144,--cap-add,sys_ptrace,--name,train_test_sheep_1624365120_92246eb7,-v,/mnt/batch/tasks/shared/LS_root/mounts:/mnt/batch/tasks/shared/LS_root/mounts:rshared,-v,/mnt/batch/tasks/shared/LS_root/configs:/mnt/batch/tasks/shared/LS_root/configs,-v,/mnt/batch/tasks/shared/LS_root/shared:/mnt/batch/tasks/shared/LS_root/shared,-v,/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/certs:/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/certs,-v,/mnt/batch/tasks/startup:/mnt/batch/tasks/startup,--gpus,all,-m,55885m,-v,/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml_compute_logs:/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml_compute_logs,-v,/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/wd:/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/wd,-v,/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7:/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7,-v,/mnt/batch/tasks/shared/LS_root/shared/tracing/train_test_sheep_1624365120_92246eb7/logs/azureml/tracing:/mnt/batch/tasks/shared/LS_root/shared/tracing/train_test_sheep_1624365120_92246eb7/logs/azureml/tracing,-w,/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/wd,--expose,23,--env-file,/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/config/.batchai.envlist,--cgroup-parent=/train_test_sheep_1624365120_92246eb7/,--shm-size,2g
+>>>   2021/06/22 12:43:28 the binding /mnt/batch/tasks/shared/LS_root/shared/tracing/train_test_sheep_1624365120_92246eb7/logs/azureml/tracing:/mnt/batch/tasks/shared/LS_root/shared/tracing/train_test_sheep_1624365120_92246eb7/logs/azureml/tracing is discarded as we already have /mnt/batch/tasks/shared/LS_root/shared:/mnt/batch/tasks/shared/LS_root/shared 
+>>>   2021/06/22 12:43:28 the binding /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml_compute_logs:/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml_compute_logs is discarded as we already have /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7:/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7 
+>>>   2021/06/22 12:43:28 Updated Arguments: run,--ulimit,memlock=9223372036854775807,--ulimit,nofile=262144:262144,--cap-add,sys_ptrace,--name,train_test_sheep_1624365120_92246eb7,--gpus,all,-m,55885m,-w,/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/wd,--expose,23,--env-file,/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/config/.batchai.envlist,--cgroup-parent=/train_test_sheep_1624365120_92246eb7/,--shm-size,2g,-v,/mnt/batch/tasks/startup:/mnt/batch/tasks/startup,-v,/mnt/batch/tasks/shared/LS_root/mounts:/mnt/batch/tasks/shared/LS_root/mounts:rshared,-v,/mnt/batch/tasks/shared/LS_root/shared:/mnt/batch/tasks/shared/LS_root/shared,-v,/mnt/batch/tasks/shared/LS_root/configs:/mnt/batch/tasks/shared/LS_root/configs,-v,/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7:/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7,-v,/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/wd:/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/wd,-v,/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/certs:/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/certs
+>>>   2021/06/22 12:43:28 Running Docker command: docker run --ulimit memlock=9223372036854775807 --ulimit nofile=262144:262144 --cap-add sys_ptrace --name train_test_sheep_1624365120_92246eb7 --gpus all -m 55885m -w /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/wd --expose 23 --env-file /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/config/.batchai.envlist --cgroup-parent=/train_test_sheep_1624365120_92246eb7/ --shm-size 2g -v /mnt/batch/tasks/startup:/mnt/batch/tasks/startup -v /mnt/batch/tasks/shared/LS_root/mounts:/mnt/batch/tasks/shared/LS_root/mounts:rshared -v /mnt/batch/tasks/shared/LS_root/shared:/mnt/batch/tasks/shared/LS_root/shared -v /mnt/batch/tasks/shared/LS_root/configs:/mnt/batch/tasks/shared/LS_root/configs -v /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7:/mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7 -v /mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/wd:/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/wd -v /mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/certs:/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/certs -d -it --privileged --net=host 141cbf83dd414806bb405c3b1de7408c.azurecr.io/azureml/azureml_13f0da07a5a85d4f65ee73147a410b63
+>>>   2021/06/22 12:43:28 Check if container train_test_sheep_1624365120_92246eb7 already exist exited with 0, 
+>>>   
+>>>   2021/06/22 12:43:28 Check if container train_test_sheep_1624365120_92246eb7 already exist exited with 0, 
+>>>   
+>>>   2021/06/22 12:43:29 Attempt 1 of http call to https://northeurope.api.azureml.ms/history/v1.0/private/subscriptions/ea3e203d-e284-47cd-9260-ad182a62a3a9/resourceGroups/mlops/providers/Microsoft.MachineLearningServices/workspaces/mlops_gpu/runs/train_test_sheep_1624365120_92246eb7/spans
+>>>   2021/06/22 12:43:30 Parameters for containerSetup task: useDetonationChamer set to false and sshRequired set to false 
+>>>   2021/06/22 12:43:30 Parameters for containerSetup task: useDetonationChamer set to false and sshRequired set to false 
+>>>   2021/06/22 12:43:30 containerSetup task cmd: [/mnt/batch/tasks/startup/wd/hosttools -task=containerSetup -traceContext=00-89e8f89ea1f2e7ea2643f8dfa490747c-c4e57642df7e193c-01 -sshRequired=false] 
+>>>   2021/06/22 12:43:30 containerSetup task cmd: [/mnt/batch/tasks/startup/wd/hosttools -task=containerSetup -traceContext=00-89e8f89ea1f2e7ea2643f8dfa490747c-c4e57642df7e193c-01 -sshRequired=false] 
+>>>   2021/06/22 12:43:31 Container ssh is not required for job type.
+>>>   2021/06/22 12:43:31 Starting docker container succeeded.
+>>>   2021/06/22 12:43:31 Starting docker container succeeded.
+>>>   2021/06/22 12:43:31 Disk space after starting docker container: 323824MB
+>>>   2021/06/22 12:43:31 Begin execution of runSpecialJobTask
+>>>   2021/06/22 12:43:31 runSpecialJobTask: os.GetEnv constants.StdouterrDir: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml_compute_logs
+>>>   2021/06/22 12:43:31 runSpecialJobTask: Raw cmd for preparation is passed is: /azureml-envs/azureml_1f2d3f199716b8480f8ef1f911c168d8/bin/python /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7-setup/job_prep.py --snapshots '[{"Id":"36aa4807-aa7a-446e-bf61-35c164b7c015","PathStack":["."],"SnapshotEntityId":null}]'
+>>>   2021/06/22 12:43:31 runSpecialJobTask: stdout path for preparation is passed is: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml_compute_logs/65_job_prep-tvmps_a9d85644d8629e53d82021d6e5bc53213d00425d10acf5f09ed25545cd61fc4e_d.txt
+>>>   2021/06/22 12:43:31 runSpecialJobTask: stderr path for preparation is passed is: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml_compute_logs/65_job_prep-tvmps_a9d85644d8629e53d82021d6e5bc53213d00425d10acf5f09ed25545cd61fc4e_d.txt
+>>>   2021/06/22 12:43:31 native cmd: export AZUREML_JOB_TASK_ERROR_PATH='/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/wd/runSpecialJobTask_error.json';cd /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7;/azureml-envs/azureml_1f2d3f199716b8480f8ef1f911c168d8/bin/python /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7-setup/job_prep.py --snapshots '[{"Id":"36aa4807-aa7a-446e-bf61-35c164b7c015","PathStack":["."],"SnapshotEntityId":null}]'
+>>>   2021/06/22 12:43:31 runSpecialJobTask: commons.GetOsPlatform(): ubuntu
+>>>   2021/06/22 12:43:31 runSpecialJobTask: Running cmd: /usr/bin/docker exec -e AZUREML_SDK_TRACEPARENT=00-89e8f89ea1f2e7ea2643f8dfa490747c-ad6c9d62418deac6-01 -t train_test_sheep_1624365120_92246eb7 bash -c source /etc/bash.bashrc; PATH=$PATH:$AZ_BATCH_NODE_STARTUP_DIR/wd/;export AZUREML_JOB_TASK_ERROR_PATH='/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/wd/runSpecialJobTask_error.json';cd /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7;/azureml-envs/azureml_1f2d3f199716b8480f8ef1f911c168d8/bin/python /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7-setup/job_prep.py --snapshots '[{"Id":"36aa4807-aa7a-446e-bf61-35c164b7c015","PathStack":["."],"SnapshotEntityId":null}]'
+>>>   2021/06/22 12:43:34 Not exporting to RunHistory as the exporter is either stopped or there is no data.
+>>>   Stopped: false
+>>>   OriginalData: 1
+>>>   FilteredData: 0.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: job preparation exited with code 0 and err <nil>
+>>>   
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:43:32.137678] Entering job preparation.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:43:33.054308] Starting job preparation.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:43:33.054350] Extracting the control code.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:43:33.066550] fetching and extracting the control code on master node.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:43:33.066589] Starting extract_project.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:43:33.066632] Starting to extract zip file.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:43:33.337423] Finished extracting zip file.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:43:33.426246] Using urllib.request Python 3.0 or later
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:43:33.426314] Start fetching snapshots.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:43:33.426358] Start fetching snapshot.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:43:33.426377] Retrieving project from snapshot: 36aa4807-aa7a-446e-bf61-35c164b7c015
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: Starting the daemon thread to refresh tokens in background for process with pid = 43
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:44:12.157345] Finished fetching snapshot.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:44:12.157380] Finished fetching snapshots.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:44:12.157392] Finished extract_project.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:44:12.165252] Finished fetching and extracting the control code.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:44:12.169503] downloadDataStore - Download from datastores if requested.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:44:12.170251] Start run_history_prep.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:44:12.204606] Entering context manager injector.
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:44:12.238077] downloadDataStore completed
+>>>   2021/06/22 12:44:12 runSpecialJobTask: preparation: [2021-06-22T12:44:12.239842] Job preparation is complete.
+>>>   2021/06/22 12:44:12 Execution of runSpecialJobTask completed
+>>>   2021/06/22 12:44:12 Not exporting to RunHistory as the exporter is either stopped or there is no data.
+>>>   Stopped: false
+>>>   OriginalData: 3
+>>>   FilteredData: 0.
+>>>   2021/06/22 12:44:12 Process Exiting with Code:  0
+>>>   2021/06/22 12:44:12 All App Insights Logs was send successfully
+>>>   
+2021-06-22T12:44:12Z 127.0.0.1 slots=1 max-slots=1
+2021-06-22T12:44:13Z launching Custom job
+2021-06-22T12:46:27Z The vmsize standard_nc6 is a GPU VM, running nvidia-smi command.
+2021-06-22T12:51:29Z The vmsize standard_nc6 is a GPU VM, running nvidia-smi command.
+2021-06-22T12:56:31Z The vmsize standard_nc6 is a GPU VM, running nvidia-smi command.
+2021-06-22T13:01:33Z The vmsize standard_nc6 is a GPU VM, running nvidia-smi command.
+2021-06-22T13:06:35Z The vmsize standard_nc6 is a GPU VM, running nvidia-smi command.
+2021-06-22T13:11:37Z The vmsize standard_nc6 is a GPU VM, running nvidia-smi command.
+2021-06-22T13:16:39Z The vmsize standard_nc6 is a GPU VM, running nvidia-smi command.
+2021-06-22T13:21:42Z The vmsize standard_nc6 is a GPU VM, running nvidia-smi command.
+2021-06-22T13:26:44Z The vmsize standard_nc6 is a GPU VM, running nvidia-smi command.
+2021-06-22T13:28:09Z job exited with code 0
+2021-06-22T13:28:09Z Executing 'JobRelease task' on 10.0.0.4
+2021-06-22T13:28:12Z JobRelease task succeeded on 10.0.0.4. Output: 
+>>>   2021/06/22 13:28:09 Starting App Insight Logger for task:  jobRelease
+>>>   2021/06/22 13:28:09 Version: 3.0.01622.0001 Branch: .SourceBranch Commit: 1141612
+>>>   2021/06/22 13:28:09 runSpecialJobTask: os.GetEnv constants.StdouterrDir: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml_compute_logs
+>>>   2021/06/22 13:28:09 runSpecialJobTask: Raw cmd for postprocessing is passed is: export AZ_BATCHAI_RUN_STATUS='SUCCEEDED';export AZ_BATCHAI_LOG_UPLOAD_FAILED='false';/azureml-envs/azureml_1f2d3f199716b8480f8ef1f911c168d8/bin/python $AZ_BATCHAI_JOB_MOUNT_ROOT/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml-setup/job_release.py
+>>>   2021/06/22 13:28:09 runSpecialJobTask: stdout path for postprocessing is passed is: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml_compute_logs/75_job_post-tvmps_a9d85644d8629e53d82021d6e5bc53213d00425d10acf5f09ed25545cd61fc4e_d.txt
+>>>   2021/06/22 13:28:09 runSpecialJobTask: stderr path for postprocessing is passed is: /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml_compute_logs/75_job_post-tvmps_a9d85644d8629e53d82021d6e5bc53213d00425d10acf5f09ed25545cd61fc4e_d.txt
+>>>   2021/06/22 13:28:09 native cmd: export AZUREML_JOB_TASK_ERROR_PATH='/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/wd/runSpecialJobTask_error.json';cd /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7;export AZ_BATCHAI_RUN_STATUS='SUCCEEDED';export AZ_BATCHAI_LOG_UPLOAD_FAILED='false';/azureml-envs/azureml_1f2d3f199716b8480f8ef1f911c168d8/bin/python $AZ_BATCHAI_JOB_MOUNT_ROOT/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml-setup/job_release.py
+>>>   2021/06/22 13:28:10 runSpecialJobTask: commons.GetOsPlatform(): ubuntu
+>>>   2021/06/22 13:28:10 runSpecialJobTask: Running cmd: /usr/bin/docker exec -e AZUREML_SDK_TRACEPARENT=00-89e8f89ea1f2e7ea2643f8dfa490747c-c9769fe5baacb780-01 -t train_test_sheep_1624365120_92246eb7 bash -c source /etc/bash.bashrc; PATH=$PATH:$AZ_BATCH_NODE_STARTUP_DIR/wd/;export AZUREML_JOB_TASK_ERROR_PATH='/mnt/batch/tasks/workitems/d42de78b-4518-41b2-ae88-4f7d7920c374/job-1/train_test_sheep_162_9034722f-5406-406e-aa51-ad7284e1d7a3/wd/runSpecialJobTask_error.json';cd /mnt/batch/tasks/shared/LS_root/jobs/mlops_gpu/azureml/train_test_sheep_1624365120_92246eb7/mounts/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7;export AZ_BATCHAI_RUN_STATUS='SUCCEEDED';export AZ_BATCHAI_LOG_UPLOAD_FAILED='false';/azureml-envs/azureml_1f2d3f199716b8480f8ef1f911c168d8/bin/python $AZ_BATCHAI_JOB_MOUNT_ROOT/workspaceblobstore/azureml/train_test_sheep_1624365120_92246eb7/azureml-setup/job_release.py
+>>>   2021/06/22 13:28:11 runSpecialJobTask: job postprocessing exited with code 0 and err <nil>
+>>>   
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:10.252781] Entering job release
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: Failure while loading azureml_run_type_providers. Failed to load entrypoint azureml.scriptrun = azureml.core.script_run:ScriptRun._from_run_dto with exception (azure-mgmt-storage 18.0.0 (/azureml-envs/azureml_1f2d3f199716b8480f8ef1f911c168d8/lib/python3.6/site-packages), Requirement.parse('azure-mgmt-storage<16.0.0,>=1.5.0')).
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:10.967257] Starting job release
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:10.970580] Logging experiment finalizing status in history service.
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: Starting the daemon thread to refresh tokens in background for process with pid = 3179
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:10.970846] job release stage : upload_datastore starting...
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:10.971246] job release stage : start importing azureml.history._tracking in run_history_release.
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:10.973717] job release stage : execute_job_release starting...
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:10.979130] job release stage : copy_batchai_cached_logs starting...
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:10.979528] job release stage : copy_batchai_cached_logs completed...
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:10.980089] Entering context manager injector.
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:10.981244] job release stage : upload_datastore completed...
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:11.130555] job release stage : send_run_telemetry starting...
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:11.218164] job release stage : execute_job_release completed...
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:11.244633] get vm size and vm region successfully.
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:11.410742] get compute meta data successfully.
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:11.641850] post artifact meta request successfully.
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:11.697374] upload compute record artifact successfully.
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:11.697467] job release stage : send_run_telemetry completed...
+>>>   2021/06/22 13:28:11 runSpecialJobTask: postprocessing: [2021-06-22T13:28:11.697880] Job release is complete
+>>>   2021/06/22 13:28:12 All App Insights Logs was send successfully
+>>>   2021/06/22 13:28:12 App Insight Client has already been closed
+>>>   2021/06/22 13:28:12 Not exporting to RunHistory as the exporter is either stopped or there is no data.
+>>>   Stopped: false
+>>>   OriginalData: 3
+>>>   FilteredData: 0.
+>>>   
+2021-06-22T13:28:12Z Executing 'Job environment clean-up' on 10.0.0.4
+2021-06-22T13:28:12Z Removing container train_test_sheep_1624365120_92246eb7 exited with 0, train_test_sheep_1624365120_92246eb7
+
+

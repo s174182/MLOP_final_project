@@ -11,7 +11,7 @@ dependencies:
 - python=3.6.2
 
 - pip:
-  - azureml-defaults~=1.28.0
+  - azureml-defaults~=1.30.0
   - torch
   - torchvision
   - pillow

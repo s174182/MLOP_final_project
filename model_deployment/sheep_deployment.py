@@ -7,7 +7,7 @@ import os
 ws = Workspace.from_config()
 
 # Load the model and check the version
-model = ws.models['sheep_train_normal']
+model = ws.models['sheep_train_augmented']
 print(model.name, 'version', model.version)
 
 #Add the script file
@@ -44,7 +44,7 @@ inference_config = InferenceConfig(runtime= "python",
 
 deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 5)
 
-service_name = "sheep-service"
+service_name = "sheep-service-2"
 
 service = Model.deploy(ws, service_name, [model], inference_config, deployment_config)
 

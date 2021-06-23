@@ -1,0 +1,31 @@
+2021-06-22 13:28:10,982|azureml|DEBUG|Execute Job Release Inputs:: kwargs: {'disable_output_upload': True}, track_folders: None, deny_list: None, directories_to_watch: []
+2021-06-22 13:28:10,982|azureml.history._tracking.PythonWorkingDirectory|DEBUG|Execution target type: batchai
+2021-06-22 13:28:10,983|azureml.history._tracking.PythonWorkingDirectory|DEBUG|Failed to import pyspark with error: No module named 'pyspark'
+2021-06-22 13:28:10,983|azureml.history._tracking.PythonWorkingDirectory.workingdir|DEBUG|Pinning working directory for filesystems: ['pyfs']
+2021-06-22 13:28:10,983|azureml.core.run|DEBUG|Identity in use is not set. Falling back to using AMLToken
+2021-06-22 13:28:10,983|azureml.core.run|DEBUG|Using AMLToken auth for remote run
+2021-06-22 13:28:10,985|azureml.core.authentication.TokenRefresherDaemon|DEBUG|Starting daemon and triggering first instance
+2021-06-22 13:28:10,993|azureml._restclient.clientbase|INFO|Created a worker pool for first use
+2021-06-22 13:28:10,993|azureml.core.authentication|DEBUG|Time to expire 1811086.006778 seconds
+2021-06-22 13:28:10,993|azureml._restclient.service_context|DEBUG|Created a static thread pool for ServiceContext class
+2021-06-22 13:28:10,993|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-22 13:28:10,994|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-22 13:28:10,994|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-22 13:28:10,994|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-22 13:28:10,994|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-22 13:28:10,995|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-22 13:28:10,995|azureml._base_sdk_common.service_discovery|DEBUG|Found history service url in environment variable AZUREML_SERVICE_ENDPOINT, history service url: https://northeurope.api.azureml.ms.
+2021-06-22 13:28:11,143|azureml._SubmittedRun#train_test_sheep_1624365120_92246eb7.RunHistoryFacade.RunClient.get_by_exp_id-async:False|DEBUG|[START]
+2021-06-22 13:28:11,143|azureml._SubmittedRun#train_test_sheep_1624365120_92246eb7.RunHistoryFacade.RunClient|DEBUG|ClientBase: Calling get_by_exp_id with url /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experimentids/{experimentId}/runs/{runId}
+2021-06-22 13:28:11,216|azureml._SubmittedRun#train_test_sheep_1624365120_92246eb7.RunHistoryFacade.RunClient.get_by_exp_id-async:False|DEBUG|[STOP]
+2021-06-22 13:28:11,216|azureml._SubmittedRun#train_test_sheep_1624365120_92246eb7|DEBUG|Constructing run from dto. type: azureml.scriptrun, source: None, props: {'_azureml.ComputeTargetType': 'amlcompute', 'ContentSnapshotId': '36aa4807-aa7a-446e-bf61-35c164b7c015', 'azureml.git.repository_uri': 'https://github.com/s174182/MLOP_final_project', 'mlflow.source.git.repoURL': 'https://github.com/s174182/MLOP_final_project', 'azureml.git.branch': 'azure', 'mlflow.source.git.branch': 'azure', 'azureml.git.commit': 'dd4ace646f6aa62f37d32e7d3c83072b438c3f7c', 'mlflow.source.git.commit': 'dd4ace646f6aa62f37d32e7d3c83072b438c3f7c', 'azureml.git.dirty': 'True', 'ProcessInfoFile': 'azureml-logs/process_info.json', 'ProcessStatusFile': 'azureml-logs/process_status.json'}
+2021-06-22 13:28:11,217|azureml._SubmittedRun#train_test_sheep_1624365120_92246eb7.RunContextManager|DEBUG|Valid logs dir, setting up content loader
+2021-06-22 13:28:11,217|azureml.WorkerPool|DEBUG|[START]
+2021-06-22 13:28:11,217|azureml.TrackFolders|DEBUG|[START]
+2021-06-22 13:28:11,217|azureml|DEBUG|Executing history release.
+2021-06-22 13:28:11,217|azureml.history._tracking.PythonWorkingDirectory.workingdir|DEBUG|Uploading tracked directories: [], excluding ['azureml-logs/driver_log']
+2021-06-22 13:28:11,217|azureml.history._tracking.PythonWorkingDirectory.workingdir|DEBUG|Calling track for pyfs
+2021-06-22 13:28:11,217|azureml.TrackFolders|DEBUG|[STOP]
+2021-06-22 13:28:11,217|azureml.HistoryTrackingWorkerPool.WorkerPoolShutdown|DEBUG|[START]
+2021-06-22 13:28:11,218|azureml.HistoryTrackingWorkerPool.WorkerPoolShutdown|DEBUG|[STOP]
+2021-06-22 13:28:11,218|azureml.WorkerPool|DEBUG|[STOP]

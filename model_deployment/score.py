@@ -18,7 +18,6 @@ def init():
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     print('Running on :', device)
 
-    ws = Workspace.from_config()
     model_name = 'sheep_train_augmented'
 
     model_path = Model.get_model_path(model_name)
@@ -49,11 +48,10 @@ def object_detection_api(pil_img, boxes, pred_cls, threshold=0.5, rect_th=3, tex
 def run(request):
     request = json.loads(request)  
     img = Image.fromarray(np.array(json.loads(request['image']), dtype='uint8'))
-    print(type(img), file=log_file)
     x = TF.to_tensor(img)
-    print(x, file=log_file)
+    x = x.reshape(1, *x.shape)
+
     threshold = request['threshold']
-    print(f'The threshold is: {type(threshold)}', file=log_file)
 
     COCO_INSTANCE_CATEGORY_NAMES = ['__background__', 'sheep']
 
@@ -74,18 +72,6 @@ def run(request):
 
     # img_pil = Image.fromarray(img)
     json_result = json.dumps(np.array(result).tolist())
-    print('Whats up', json_result[0:20], file=log_file)
     
     return AMLResponse(json_result, 200)
-    
-
-# init()
-# img = run('figure05.jpeg',0.6)
-
-# plt.figure(figsize=(20, 30))
-# plt.imshow(img)
-# plt.xticks([])
-# plt.yticks([])
-# plt.show()
-# plt.savefig('result.jpeg')
     

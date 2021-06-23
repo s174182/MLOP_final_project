@@ -12,9 +12,9 @@ import torchvision.transforms.functional as TF
 import numpy as np
 
 # Set the content type
-endpoint = 'http://127.0.0.1:5001/score'
+endpoint = 'http://1754f79d-186b-48e3-a6d6-0b6b528aad12.northeurope.azurecontainer.io/score'
 path_img = '../data/external/figure05.jpeg'
-threshold = 0.6
+threshold = 0.4
 
 img = Image.open(path_img).convert('RGB')
 # x = TF.to_tensor(img)
@@ -33,9 +33,11 @@ data = {
     'image': json_image,
     'threshold': threshold
 }
+headers = {'Content-Type':'application/json'}
 
-response = requests.post(endpoint, data=json.dumps(data))
+response = requests.post(endpoint, data=json.dumps(data), headers=headers)
 
+print(response)
 # print('I hear voices: ', response.content)
 img = Image.fromarray(np.array(json.loads(response.content), dtype='uint8'))
 img.save('result.jpeg')
