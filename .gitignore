@@ -1,6 +1,7 @@
 /data/
 /src/data/__pycache__/
 /first_experiment/
+/run_downloaded_logs/
 __pycache__/
 *.amltmp
 *.pth
