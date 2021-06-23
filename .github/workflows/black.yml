@@ -25,5 +25,5 @@ jobs:
           echo 'on new branch now'
           git commit -am "fixup: Format Python code with Black"
           echo 'commited'
-          git push origin main
+          git push 
           git branch -d git_action_changes
