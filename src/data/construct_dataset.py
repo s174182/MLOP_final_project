@@ -3,8 +3,6 @@ from torch.utils.data import Dataset
 
 
 class costructDataset(Dataset):
-
-
     def __init__(self, annotation_list, images_list, transform=None):
         self.load_box = annotation_list
         self.load_image = images_list
@@ -15,7 +13,6 @@ class costructDataset(Dataset):
         img = self.load_image[idx]  # return an image
         self.transform = transform
 
-
         if len(list(boxes.shape)) > 1:
 
             boxes = torch.as_tensor(boxes, dtype=torch.float32)
@@ -23,7 +20,6 @@ class costructDataset(Dataset):
 
         else:
             # negative example, ref: https://github.com/pytorch/vision/issues/2144
-
 
             boxes = boxes.unsqueeze_(0)
             num_box = 1

@@ -90,7 +90,6 @@ def main():
     #    x_rgb: torch.tensor = torchvision.io.read_image(file_path)  # CxHxW / torch.uint8
     #    x_rgb = x_rgb.unsqueeze(0)  # BxCxHxW
 
-
     # resize the images so that they all have the same size
     return (
         annotation_list,
@@ -112,11 +111,9 @@ if __name__ == "__main__":
     # load up the .env entries as environment variables
     load_dotenv(find_dotenv())
 
-
     (
         annotation_list,
         images_list,
         annotation_list_augmented,
         images_list_augmented,
     ) = main()
-
