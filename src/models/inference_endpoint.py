@@ -23,9 +23,12 @@ if __name__ == '__main__':
 	            type=float)
 	args = parser.parse_args()
 
-	# Set the content type
-	endpoint = 'http://1754f79d-186b-48e3-a6d6-0b6b528aad12.northeurope.azurecontainer.io/score'
-	path_img = '../data/external/' + args.image
+	# Old endpoint
+	# endpoint = 'http://1754f79d-186b-48e3-a6d6-0b6b528aad12.northeurope.azurecontainer.io/score'
+	
+	# New endpoint
+	endpoint = 'http://8081cf43-dab6-475f-8f71-77d63d686bee.northeurope.azurecontainer.io/score'
+	path_img = '../../data/external/' + args.image
 	threshold = args.threshold
 
 	img = Image.open(path_img).convert('RGB')
