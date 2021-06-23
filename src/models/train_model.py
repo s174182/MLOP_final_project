@@ -28,7 +28,7 @@ class TrainOREvaluate(object):
         self.dataset = args.dataset
         self.batch_size = args.batch_size
         self.train_size = args.train_size
-
+        self.num_workers = args.num_workers
 
     def train(self):
       
@@ -60,17 +60,17 @@ class TrainOREvaluate(object):
 
 
 
-        num_workers=4
-        batch_size=4
+        
+        
         train_loader = torch.utils.data.DataLoader(
-            train_set, batch_size=batch_size, shuffle=True, num_workers=num_workers,
+            train_set, batch_size=self.batch_size, shuffle=True, num_workers=self.num_workers,
             collate_fn=utils.collate_fn)
-        writer.add_scalar("Num_workers",num_workers)
-        writer.add_scalar("Batch size",batch_size)
+        writer.add_scalar("Num_workers",self.num_workers)
+        writer.add_scalar("Batch size",self.batch_size)
 
 
         validation_loader = torch.utils.data.DataLoader(
-            validation_set, batch_size=self.batch_size, shuffle=True, num_workers=4,
+            validation_set, batch_size=self.batch_size, shuffle=True, num_workers=self.num_workers,
             collate_fn=utils.collate_fn) # collate_fn allows you to have images (tensors) of different sizes
 
         model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
@@ -117,9 +117,29 @@ class TrainOREvaluate(object):
             test_accuracy=evaluation_result.coco_eval.get('bbox').stats[0]
             writer.add_scalar('loss/test',test_accuracy,epoch)
             end = time.time()
-            
             writer.add_scalar('time/Time_pr_epoch', end-start,epoch)
-        torch.save(model.state_dict(),  '/content/drive/MyDrive/MLOPS/MLOP_final_project/models/sheep_trained_own_data.pth')
+            torch.save(
+                model.state_dict(), "../../models/sheep_train_" + self.dataset + ".pth"
+            )
+            
+        # Creating the test set and testing
+        annotation_list = torch.load("../../data/processed/test/annotations_test.pt")
+        images_list = torch.load("../../data/processed/test/images_test.pt")
+
+        test_dataset = construct_dataset.constructDataset(
+            annotation_list, images_list, transform=None
+        )
+
+        test_loader = torch.utils.data.DataLoader(
+            test_dataset,
+            batch_size=self.batch_size,
+            shuffle=True,
+            num_workers=self.num_workers,
+            collate_fn=utils.collate_fn,
+        )  # collate_fn allows you to have images (tensors) of different sizes
+
+        evaluate(model, test_loader, device=device)
+
 
 if __name__ == '__main__':
     
@@ -141,6 +161,9 @@ if __name__ == '__main__':
     parser.add_argument('-train_size',
                         default=0.9,
                         type=float)
+    parser.add_argument('-num_workers',
+                        default=4,
+                        type=int)
     args = parser.parse_args()
 
 
