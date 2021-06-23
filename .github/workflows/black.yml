@@ -21,7 +21,7 @@ jobs:
           git config --global user.email 'blabla@dummy.com'
           echo 'config'
           git remote set-url origin https://x-access-token:${{ secrets.Klaras_access }}@github.com/s174182/MLOP_final_project
-          git checkout main
+          git checkout git_action_changes
           echo 'on new branch now'
           git commit -am "fixup: Format Python code with Black"
           echo 'commited'
