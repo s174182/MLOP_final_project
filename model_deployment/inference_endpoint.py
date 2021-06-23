@@ -12,7 +12,6 @@ import matplotlib
 matplotlib.use( 'tkagg')
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
-
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 	parser.add_argument('-image',
