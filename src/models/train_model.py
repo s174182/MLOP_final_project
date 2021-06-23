@@ -11,7 +11,7 @@ from os import listdir
 
 import torch
 import torchvision
-
+import time
 
 from PIL import Image
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
@@ -99,14 +99,27 @@ class TrainOREvaluate(object):
         metric_collector = []
 
         for epoch in range(self.num_epochs):
+            start=time.time()
             # train for one epoch, printing every 5 iterations
             metric_logger = train_one_epoch(model, optimizer, train_loader, device, epoch, print_freq=5)
             metric_collector.append(metric_logger)
             # update the learning rate
             lr_scheduler.step()
+            #track training loss
+            TL=(metric_logger.loss.total)
+            count=(metric_logger.loss.count)
+            SL=float(TL/count)
+            self.run.log_row("loss/train",value=SL)
             # Evaluate with validation dataset
-            evaluate(model, validation_loader, device=device)
+            evaluation_result= evaluate(model, validation_loader, device=device)
+            test_accuracy=evaluation_result.coco_eval.get('bbox').stats[0]
+            self.run.log_row("loss/test",value=test_accuracy)
+            end=time.time()
+            self.run.log_row("time pr epoch", value=end-start)
             # save checkpoint
+            
+
+
         
         # Save the trained model
 
@@ -138,7 +151,7 @@ if __name__ == '__main__':
                         default=5,
                         type=int)
     parser.add_argument('-dataset',
-                        default='augmented',
+                        default='normal',
                         type=str)
     parser.add_argument('-batch_size',
                         default=2,

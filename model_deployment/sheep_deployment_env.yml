@@ -11,11 +11,13 @@ dependencies:
 - python=3.6.2
 
 - pip:
-    # Required packages for AzureML execution, history, and data preparation.
-  - azureml-defaults
-
-- pytorch
-- torchvision
+  - azureml-defaults~=1.28.0
+  - torch
+  - torchvision
+  - pillow
+  - kornia
+  - numpy
+- pip
 - opencv
 channels:
 - anaconda

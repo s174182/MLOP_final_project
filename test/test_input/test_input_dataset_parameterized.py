@@ -7,7 +7,7 @@ import pytest
 #### If not set the test is performed on the original dataset
 
 
-datapath='../data/processed/train/'
+datapath='../../data/processed/train/'
 #annotation_list=torch.load(datapath + 'annotation_list.pt')
 #images_list=torch.load(datapath + 'images_list.pt')
 
@@ -16,7 +16,7 @@ datapath='../data/processed/train/'
 class TestClass:  
     '''
     def paths(self, aug_opt):
-        datapath='../data/processed/train/'
+        datapath='../../data/processed/train/'
         if aug_opt: 
             annotation_list=torch.load(datapath + 'annotation_list_augmented.pt')
             images_list=torch.load(datapath + 'images_list_augmented.pt')

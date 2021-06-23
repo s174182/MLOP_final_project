@@ -9,17 +9,17 @@ azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 2000000000
 
 # Load the workspace from the saved config file            
 ws = Workspace.from_config()
-experiment_folder = '/home/azureuser/cloudfiles/code/Users/s202581/MLOP_final_project/'
+experiment_folder = '/home/azureuser/cloudfiles/code/Users/s174182/MLOP_final_project/'
 log_folder = experiment_folder + 'run_downloaded_logs/'
-target = ComputeTarget(workspace=ws, name ='MLOps-BigBoi')
+target = ComputeTarget(workspace=ws, name ='GPU-s174182')
 
 # Create a Python environment for the experiment
-env = Environment.from_pip_requirements('env', '/home/azureuser/cloudfiles/code/Users/s202581/MLOP_final_project/requirements.txt')
+env = Environment.from_pip_requirements('env', '/home/azureuser/cloudfiles/code/Users/s174182/MLOP_final_project/requirements.txt')
 
 # Create a script config
 script_config = ScriptRunConfig(source_directory=experiment_folder,
-                                script='/home/azureuser/cloudfiles/code/Users/s202581/MLOP_final_project/src/models/train_model.py',
-                                arguments=['-dataset','augmented','-batch_size',4, '-no_epochs', 1],
+                                script='/home/azureuser/cloudfiles/code/Users/s174182/MLOP_final_project/src/models/train_model.py',
+                                arguments=['-dataset','normal','-batch_size',4, '-num_epochs', 2],
                                 compute_target=target,
                                 environment=env)
 
