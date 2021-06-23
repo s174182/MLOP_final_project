@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jun  7 12:30:04 2021
-
-@author: KWesselkamp
-"""
 import argparse
 
 import sys
@@ -22,6 +16,8 @@ import transforms as T
 import utils
 import optuna
 import matplotlib.pyplot as plt
+import numpy as np
+import random
 
 
 class TrainOREvaluate(object):
@@ -43,24 +39,35 @@ class TrainOREvaluate(object):
 
         return lr, batch_size, optimizer_name
 
+    def seed_worker(worker_id):
+        worker_seed = torch.initial_seed() % 2 ** 32
+        np.random.seed(worker_seed)
+        random.seed(worker_seed)
+
     def train(self, trial):
         print("Training day and night")
+        random.seed(0)
+        torch.manual_seed(0)
+        np.random.seed(0)
 
-       # device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-        device = 'cpu'
+        g = torch.Generator()
+        g.manual_seed(0)
+
+        device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+
         lr, batch_size, optimizer_name = TrainOREvaluate.suggest_hyperparameters(trial)
 
         print('Training on :', device)
 
         if self.dataset == 'normal':
             annotation_list = torch.load(
-                '../../data/processed/train/annotation_list.pt')
-            images_list = torch.load('../../data/processed/train/images_list.pt')
+                '/../../data/processed/train/annotation_list.pt')
+            images_list = torch.load('/../../data/processed/train/images_list.pt')
         elif self.dataset == 'augmented':
             annotation_list = torch.load(
-                '../../data/processed/train/annotation_list_augmented.pt')
+                '/../../data/processed/train/annotation_list_augmented.pt')
             images_list = torch.load(
-                '../../data/processed/train/images_list_augmented.pt')
+                '/../../data/processed/train/images_list_augmented.pt')
 
         train_dataset = construct_dataset.constructDataset(annotation_list, images_list, transform=None)
 
@@ -71,11 +78,13 @@ class TrainOREvaluate(object):
 
         train_loader = torch.utils.data.DataLoader(
             train_set, batch_size=batch_size, shuffle=True, num_workers=4,
-            collate_fn=utils.collate_fn)  # collate_fn allows you to have images (tensors) of different sizes
+            collate_fn=utils.collate_fn, worker_init_fn=TrainOREvaluate.seed_worker,
+            generator=g)  # collate_fn allows you to have images (tensors) of different sizes
 
         validation_loader = torch.utils.data.DataLoader(
             validation_set, batch_size=batch_size, shuffle=True, num_workers=4,
-            collate_fn=utils.collate_fn)  # collate_fn allows you to have images (tensors) of different sizes
+            collate_fn=utils.collate_fn, worker_init_fn=TrainOREvaluate.seed_worker,
+            generator=g)  # collate_fn allows you to have images (tensors) of different sizes
 
         model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
 
@@ -87,7 +96,7 @@ class TrainOREvaluate(object):
         # replace the pre-trained final layer classification and box regression layers with a new one
         model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
 
-        torch.save(model.state_dict(), '../../models/sheep_vanilla.pth')
+        torch.save(model.state_dict(), '/../../models/sheep_vanilla.pth')
 
         model.to(device)
 
@@ -122,18 +131,19 @@ class TrainOREvaluate(object):
             # save checkpoint
 
             torch.save(model.state_dict(),
-                       '../../models/sheep_train_' + self.dataset + '.pth')
+                       '/../../models/sheep_train_' + self.dataset + '.pth')
 
         # Creating the test set and testing
         annotation_list = torch.load(
-            '../../data/processed/test/annotations_test.pt')
-        images_list = torch.load('../../data/processed/test/images_test.pt')
+            '/../../data/processed/test/annotations_test.pt')
+        images_list = torch.load('/../../data/processed/test/images_test.pt')
 
         test_dataset = construct_dataset.constructDataset(annotation_list, images_list, transform=None)
 
         test_loader = torch.utils.data.DataLoader(
             test_dataset, batch_size=batch_size, shuffle=True, num_workers=4,
-            collate_fn=utils.collate_fn)  # collate_fn allows you to have images (tensors) of different sizes
+            collate_fn=utils.collate_fn, worker_init_fn=TrainOREvaluate.seed_worker,
+            generator=g)  # collate_fn allows you to have images (tensors) of different sizes
 
         evaluation_result = evaluate(model, test_loader, device=device)
 
@@ -175,10 +185,10 @@ if __name__ == '__main__':
     study.optimize(trainObj.train, n_trials=20)
 
     # Initialize the best_val_loss value
-   # mean_AP_accuracy = best_val_loss = float('Inf')
+    # mean_AP_accuracy = best_val_loss = float('Inf')
 
-   # if mean_AP_accuracy <= best_val_loss:
-   #     best_val_loss = mean_AP_accuracy
+    # if mean_AP_accuracy <= best_val_loss:
+    #     best_val_loss = mean_AP_accuracy
 
     # Print optuna study statistics
     print("\n++++++++++++++++++++++++++++++++++\n")
@@ -200,3 +210,13 @@ if __name__ == '__main__':
     plt.savefig('fig_history.png')
     fig_param_importances = optuna.visualization.matplotlib.plot_param_importances(study)
     plt.savefig('fig_param_importances.png')
+    plot_edf = optuna.visualization.matplotlib.plot_edf(study)
+    plt.savefig('plot_edf.png')
+    intermediate_values = optuna.visualization.matplotlib.plot_intermediate_values(study)
+    plt.savefig('intermediate_values.png')
+    parallel_coordinate = optuna.visualization.matplotlib.plot_parallel_coordinate(study)
+    plt.savefig('parallel_coordinate.png')
+
+
+
+
