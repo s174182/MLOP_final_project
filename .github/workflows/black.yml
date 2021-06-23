@@ -19,7 +19,10 @@ jobs:
           black .
           git config --global user.name 'autoblack'
           git config --global user.email 'blabla@dummy.com'
+          echo 'config'
           git remote set-url origin https://x-access-token:${{ secrets.Klaras_access }}@github.com/s174182/MLOP_final_project
-          git checkout origin git_action_changes 
+          git checkout git_action_changes 
+          echo 'on new branch now'
           git commit -am "fixup: Format Python code with Black"
-          git push
+          echo 'commited'
+          git push origin git_action_changes
