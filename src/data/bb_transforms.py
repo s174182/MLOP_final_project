@@ -7,6 +7,7 @@ Created on Sat Jun 12 11:13:31 2021
 import numpy as np
 import torch
 
+
 def createBinImgFromBB(image, annotation):
     bb_coords = annotation.get("boxes")
     binImg = np.zeros((image.size()[2], image.size()[3]))

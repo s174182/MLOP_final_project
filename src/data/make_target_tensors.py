@@ -16,6 +16,7 @@ from PIL import Image
 # function which transforms xml-files of annotations to txt
 #### SORT DATA BECAUSE THERE'S A CONFUSION BETWEEN ANNOTATION/IMAGES
 
+
 def XML2Tensor(xmlPath: str):
     bb_coordinates = np.empty((0, 4))
     class_tensor = np.empty((0, 1))
