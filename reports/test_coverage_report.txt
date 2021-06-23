@@ -1,0 +1,16 @@
+Name                                                   Stmts   Miss  Cover
+--------------------------------------------------------------------------
+src\models\coco_eval.py                                  209     61    71%
+src\models\coco_utils.py                                 188    121    36%
+src\models\construct_dataset.py                           27      0   100%
+src\models\engine.py                                      79      7    91%
+src\models\transforms.py                                 172    147    15%
+src\models\utils.py                                      184     68    63%
+test_environment.py                                       14     10    29%
+tests\test_input\conftest.py                               3      0   100%
+tests\test_input\test_input_dataset_parameterized.py      36     18    50%
+tests\test_models\conftest.py                              3      0   100%
+tests\test_models\test_models.py                          42     19    55%
+tests\test_training\test_training.py                      65      9    86%
+--------------------------------------------------------------------------
+TOTAL                                                   1022    460    55%
