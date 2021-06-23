@@ -2,9 +2,14 @@ import torch
 import torchvision
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from azureml.core.model import Model
+from azureml.core import Workspace
 from PIL import Image
 import cv2
 import torchvision.transforms.functional as TF
+import numpy as np
+from azureml.contrib.services.aml_request import AMLRequest
+from azureml.contrib.services.aml_response import AMLResponse
+import json
 
 # Called when the service is loaded
 def init():
@@ -13,20 +18,12 @@ def init():
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     print('Running on :', device)
 
-    # model.to(device)
+    ws = Workspace.from_config()
+    model_name = 'sheep_train_augmented'
 
-    # Get the path to the deployed model file and load it
-    model_path = Model.get_model_path('sheep_train_augmented')
+    model_path = Model.get_model_path(model_name)
     print('Path to model: ', model_path)
-    
-    #Assume model_name is the variable containing name of your model
-    # model_name = 'sheep_train_augmented'
-    # ws = Run.get_context().experiment.workspace
-    # model_obj = Model(ws, model_name)
-    # model_path = model_obj.download(exist_ok = True)
-    
-    # model_path = Model.get_model_path('sheep_train_augmented')
-    # model_path = '/mnt/batch/tasks/shared/LS_root/mounts/clusters/mlops-bigboi/code/Users/s202581/model_deployment/sheep_train_augmented.pth'
+    print(torch.__version__)
 
     model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
     num_classes = 2
@@ -37,9 +34,10 @@ def init():
     model.eval()
 
 
-def object_detection_api(path_to_image, boxes, pred_cls, threshold=0.5, rect_th=3, text_size=3, text_th=3):
-        
-    img = cv2.imread(path_to_image)
+def object_detection_api(pil_img, boxes, pred_cls, threshold=0.5, rect_th=3, text_size=3, text_th=3):
+    open_cv_image = np.array(pil_img) 
+    # Convert RGB to BGR 
+    img = open_cv_image[:, :, ::-1].copy()
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
     for i in range(len(boxes)):
@@ -48,11 +46,14 @@ def object_detection_api(path_to_image, boxes, pred_cls, threshold=0.5, rect_th=
     return img
 
 # Called when a request is received
-def run(path_to_image, threshold):
-    img = Image.open(path_to_image).convert('RGB')
-
-    x = TF.to_tensor(img)  # use kornia function to import?
-    x = x.reshape(1, *x.shape)
+def run(request):
+    request = json.loads(request)  
+    img = Image.fromarray(np.array(json.loads(request['image']), dtype='uint8'))
+    print(type(img), file=log_file)
+    x = TF.to_tensor(img)
+    print(x, file=log_file)
+    threshold = request['threshold']
+    print(f'The threshold is: {type(threshold)}', file=log_file)
 
     COCO_INSTANCE_CATEGORY_NAMES = ['__background__', 'sheep']
 
@@ -69,7 +70,14 @@ def run(path_to_image, threshold):
         pred_boxes = pred_boxes[:pred_t + 1]
         pred_class = pred_class[:pred_t + 1]
 
-    return object_detection_api(path_to_image, pred_boxes, pred_class, threshold=threshold, rect_th=3, text_size=3, text_th=3)
+    result = object_detection_api(img, pred_boxes, pred_class, threshold=threshold, rect_th=3, text_size=3, text_th=3)
+
+    # img_pil = Image.fromarray(img)
+    json_result = json.dumps(np.array(result).tolist())
+    print('Whats up', json_result[0:20], file=log_file)
+    
+    return AMLResponse(json_result, 200)
+    
 
 # init()
 # img = run('figure05.jpeg',0.6)
