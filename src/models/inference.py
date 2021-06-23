@@ -38,7 +38,14 @@ class UseModel(object):
         )
 
     def object_detection_api(
-        self, boxes, pred_cls, threshold=0.5, rect_th=3, text_size=3, text_th=3
+        self,
+        boxes,
+        pred_cls,
+        pred_score,
+        threshold=0.5,
+        rect_th=3,
+        text_size=3,
+        text_th=3,
     ):
 
         img = cv2.imread(self.path_to_image)
@@ -54,7 +61,7 @@ class UseModel(object):
             )
             cv2.putText(
                 img,
-                pred_cls[i],
+                pred_cls[i] + " " + str(pred_score[i]),
                 (boxes[i][0][0].astype(int), boxes[i][0][1].astype(int)),
                 cv2.FONT_HERSHEY_SIMPLEX,
                 text_size,
@@ -100,14 +107,16 @@ class UseModel(object):
             pred_t = pred_t[-1]
             pred_boxes = pred_boxes[: pred_t + 1]
             pred_class = pred_class[: pred_t + 1]
+            pred_score = pred_score[: pred_t + 1]
 
         self.object_detection_api(
             pred_boxes,
             pred_class,
+            pred_score,
             threshold=threshold,
-            rect_th=3,
-            text_size=3,
-            text_th=3,
+            rect_th=2,
+            text_size=1,
+            text_th=2,
         )
 
 
