@@ -1,7 +1,24 @@
 MLOP_final_project
 ==============================
+This project is based on object detection for detecting sheeps in JPG images.
 
+It is based on the faster rcnn network. 
+For doing the transfer learning a data set from kaggle can be downloaded by running the make_dataset.py file which can be found in src->data.
+    The file will also do some data manipulation and augment the dataset using Kornia. The data will be stored in data->proccesed and data->raw.
+    
+
+Transfer learning is applied by running train_model.py, which is found in src->models
+    The model will take the input whether you want to train the model on augmented data or "normal" (unaugmented data). And then save the model under models.
+    Due to github max limitations of 100mb one cannot save the models here but only in cloud or locally.
+    
+Finally inference can be made by runnning the inference.py. In here you can specify which model that shall be used for inference, (vanilla,normal or augmented).
+    Vanilla model is the pretrained faster rcnn where no transfer learning has been applied to.
+
+Inference can also be made using a pretrained model which is deployed to azure. This can be accessed running inference_endpoint.py which is found at src/models.
+    The inference_endpoint takes in an image and the wanted threshold. It then returns the image with bounding boxes fulfilling the threshold requirement. 
+    
 Sheep counting!
+
 
 Project Organization
 ------------
