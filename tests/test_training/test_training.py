@@ -124,7 +124,7 @@ class TestClass:
             TL = m.loss.total
             count = m.loss.count
             SL = float(TL / count)
-            assert SL > SL_old
+            assert SL < SL_old
 
     # def test_print_something(self):
     #    print('Please work')
